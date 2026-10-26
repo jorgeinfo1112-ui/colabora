@@ -28,7 +28,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 
 /* ---- diapositivas ---- */
 #deck{position:fixed;inset:0}
-.slide{position:absolute;inset:0;overflow:auto;padding:clamp(76px,10vh,110px) clamp(20px,6vw,90px) 110px;opacity:0;visibility:hidden;transform:translateX(5%);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),visibility 0s .7s;display:flex;flex-direction:column;justify-content:center}
+.slide{position:absolute;inset:0;overflow:auto;padding:clamp(92px,14vh,120px) clamp(20px,6vw,90px) 100px;opacity:0;visibility:hidden;transform:translateX(5%);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),visibility 0s .7s;display:flex;flex-direction:column;justify-content:center}
 .slide.prev{transform:translateX(-5%)}
 .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .slide>.in{width:100%;max-width:1180px;margin:0 auto}
@@ -54,13 +54,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .facts span{font-size:13px;color:var(--mute);letter-spacing:.04em}
 
 /* menú de experiencias */
-.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
-.tile{position:relative;height:clamp(150px,24vh,230px);border:1px solid var(--line);background:#000;overflow:hidden;padding:0;text-align:left;border-radius:2px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+.tile{position:relative;height:clamp(140px,24vh,220px);border:1px solid var(--line);background:#000;overflow:hidden;padding:0;text-align:left;border-radius:2px}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:transform .8s ease,opacity .5s}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(13,15,18,.92))}
 .tile:hover img,.tile:focus-visible img{transform:scale(1.09);opacity:.8}
 .tile span{position:absolute;left:18px;right:18px;bottom:14px;z-index:1}
-.tile strong{display:block;font-family:var(--display);font-weight:500;font-size:28px;line-height:1.05}
+.tile strong{display:block;font-family:var(--display);font-weight:500;font-size:25px;line-height:1.05}
 .tile em{font-style:normal;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .tile em::after{content:" +"}
 .hint{font-size:13px;color:var(--mute)}
@@ -84,6 +84,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .inc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 28px;margin-top:6px}
 .inc div{border-left:2px solid var(--gold);padding:2px 0 2px 14px;font-size:15px}
 
+.card.staff{border-color:var(--gold)}.card.staff h3 i{font-size:.9em}
+.bigprice sup{font-size:.45em;vertical-align:top;position:relative;top:.15em}.foot{font-size:14px;color:var(--mute)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 .cta a{display:inline-block;padding:14px 24px;text-decoration:none;font-weight:600;border:1px solid var(--gold);color:var(--gold);letter-spacing:.04em}
 .cta a.p{background:var(--gold);color:#1a1409}
@@ -91,7 +93,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* navegación */
 #top{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) clamp(16px,4vw,40px) 14px;background:linear-gradient(180deg,rgba(13,15,18,.9),transparent);pointer-events:none}
 #top>*{pointer-events:auto}
-.logo{font-family:var(--display);font-size:26px;letter-spacing:.04em}.logo i{color:var(--gold)}
+.logo{height:44px;width:auto}
 #menu{background:none;border:1px solid var(--line);padding:7px 16px;border-radius:99px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 #dots{position:fixed;z-index:20;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center}
 #dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--gold);background:none;padding:0;transition:all .3s}
@@ -112,7 +114,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .gal{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:22px 0}
 .gal button{padding:0;border:0;background:#000;overflow:hidden;position:relative;aspect-ratio:4/3;grid-column:span 2;opacity:0;transform:translateY(30px) scale(.96)}
 .gal button.w{grid-column:span 4;aspect-ratio:16/9}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.gal img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transition:transform .8s}
 .gal button:hover img{transform:scale(1.08)}
 #modal.open .gal button{animation:pop .7s cubic-bezier(.2,.8,.2,1) forwards}
 #modal.open .gal button:nth-child(1){animation-delay:.35s}#modal.open .gal button:nth-child(2){animation-delay:.5s}
@@ -126,8 +128,24 @@ button{font:inherit;color:inherit;cursor:pointer}
 .pts b{font-weight:600;color:var(--cream)}
 .rivals{display:grid;gap:10px;margin:6px 0}
 .rv{display:flex;justify-content:space-between;gap:14px;align-items:center;border:1px solid var(--line);padding:14px 18px;flex-wrap:wrap}
+.rv .nm{display:flex;gap:14px;align-items:center}.rv .nm img{width:38px;height:44px;object-fit:contain}
 .rv strong{font-family:var(--display);font-weight:500;font-size:24px}
 .rv small{display:block;color:var(--mute);font-size:13px}
+.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:8px 0 22px}
+.rc{border:1px solid var(--line);background:var(--bg);display:grid;grid-template-rows:auto 1fr;min-width:0;opacity:0;transform:translateY(26px)}
+#modal.open .rc{animation:pop .7s cubic-bezier(.2,.8,.2,1) forwards}
+#modal.open .rc:nth-child(1){animation-delay:.3s}#modal.open .rc:nth-child(2){animation-delay:.45s}#modal.open .rc:nth-child(3){animation-delay:.6s}
+.rc .main{padding:0;border:0;background:#000;aspect-ratio:4/3;overflow:hidden;display:block;width:100%}
+.rc .main img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transition:transform .8s}.rc .main:hover img{transform:scale(1.07)}
+.rc .info{padding:14px 16px 12px;display:grid;gap:8px;align-content:start}
+.rc .nm{display:flex;gap:12px;align-items:center}.rc .nm img{width:46px;height:52px;object-fit:contain;flex:none}
+.rc strong{font-family:var(--display);font-weight:500;font-size:24px;line-height:1.05;display:block}.rc small{color:var(--mute);font-size:13px;display:block}
+.thumbs{display:flex;gap:6px;flex-wrap:wrap}.thumbs button{padding:0;border:0;width:56px;height:42px;overflow:hidden;background:#000;opacity:.8}.thumbs button:hover{opacity:1}.thumbs img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%)}
+.crests{display:flex;flex-wrap:wrap;gap:12px;margin:6px 0 14px}
+.crest{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:10px 18px 10px 12px;background:var(--bg)}
+.crest img{width:40px;height:46px;object-fit:contain}.crest strong{font-family:var(--display);font-weight:500;font-size:22px}
+.h4{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:22px 0 6px}
+.lbn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(13,15,18,.7);font-size:20px}.lbn.l{left:14px}.lbn.r{right:14px}
 .note{font-size:13px;color:var(--mute);margin-top:18px}
 
 #lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px}
@@ -137,6 +155,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 @keyframes fade{from{opacity:0}}@keyframes zoom{from{transform:scale(.88);opacity:0}}
 
 @media(max-width:860px){
+ .rcards{grid-template-columns:1fr}
  .facts,.week{grid-template-columns:1fr 1fr}.tiles{grid-template-columns:1fr 1fr}.inc{grid-template-columns:1fr 1fr}
  .two,.pts{grid-template-columns:1fr}.arrow{display:none}
  .gal{grid-template-columns:repeat(2,1fr)}.gal button,.gal button.w{grid-column:span 1}.gal button.w{grid-column:span 2}
@@ -149,7 +168,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 <body>
 
 <header id="top">
-  <div class="logo">i<i>Gol</i></div>
+  <img class="logo" src="img/logo-igol.svg" alt="iGol">
   <button id="menu" data-go="2">Experiencia</button>
 </header>
 
@@ -188,11 +207,12 @@ button{font:inherit;color:inherit;cursor:pointer}
     <h2>Pincha en cada parte <i>y explóralo</i></h2>
     <div class="tiles">
       <button class="tile" data-open="alojamiento"><img src="img/residencia-aerea.jpg" alt="" class="crop"><span><em>Dónde dormís</em><strong>Alojamiento</strong></span></button>
-      <button class="tile" data-open="entrenos"><img src="img/loc-v-dia1-focos.jpg" alt=""><span><em>Metodología iGol</em><strong>Entrenamientos</strong></span></button>
-      <button class="tile" data-open="partidos"><img src="img/torneo-juego2.jpg" alt=""><span><em>Rivales</em><strong>Partidos</strong></span></button>
-      <button class="tile" data-open="primera"><img src="img/betis-grupo.jpg" alt=""><span><em>LaLiga</em><strong>Partido de Primera</strong></span></button>
+      <button class="tile" data-open="entrenos"><img src="img/en-1.jpg" alt="" style="object-position:50% 40%"><span><em>Metodología iGol</em><strong>Entrenamientos</strong></span></button>
+      <button class="tile" data-open="partidos"><img src="img/cadiz-1.jpg" alt="" style="object-position:50% 55%"><span><em>Rivales</em><strong>Partidos</strong></span></button>
+      <button class="tile" data-open="primera"><img src="img/betis-2.jpg" alt=""><span><em>LaLiga</em><strong>Partido de Primera</strong></span></button>
+      <button class="tile" data-open="estadio"><img src="img/es-3.jpg" alt=""><span><em>Cádiz CF</em><strong>Cádiz Stadium Tour</strong></span></button>
       <button class="tile" data-open="cultura"><img src="img/giralda.jpg" alt=""><span><em>Más allá del campo</em><strong>Ciudades y cultura</strong></span></button>
-      <button class="tile" data-open="cuidado"><img src="img/llegada-aeropuerto.jpg" alt=""><span><em>Tranquilidad</em><strong>Cuidado y traslados</strong></span></button>
+      <button class="tile" data-open="cuidado"><img src="img/care-1.jpg" alt="" style="object-position:50% 30%"><span><em>Tranquilidad</em><strong>Cuidado y traslados</strong></span></button>
     </div>
   </div>
 </section>
@@ -222,11 +242,12 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="in stack">
     <div class="k">Quién viaja</div>
     <h2>Doce jugadores y <i>dos guías</i></h2>
-    <p class="lead">El grupo viaja con dos guías responsables. Junto a ellos, el staff de iGol convive con el equipo durante todo el programa.</p>
+    <p class="lead">El grupo viaja con dos guías responsables de vuestro lado. Con ellos, el staff de iGol convive con el equipo todo el programa.</p>
     <div class="two">
-      <div class="card"><span class="tag">Guía 1 <span class="ok">Acordado</span></span><h3>Máximo, 14 años</h3><p class="mute">Acompaña al grupo como parte de la familia de nuestro contacto. Conoce a los niños y facilita la convivencia.</p></div>
-      <div class="card"><span class="tag">Guía 2 <span class="pend">Por confirmar</span></span><h3>Un adulto responsable</h3><p class="mute">Mayor de edad, preferiblemente el <b>entrenador del equipo</b>: conoce mejor a los niños y colabora con nosotros en entrenamientos y partidos.</p></div>
+      <div class="card"><span class="tag">Guía 1 <span class="ok">Acordado</span></span><h3>Máximo</h3><p class="mute">Acompaña al grupo desde la familia de nuestro contacto. Conoce a los niños y facilita la convivencia.</p></div>
+      <div class="card"><span class="tag">Guía 2 <span class="pend">Lo designa vuestro club</span></span><h3>Un adulto responsable</h3><p class="mute">Mayor de edad, preferiblemente el <b>entrenador del equipo</b>: conoce mejor a los niños y colabora en entrenamientos y partidos.</p></div>
     </div>
+    <div class="card staff"><span class="tag">Por parte de iGol</span><h3>Jorge de Cos <i>y</i> Dejan Ayala</h3><p class="mute">Los dos entrenadores iGol que conviven con el grupo, dirigen las sesiones y organizan el viaje.</p></div>
   </div>
 </section>
 
@@ -234,13 +255,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 <section class="slide" data-title="Inversión">
   <div class="in stack">
     <div class="k">Inversión</div>
-    <h2>Un precio <i>a vuestra medida</i></h2>
-    <div class="bigprice"><b>Propuesta económica en preparación</b><p class="mute" style="margin-top:12px">Os la enviamos en cuanto cerremos fechas, rivales y número de acompañantes.</p></div>
+    <h2>Una estimación <i>a vuestra medida</i></h2>
+    <div class="bigprice"><span class="mute">Desde</span><b>1.500 € <sup>*</sup></b><p class="mute" style="margin-top:12px">por jugador, según la personalización de la experiencia</p></div>
+    <p class="foot">* 1.400 € por jugador si se factura como operación entre empresas exenta de IVA.</p>
     <div class="inc">
       <div>Alojamiento CEAAN</div><div>Pensión completa</div><div>Traslados con iGol</div>
-      <div>Entrenamientos iGol</div><div>Partidos y torneo</div><div>Entrada a partido de Primera</div>
+      <div>Entrenamientos iGol con entrenador UEFA Pro</div><div>Partidos y torneo en El Puerto</div><div>Partido de Primera División</div>
+      <div>Cádiz Stadium Tour</div><div>Visitas culturales</div><div>Equipación</div>
+      <div>Seguro de responsabilidad civil</div><div>Staff iGol: Jorge de Cos y Dejan Ayala</div><div>Dos guías de vuestro club</div>
     </div>
-    <p class="hint">Vuelos y gastos personales, aparte.</p>
+    <p class="hint">No incluye vuelos, seguro deportivo ni gastos personales. El precio final se ajusta a fechas, rivales y número de acompañantes.</p>
   </div>
 </section>
 
@@ -252,11 +276,10 @@ button{font:inherit;color:inherit;cursor:pointer}
     <div class="week" style="grid-template-columns:repeat(3,1fr)">
       <div class="day"><b>1</b><p>Confirmamos fechas dentro del 19 mar – 4 abr</p></div>
       <div class="day"><b>2</b><p>Definimos el segundo guía y cerramos rivales</p></div>
-      <div class="day"><b>3</b><p>Os enviamos el precio y el programa día a día</p></div>
+      <div class="day"><b>3</b><p>Ajustamos el precio final y os enviamos el programa día a día</p></div>
     </div>
     <div class="cta">
-      <a class="p" href="https://wa.me/34722243387" target="_blank" rel="noopener">WhatsApp +34 722 24 33 87</a>
-      <a href="mailto:igolacademia@gmail.com">igolacademia@gmail.com</a>
+      <a class="p" href="mailto:igolacademia@gmail.com">igolacademia@gmail.com</a>
     </div>
     <p class="hint">iGol Academia · El Puerto de Santa María, Cádiz · @igol.academia</p>
   </div>
@@ -274,15 +297,15 @@ button{font:inherit;color:inherit;cursor:pointer}
     <div id="m-body"></div>
   </div>
 </div>
-<div id="lb"><img alt=""><p></p></div>
+<div id="lb"><img alt=""><p></p><button class="lbn l" aria-label="Anterior">←</button><button class="lbn r" aria-label="Siguiente">→</button></div>
 
 <template id="t-alojamiento">
   <div class="m-head"><div class="k">Dónde dormís</div><h2 id="m-title">CEAAN <i>Coto de la Isleta</i></h2>
   <p class="lead">Un complejo deportivo residencial rodeado de pinar, a las puertas del Parque Natural Bahía de Cádiz. Tranquilo, seguro y a pocos pasos de las pistas.</p></div>
   <div class="gal">
-    <button class="w" data-img="img/residencia-aerea.jpg" data-cap="Vista aérea de las cabañas entre el pinar" data-crop><img class="crop" src="img/residencia-aerea.jpg" alt="Vista aérea de las cabañas del CEAAN entre el pinar"><span class="c">Las cabañas, entre el pinar</span></button>
-    <button data-img="img/residencia-cabana.jpg" data-cap="Cabaña de madera"><img src="img/residencia-cabana.jpg" alt="Cabaña de madera del CEAAN"><span class="c">Cabaña de madera</span></button>
-    <button data-img="img/residencia-hab.jpg" data-cap="Habitación con literas y aire acondicionado"><img src="img/residencia-hab.jpg" alt="Habitación con literas"><span class="c">Habitación con literas</span></button>
+    <button class="w" data-group="al" data-img="img/residencia-aerea.jpg" data-cap="Vista aérea de las cabañas entre el pinar" data-crop><img class="crop" src="img/residencia-aerea.jpg" alt="Vista aérea de las cabañas del CEAAN entre el pinar"><span class="c">Las cabañas, entre el pinar</span></button>
+    <button data-group="al" data-img="img/residencia-cabana.jpg" data-cap="Cabaña de madera"><img src="img/residencia-cabana.jpg" alt="Cabaña de madera del CEAAN"><span class="c">Cabaña de madera</span></button>
+    <button data-group="al" data-img="img/residencia-hab.jpg" data-cap="Habitación con literas y aire acondicionado"><img src="img/residencia-hab.jpg" alt="Habitación con literas"><span class="c">Habitación con literas</span></button>
   </div>
   <div class="pts">
     <div><b>Cabañas de madera</b> de 2 a 6 plazas, con baño y aire acondicionado.</div>
@@ -298,13 +321,20 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="m-head"><div class="k">Metodología iGol</div><h2 id="m-title">Entrenar <i>como en España</i></h2>
   <p class="lead">Sesiones dirigidas por Jorge de Cos, entrenador UEFA PRO, con la metodología de la academia: pocos conceptos claros, mucha repetición con balón y corrección en el momento.</p></div>
   <div class="gal">
-    <button class="w" data-img="img/loc-v-dia1-focos.jpg" data-cap="Entrenamiento nocturno con focos"><img src="img/loc-v-dia1-focos.jpg" alt="Entrenamiento nocturno"><span class="c">Entrenamiento con focos</span></button>
-    <button data-img="img/pizarra.jpg" data-cap="Charla táctica con pizarra"><img src="img/pizarra.jpg" alt="Charla con pizarra"><span class="c">Pizarra y charla</span></button>
-    <button data-img="img/loc-foto-porteria.jpg" data-cap="Trabajo específico de porteros"><img src="img/loc-foto-porteria.jpg" alt="Trabajo de porteros"><span class="c">Porteros</span></button>
-    <button data-img="img/noche-juego.jpg" data-cap="Juego de noche"><img src="img/noche-juego.jpg" alt="Juego de noche"><span class="c">Juego reducido</span></button>
+    <button class="w" data-group="en" data-img="img/en-1.jpg" data-cap="Entrenamiento nocturno con focos"><img src="img/en-1.jpg" alt="Entrenamiento nocturno con focos" style="--pos:50% 22%"><span class="c">Entrenamiento nocturno con focos</span></button>
+    <button data-group="en" data-img="img/en-2.jpg" data-cap="Corrección individual"><img src="img/en-2.jpg" alt="Corrección individual" style="--pos:50% 22%"><span class="c">Corrección individual</span></button>
+    <button data-group="en" data-img="img/en-4.jpg" data-cap="Entrenamiento en césped"><img src="img/en-4.jpg" alt="Entrenamiento en césped" style="--pos:50% 60%"><span class="c">Entrenamiento en césped</span></button>
+    <button data-group="en" data-img="img/gk-1.jpg" data-cap="Sesión de porteros"><img src="img/gk-1.jpg" alt="Sesión de porteros" style="--pos:50% 60%"><span class="c">Sesión de porteros</span></button>
+    <button data-group="en" data-img="img/gk-2.jpg" data-cap="Trabajo de porteros"><img src="img/gk-2.jpg" alt="Trabajo de porteros" style="--pos:50% 50%"><span class="c">Trabajo de porteros</span></button>
+    <button data-group="en" data-img="img/cl-1.jpg" data-cap="Clase de metodología"><img src="img/cl-1.jpg" alt="Clase de metodología" style="--pos:50% 45%"><span class="c">Clase de metodología</span></button>
+    <button class="w" data-group="en" data-img="img/cl-2.jpg" data-cap="Clase de metodología"><img src="img/cl-2.jpg" alt="Clase de metodología" style="--pos:50% 50%"><span class="c">Clase de metodología</span></button>
+    <button data-group="en" data-img="img/en-5.jpg" data-cap="Entrenamiento de tarde"><img src="img/en-5.jpg" alt="Entrenamiento de tarde" style="--pos:50% 60%"><span class="c">Entrenamiento de tarde</span></button>
+    <button data-group="en" data-img="img/en-3.jpg" data-cap="Ejercicios de grupo"><img src="img/en-3.jpg" alt="Ejercicios de grupo" style="--pos:50% 50%"><span class="c">Ejercicios de grupo</span></button>
   </div>
   <div class="pts">
-    <div><b>Entrenamiento de bienvenida</b> el primer día.</div>
+    <div><b>Número de entrenamientos</b> <span class="pend">Por definir</span></div>
+    <div><b>Entrenador UEFA PRO</b> al frente de las sesiones iGol.</div>
+    <div><b>Clase de metodología</b> para jugadores y guías.</div>
     <div><b>Sesión específica de porteros</b> con entrenador especializado.</div>
     <div><b>El segundo guía colabora</b> en las sesiones: conoce a los niños.</div>
     <div><b>Sesiones en español</b>, adaptadas a Sub-12 y fútbol 7.</div>
@@ -314,16 +344,28 @@ button{font:inherit;color:inherit;cursor:pointer}
 <template id="t-partidos">
   <div class="m-head"><div class="k">Rivales</div><h2 id="m-title">Partidos contra <i>equipos de aquí</i></h2>
   <p class="lead">Jugaréis contra canteras y clubes del fútbol andaluz. Los rivales se confirman según calendario y disponibilidad.</p></div>
-  <div class="rivals">
-    <div class="rv"><div><strong>Cantera de Segunda División</strong><small>Como el Cádiz CF</small></div><span class="ok">Previsto</span></div>
-    <div class="rv"><div><strong>Cuarta División española</strong><small>Como el Atlético Sanluqueño</small></div><span class="ok">Previsto</span></div>
-    <div class="rv"><div><strong>Selección de Gibraltar</strong><small>Con visita a la Roca y las cuevas de San Miguel</small></div><span class="pend">Pendiente disponibilidad UEFA</span></div>
+  <div class="rcards">
+    <div class="rc"><button class="main" data-group="cadiz" data-img="img/cadiz-1.jpg" data-cap="Cádiz CF (amarillo) frente a iGol"><img src="img/cadiz-1.jpg" alt="Cádiz CF (amarillo) frente a iGol" style="--pos:50% 52%"></button>
+ <div class="info"><div class="nm"><img src="img/escudos/cadiz.png" alt="Escudo Cádiz CF"><div><strong>Cádiz CF</strong><small>Cantera · Segunda División</small></div></div><span class="ok">Previsto</span>
+ <div class="thumbs"><button data-group="cadiz" data-img="img/cadiz-2.jpg" data-cap="Partido en la ciudad deportiva del Cádiz" aria-label="Partido en la ciudad deportiva del Cádiz"><img src="img/cadiz-2.jpg" alt="" style="--pos:50% 50%"></button></div></div></div>
+    <div class="rc"><button class="main" data-group="sanlu" data-img="img/sanlu-foto.jpg" data-cap="Partido contra el Atlético Sanluqueño"><img src="img/sanlu-foto.jpg" alt="Partido contra el Atlético Sanluqueño" style="--pos:50% 50%"></button>
+ <div class="info"><div class="nm"><img src="img/escudos/sanluqueno.png" alt="Escudo Atlético Sanluqueño"><div><strong>Atlético Sanluqueño</strong><small>Cuarta División</small></div></div><span class="ok">Previsto</span>
+ <div class="thumbs"><button data-group="sanlu" data-img="img/sanlu-2.jpg" data-cap="Jugada del partido" aria-label="Jugada del partido"><img src="img/sanlu-2.jpg" alt="" style="--pos:50% 62%"></button><button data-group="sanlu" data-img="img/sanlu-3.jpg" data-cap="Saludo final de los dos equipos" aria-label="Saludo final de los dos equipos"><img src="img/sanlu-3.jpg" alt="" style="--pos:50% 70%"></button></div></div></div>
+    <div class="rc"><button class="main" data-group="gib" data-img="img/gib-formacion.jpg" data-cap="Formación antes del partido"><img src="img/gib-formacion.jpg" alt="Formación antes del partido" style="--pos:50% 50%"></button>
+ <div class="info"><div class="nm"><img src="img/escudos/gibraltar.png" alt="Escudo Selección de Gibraltar"><div><strong>Selección de Gibraltar</strong><small>Con visita a la Roca</small></div></div><span class="pend">Pendiente disponibilidad UEFA</span>
+ <div class="thumbs"><button data-group="gib" data-img="img/gib-formacion.jpg" data-cap="Formación antes del partido" aria-label="Formación antes del partido"><img src="img/gib-formacion.jpg" alt="" style="--pos:50% 50%"></button><button data-group="gib" data-img="img/gib-3.jpg" data-cap="Charla del equipo" aria-label="Charla del equipo"><img src="img/gib-3.jpg" alt="" style="--pos:50% 40%"></button><button data-group="gib" data-img="img/gib-4.jpg" data-cap="Con el staff antes de jugar" aria-label="Con el staff antes de jugar"><img src="img/gib-4.jpg" alt="" style="--pos:50% 40%"></button></div></div></div>
+  </div>
+  <div class="h4">Torneo con equipos locales de El Puerto</div>
+  <div class="crests">
+    <div class="crest"><img src="img/escudos/trasmallo.png" alt="Escudo Trasmallo"><strong>Trasmallo</strong></div>
+    <div class="crest"><img src="img/escudos/guadalete.jpg" alt="Escudo Guadalete"><strong>Guadalete</strong></div>
+    <div class="crest"><img src="img/escudos/portuense.png" alt="Escudo Portuense"><strong>Portuense</strong></div>
   </div>
   <div class="gal">
-    <button class="w" data-img="img/torneo-juego2.jpg" data-cap="Partido de torneo"><img src="img/torneo-juego2.jpg" alt="Partido de torneo"><span class="c">Torneo en El Puerto</span></button>
-    <button data-img="img/sanlu-foto.jpg" data-cap="Partido contra el Atlético Sanluqueño"><img src="img/sanlu-foto.jpg" alt="Partido contra el Atlético Sanluqueño"><span class="c">Atlético Sanluqueño</span></button>
-    <button data-img="img/jorge-cadiz.jpg" data-cap="Partido contra el Cádiz"><img src="img/jorge-cadiz.jpg" alt="Partido contra el Cádiz"><span class="c">Cádiz</span></button>
-    <button data-img="img/gib-formacion.jpg" data-cap="Formación antes del partido en Gibraltar"><img src="img/gib-formacion.jpg" alt="Formación en Gibraltar"><span class="c">Gibraltar</span></button>
+    <button class="w" data-group="tor" data-img="img/torneo-1.jpg" data-cap="Los cuatro equipos del torneo"><img src="img/torneo-1.jpg" alt="Los cuatro equipos del torneo" style="--pos:50% 58%"><span class="c">Los cuatro equipos del torneo</span></button>
+    <button data-group="tor" data-img="img/torneo-2.jpg" data-cap="Saludo previo con los equipos locales"><img src="img/torneo-2.jpg" alt="Saludo previo con los equipos locales" style="--pos:50% 30%"><span class="c">Saludo previo con los equipos locales</span></button>
+    <button data-group="tor" data-img="img/torneo-3.jpg" data-cap="Partido del torneo"><img src="img/torneo-3.jpg" alt="Partido del torneo" style="--pos:50% 60%"><span class="c">Partido del torneo</span></button>
+    <button data-group="tor" data-img="img/torneo-4.jpg" data-cap="Partido del torneo"><img src="img/torneo-4.jpg" alt="Partido del torneo" style="--pos:50% 50%"><span class="c">Partido del torneo</span></button>
   </div>
   <p class="note">Las fotos son de la experiencia de enero de 2026 con un equipo de la República Checa.</p>
 </template>
@@ -332,13 +374,14 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="m-head"><div class="k">LaLiga</div><h2 id="m-title">Un partido de <i>Primera División</i></h2>
   <p class="lead">Veréis jugar a un equipo de Primera desde la grada. El partido concreto depende del calendario de LaLiga en vuestras fechas.</p></div>
   <div class="rivals">
-    <div class="rv"><div><strong>1ª opción · Real Betis</strong><small>Estadio de La Cartuja, Sevilla</small></div><span class="ok">Preferente</span></div>
-    <div class="rv"><div><strong>2ª opción · Sevilla FC</strong></div><span class="pend">Si no es posible el Betis</span></div>
-    <div class="rv"><div><strong>3ª opción · Málaga</strong></div><span class="pend">Si no es posible el Sevilla</span></div>
+    <div class="rv"><div class="nm"><img src="img/escudos/betis.png" alt="Escudo Real Betis"><div><strong>1ª opción · Real Betis</strong><small>Estadio de La Cartuja, Sevilla</small></div></div><span class="ok">Preferente</span></div>
+    <div class="rv"><div class="nm"><img src="img/escudos/sevilla.png" alt="Escudo Sevilla FC"><div><strong>2ª opción · Sevilla FC</strong></div></div><span class="pend">Si no es posible el Betis</span></div>
+    <div class="rv"><div class="nm"><img src="img/escudos/malaga.png" alt="Escudo Málaga CF"><div><strong>3ª opción · Málaga CF</strong></div></div><span class="pend">Si no es posible el Sevilla</span></div>
   </div>
   <div class="gal">
-    <button class="w" data-img="img/betis-grupo.jpg" data-cap="El grupo en el estadio del Betis"><img src="img/betis-grupo.jpg" alt="El grupo en el estadio del Betis"><span class="c">Con el grupo checo en el Betis</span></button>
-    <button data-img="img/vestuario-equipo.jpg" data-cap="Vestuario del Cádiz CF"><img src="img/vestuario-equipo.jpg" alt="Vestuario del Cádiz"><span class="c">Visita al Cádiz CF</span></button>
+    <button class="w" data-group="bt" data-img="img/betis-2.jpg" data-cap="El grupo en la grada con bufandas"><img src="img/betis-2.jpg" alt="El grupo en la grada con bufandas" style="--pos:50% 60%"><span class="c">El grupo en la grada con bufandas</span></button>
+    <button data-group="bt" data-img="img/betis-grupo.jpg" data-cap="El grupo en el estadio"><img src="img/betis-grupo.jpg" alt="El grupo en el estadio" style="--pos:50% 50%"><span class="c">El grupo en el estadio</span></button>
+    <button data-group="bt" data-img="img/betis-3.jpg" data-cap="Ambiente en el estadio"><img src="img/betis-3.jpg" alt="Ambiente en el estadio" style="--pos:50% 50%"><span class="c">Ambiente en el estadio</span></button>
   </div>
   <p class="note">Sujeto al calendario de Primera División española.</p>
 </template>
@@ -347,11 +390,11 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="m-head"><div class="k">Más allá del campo</div><h2 id="m-title">Andalucía <i>de punta a punta</i></h2>
   <p class="lead">Entre partidos, el grupo conoce ciudades con historia. Todos los desplazamientos van con iGol.</p></div>
   <div class="gal">
-    <button class="w" data-img="img/giralda.jpg" data-cap="Sevilla: la Giralda"><img src="img/giralda.jpg" alt="La Giralda"><span class="c">Sevilla · la Giralda</span></button>
-    <button data-img="img/plaza-espana.jpg" data-cap="Sevilla: Plaza de España"><img src="img/plaza-espana.jpg" alt="Plaza de España"><span class="c">Plaza de España</span></button>
-    <button data-img="img/castillo.jpg" data-cap="Cádiz: castillo de San Sebastián"><img src="img/castillo.jpg" alt="Castillo de San Sebastián"><span class="c">Cádiz · castillo</span></button>
-    <button data-img="img/penon-grupo.jpg" data-cap="Gibraltar: la Roca"><img src="img/penon-grupo.jpg" alt="El grupo ante la Roca de Gibraltar"><span class="c">Gibraltar · la Roca</span></button>
-    <button data-img="img/playa-sunset.jpg" data-cap="Atardecer en la playa"><img src="img/playa-sunset.jpg" alt="Atardecer en la playa"><span class="c">Atardecer en la playa</span></button>
+    <button class="w" data-group="cu" data-img="img/giralda.jpg" data-cap="Sevilla: la Giralda"><img src="img/giralda.jpg" alt="La Giralda"><span class="c">Sevilla · la Giralda</span></button>
+    <button data-group="cu" data-img="img/plaza-espana.jpg" data-cap="Sevilla: Plaza de España"><img src="img/plaza-espana.jpg" alt="Plaza de España"><span class="c">Plaza de España</span></button>
+    <button data-group="cu" data-img="img/castillo.jpg" data-cap="Cádiz: castillo de San Sebastián"><img src="img/castillo.jpg" alt="Castillo de San Sebastián"><span class="c">Cádiz · castillo</span></button>
+    <button data-group="cu" data-img="img/penon-grupo.jpg" data-cap="Gibraltar: la Roca"><img src="img/penon-grupo.jpg" alt="El grupo ante la Roca de Gibraltar"><span class="c">Gibraltar · la Roca</span></button>
+    <button data-group="cu" data-img="img/playa-sunset.jpg" data-cap="Atardecer en la playa"><img src="img/playa-sunset.jpg" alt="Atardecer en la playa"><span class="c">Atardecer en la playa</span></button>
   </div>
   <div class="pts">
     <div><b>Sevilla</b>: catedral, Giralda y Plaza de España.</div>
@@ -365,17 +408,38 @@ button{font:inherit;color:inherit;cursor:pointer}
   <div class="m-head"><div class="k">Tranquilidad</div><h2 id="m-title">Cuidado y <i>traslados</i></h2>
   <p class="lead">Los niños están acompañados desde que aterrizan hasta que regresan.</p></div>
   <div class="gal">
-    <button class="w" data-img="img/llegada-aeropuerto.jpg" data-cap="Recogida en el aeropuerto"><img src="img/llegada-aeropuerto.jpg" alt="Llegada al aeropuerto"><span class="c">Recogida en el aeropuerto</span></button>
-    <button data-img="img/charla-jorge.jpg" data-cap="Charla con el grupo"><img src="img/charla-jorge.jpg" alt="Charla con el grupo"><span class="c">Charla de bienvenida</span></button>
+    <button data-group="ca" data-img="img/care-1.jpg" data-cap="Recibimiento en el aeropuerto"><img src="img/care-1.jpg" alt="Recibimiento en el aeropuerto" style="--pos:50% 28%"><span class="c">Recibimiento en el aeropuerto</span></button>
+    <button class="w" data-group="ca" data-img="img/care-4.jpg" data-cap="Piña de equipo antes del partido"><img src="img/care-4.jpg" alt="Piña de equipo antes del partido" style="--pos:50% 50%"><span class="c">Piña de equipo antes del partido</span></button>
+    <button data-group="ca" data-img="img/care-5.jpg" data-cap="Charla en el vestuario"><img src="img/care-5.jpg" alt="Charla en el vestuario" style="--pos:50% 50%"><span class="c">Charla en el vestuario</span></button>
+    <button data-group="ca" data-img="img/care-3.jpg" data-cap="Despedida en el aeropuerto"><img src="img/care-3.jpg" alt="Despedida en el aeropuerto" style="--pos:50% 40%"><span class="c">Despedida en el aeropuerto</span></button>
   </div>
   <div class="pts">
     <div><b>Recogida y regreso</b> en el aeropuerto de Jerez (XRY) o Sevilla (SVQ).</div>
     <div><b>Supervisión</b> constante: vuestros dos guías y el staff de iGol.</div>
-    <div><b>Seguro</b> de responsabilidad civil y deportivo incluido.</div>
+    <div><b>Seguro</b> de responsabilidad civil de la actividad. No incluye seguro deportivo.</div>
     <div><b>Pensión completa</b>, con picnic en los días de excursión.</div>
-    <div><b>Equipación</b> técnica para el viaje <span class="pend">por confirmar</span></div>
-    <div><b>Un solo contacto</b> con iGol antes y durante el viaje.</div>
+    <div><b>Equipación</b> incluida para el viaje.</div>
+    <div><b>Traslados</b> en vehículos de iGol.</div>
   </div>
+</template>
+
+<template id="t-estadio">
+  <div class="m-head"><div class="k">Cádiz CF</div><h2 id="m-title">Cádiz <i>Stadium Tour</i></h2>
+  <p class="lead">Recorrido por dentro del estadio del Cádiz: lo que hay detrás de un partido de fútbol profesional.</p></div>
+  <div class="gal">
+    <button class="w" data-group="es" data-img="img/es-3.jpg" data-cap="Vestuario del primer equipo"><img src="img/es-3.jpg" alt="Vestuario del primer equipo" style="--pos:50% 50%"><span class="c">Vestuario del primer equipo</span></button>
+    <button data-group="es" data-img="img/es-2.jpg" data-cap="Pisando el césped del estadio"><img src="img/es-2.jpg" alt="Pisando el césped del estadio" style="--pos:50% 50%"><span class="c">Pisando el césped del estadio</span></button>
+    <button data-group="es" data-img="img/es-1.jpg" data-cap="Sala de prensa"><img src="img/es-1.jpg" alt="Sala de prensa" style="--pos:50% 50%"><span class="c">Sala de prensa</span></button>
+    <button data-group="es" data-img="img/es-5.jpg" data-cap="Museo y trofeos"><img src="img/es-5.jpg" alt="Museo y trofeos" style="--pos:50% 40%"><span class="c">Museo y trofeos</span></button>
+    <button data-group="es" data-img="img/es-4.jpg" data-cap="Escudo del club"><img src="img/es-4.jpg" alt="Escudo del club" style="--pos:50% 40%"><span class="c">Escudo del club</span></button>
+  </div>
+  <div class="pts">
+    <div><b>Vestuario del primer equipo</b> y túnel de salida.</div>
+    <div><b>Sala de prensa</b> del club.</div>
+    <div><b>Museo y trofeos</b> del Cádiz.</div>
+    <div><b>Césped y banquillos</b> del estadio.</div>
+  </div>
+  <p class="note">Fotos de la visita del grupo checo en enero de 2026.</p>
 </template>
 
 <script>
@@ -383,7 +447,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,
       dots=document.getElementById('dots'),prev=document.getElementById('prev'),next=document.getElementById('next'),
       modal=document.getElementById('modal'),body=document.getElementById('m-body'),
-      lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbp=lb.querySelector('p'),lastFocus=null;
+      lb=document.getElementById('lb'),lbList=[],lbIdx=0,lbi=lb.querySelector('img'),lbp=lb.querySelector('p'),lastFocus=null;
 
   slides.forEach(function(s,i){
     var b=document.createElement('button');b.setAttribute('aria-label',s.dataset.title);b.title=s.dataset.title;
@@ -403,6 +467,11 @@ button{font:inherit;color:inherit;cursor:pointer}
     document.getElementById('sheet').scrollTop=0;document.getElementById('close').focus();
     if(!noHash)try{history.replaceState(null,'','#'+id)}catch(e){}
   }
+  function showLb(){
+    var el=lbList[lbIdx];lbi.src=el.dataset.img;lbi.className=el.hasAttribute('data-crop')?'crop':'';lbp.textContent=el.dataset.cap+(lbList.length>1?'  ·  '+(lbIdx+1)+'/'+lbList.length:'');
+    lb.classList.add('open');lb.querySelectorAll('.lbn').forEach(function(x){x.style.display=lbList.length>1?'':'none'});
+  }
+  function lbStep(d){lbIdx=(lbIdx+d+lbList.length)%lbList.length;showLb()}
   function closeM(){
     if(lb.classList.contains('open')){lb.classList.remove('open');return}
     modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
@@ -412,8 +481,9 @@ button{font:inherit;color:inherit;cursor:pointer}
   document.addEventListener('click',function(e){
     var o=e.target.closest('[data-open]');if(o)return openM(o.dataset.open);
     var g=e.target.closest('[data-go]');if(g)return go(+g.dataset.go);
-    var im=e.target.closest('.gal button');
-    if(im){lbi.src=im.dataset.img;lbi.className=im.hasAttribute('data-crop')?'crop':'';lbp.textContent=im.dataset.cap;lb.classList.add('open');return}
+    var im=e.target.closest('[data-img]');
+    if(im){var grp=im.dataset.group;lbList=grp?[].slice.call(body.querySelectorAll('[data-img][data-group="'+grp+'"]')):[im];lbIdx=Math.max(0,lbList.indexOf(im));showLb();return}
+    if(e.target.closest('.lbn')){lbStep(e.target.closest('.lbn').classList.contains('r')?1:-1);return}
     if(e.target===lb)lb.classList.remove('open');
     if(e.target===modal||e.target.id==='close')closeM();
   });
@@ -421,6 +491,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   document.addEventListener('keydown',function(e){
     var open=modal.classList.contains('open');
     if(e.key==='Escape'){if(open)closeM();return}
+    if(lb.classList.contains('open')){if(e.key==='ArrowRight')lbStep(1);if(e.key==='ArrowLeft')lbStep(-1);return}
     if(open)return;
     if(['ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
     if(['ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
