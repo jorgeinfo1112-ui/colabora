@@ -93,7 +93,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* navegación */
 #top{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) clamp(16px,4vw,40px) 14px;background:linear-gradient(180deg,rgba(13,15,18,.9),transparent);pointer-events:none}
 #top>*{pointer-events:auto}
-.logo{height:44px;width:auto}
+.logo{height:44px;width:auto}.brand{display:flex;align-items:center;gap:10px}.ftx{font-family:var(--display);font-style:italic;color:var(--gold);font-size:22px}.ftn{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
 #menu{background:none;border:1px solid var(--line);padding:7px 16px;border-radius:99px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 #dots{position:fixed;z-index:20;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center}
 #dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--gold);background:none;padding:0;transition:all .3s}
@@ -156,7 +156,7 @@ details.coach .cb{display:grid;grid-template-columns:240px 1fr;gap:26px;padding:
 details.coach .cb>img{width:100%;height:100%;max-height:320px;object-fit:cover;object-position:50% 20%}
 details.coach .cb p+p{margin-top:10px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.chips span{border:1px solid var(--line);padding:5px 14px;font-size:13px;letter-spacing:.06em}
-.cph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;grid-column:1/-1}.cph button{padding:0;border:0;background:#000;aspect-ratio:4/3;overflow:hidden}.cph img{width:100%;height:100%;object-fit:cover}
+.cph{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:12px;grid-column:1/-1}.cph button{padding:0;border:0;background:#000;aspect-ratio:4/3;overflow:hidden}.cph img{width:100%;height:100%;object-fit:cover}
 .story{display:grid;gap:14px;margin:8px 0}
 .st{display:grid;grid-template-columns:150px 1fr 230px;gap:22px;align-items:center;border-top:1px solid var(--line);padding-top:14px;opacity:0;transform:translateY(24px)}
 #modal.open .st{animation:pop .7s cubic-bezier(.2,.8,.2,1) forwards}
@@ -167,6 +167,9 @@ details.coach .cb p+p{margin-top:10px}
 .callout{border-left:3px solid var(--gold);background:rgba(201,161,91,.1);padding:14px 18px;margin:0 0 20px;font-size:16px}
 .pay{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pay div{border:1px solid var(--line);padding:14px 18px}.pay b{display:block;font-family:var(--display);font-weight:500;font-size:26px;color:var(--gold)}.pay span{font-size:14px;color:var(--mute)}.pay .nov{border-style:dashed}
 .soc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:4px 20px 20px;animation:fade .6s}.soc a{border:1px solid var(--line);padding:14px 16px;text-decoration:none;color:var(--cream);transition:background .3s}.soc a:hover{background:var(--gold);color:#1a1409}.soc b{display:block;font-family:var(--display);font-weight:500;font-size:24px}.soc span{font-size:13px;opacity:.8}
+.bk{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;padding:6px 20px 22px;animation:fade .6s}.bk>img{width:100%;background:#fff;padding:10px 14px;border-radius:2px}
+.bk dl{margin:0;display:grid;grid-template-columns:90px 1fr;gap:6px 14px;font-size:16px}.bk dt{color:var(--mute);font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding-top:3px}.bk dd{margin:0}#iban{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.copy{margin-left:10px;border:1px solid var(--gold);background:none;color:var(--gold);padding:3px 12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}.copy:hover{background:var(--gold);color:#1a1409}
 .note{font-size:13px;color:var(--mute);margin-top:18px}
 
 #lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px}
@@ -177,6 +180,7 @@ details.coach .cb p+p{margin-top:10px}
 
 @media(max-width:1000px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:860px){
+ .bk{grid-template-columns:1fr}.ftn{display:none}
  .pay,.soc{grid-template-columns:1fr}
  .slide{padding:104px 20px 120px}.logo{height:38px}
  html,body{overscroll-behavior:none}
@@ -194,7 +198,7 @@ details.coach .cb p+p{margin-top:10px}
 <body>
 
 <header id="top">
-  <img class="logo" src="img/logo-igol.svg" alt="iGol">
+  <div class="brand"><img class="logo" src="img/logo-igol.svg" alt="iGol"><span class="ftx">ft.</span><span class="ftn">Deian Ayala</span></div>
   <button id="menu" data-go="2">Experiencia</button>
 </header>
 
@@ -203,7 +207,7 @@ details.coach .cb p+p{margin-top:10px}
 <!-- 1 PORTADA -->
 <section class="slide cover" style="--img:url(img/playa-grupo.jpg)" data-title="Portada">
   <div class="in">
-    <span class="badge">Propuesta personalizada · Marzo – abril 2027</span>
+    <span class="badge">iGol ft. Deian Ayala · Propuesta personalizada · Marzo – abril 2027</span>
     <h1>Experiencia iGol<br>para <i>12 jugadores</i></h1>
     <p class="sub">Categorías Sub-10, Sub-11 y Sub-12 · fútbol 7 · El Puerto de Santa María (Cádiz, España)</p>
     <button class="go" data-go="1">Empezar&nbsp;&nbsp;→</button>
@@ -277,6 +281,14 @@ details.coach .cb p+p{margin-top:10px}
     </div>
     <p class="hint" style="color:var(--cream)"><b>Requisito:</b> uno de los dos guías debe tener más de 25 años y carnet de conducir con más de 2 años de vigencia, para conducir las furgonetas. Los traslados se hacen en vehículos de iGol.</p>
     <div class="card staff"><span class="tag">Por parte de iGol</span><h3>Jorge de Cos <i>y</i> Deian Ayala</h3><p class="mute">Los dos entrenadores iGol que conviven con el grupo, dirigen las sesiones y organizan el viaje.</p></div>
+    <details class="coach"><summary><span><small>El contacto en México</small>Deian Ayala · cofundador y entrenador</span></summary>
+      <div class="cb"><img src="img/deian-1.jpg" alt="Deian Ayala en el Villarreal" style="object-position:22% 25%">
+      <div><p>Cofundador y entrenador con licencia <b>ENDIT (FMF)</b>. Se está formando en la metodología UEFA PRO y en el proceso de titulaciones UEFA en España.</p>
+      <p>Ha trabajado en la <b>academia del Villarreal en México</b> como coordinador y como entrenador de equipos que han participado en la <b>Yellow Cup</b> y la <b>Summer Cup</b>. También ha sido entrenador en los <b>colegios Maristas de México</b>. En España sigue trabajando con clubes de fútbol base.</p>
+      <p>Entiende el fútbol como una herramienta para formar jugadores y personas. Su metodología se basa en la planificación, la atención al detalle y el aprendizaje a través del juego, con especial énfasis en la toma de decisiones y la comprensión del juego. Como gestor de personas, acompaña el crecimiento de cada jugador y transmite valores dentro y fuera del campo.</p>
+      <div class="chips"><span>Academia Villarreal México</span><span>Yellow Cup · Summer Cup</span><span>Colegios Maristas</span><span>ENDIT · FMF</span></div></div>
+      <div class="cph"><button data-group="de" data-img="img/deian-2.jpg" data-cap="Con un equipo en el estadio del Villarreal"><img src="img/deian-2.jpg" alt="Deian con un equipo en el estadio del Villarreal"></button><button data-group="de" data-img="img/deian-3.jpg" data-cap="Dirigiendo una sesión"><img src="img/deian-3.jpg" alt="Deian dirigiendo una sesión"></button></div></div></details>
+    
   </div>
 </section>
 
@@ -295,6 +307,9 @@ details.coach .cb p+p{margin-top:10px}
       <div>Feedback individual de cada entrenador</div><div>Seguimiento individual de cada jugador</div><div>Seguro de responsabilidad civil</div><div>Staff iGol: Jorge de Cos y Deian Ayala</div><div>Dos guías de vuestro club</div>
     </div>
     <p class="hint">Propuesta basada en 12 jugadores y 2 guías (uno de ellos con carnet de conducir de más de 2 años de vigencia y más de 25 años de edad) + 2 staff de iGol.</p>
+    <details class="coach bank"><summary><span><small>Reserva y pagos</small>Datos bancarios</span></summary>
+      <div class="bk"><img src="img/escudos/santander.png" alt="Banco Santander">
+      <dl><dt>Titular</dt><dd>Jorge de Cos Moreno</dd><dt>Banco</dt><dd>Santander</dd><dt>IBAN</dt><dd><span id="iban">ES51 0049 0122 8320 1199 8698</span> <button class="copy" id="copyiban">Copiar</button></dd></dl></div></details>
     <p class="hint">No incluye vuelos, seguro deportivo ni gastos personales. El precio final se ajusta a fechas, rivales y número de acompañantes.</p>
   </div>
 </section>
@@ -556,6 +571,7 @@ details.coach .cb p+p{margin-top:10px}
     if(e.target===lb)lb.classList.remove('open');
     if(e.target===modal||e.target.id==='close')closeM();
   });
+  var cp=document.getElementById('copyiban');cp.onclick=function(e){e.stopPropagation();var t=document.getElementById('iban').textContent;try{navigator.clipboard.writeText(t)}catch(x){}cp.textContent='Copiado';setTimeout(function(){cp.textContent='Copiar'},1800)};
   prev.onclick=function(){go(cur-1)};next.onclick=function(){go(cur+1)};
   document.addEventListener('keydown',function(e){
     var open=modal.classList.contains('open');
