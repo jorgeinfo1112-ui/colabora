@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>iGol Experience México</title>
-<meta name="description" content="Propuesta personalizada: 12 jugadores Sub-12 de fútbol 7 viven una experiencia de fútbol en Andalucía, del 19 de marzo al 4 de abril de 2027.">
+<meta name="description" content="Propuesta personalizada: 12 jugadores Sub-10, Sub-11 y Sub-12 de fútbol 7 viven una experiencia de fútbol en Andalucía, del 19 de marzo al 4 de abril de 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap">
@@ -164,6 +164,9 @@ details.coach .cb p+p{margin-top:10px}
 .st .d b{display:block;font-family:var(--display);font-weight:500;font-size:44px;color:var(--gold);line-height:1}.st .d span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .st h3{font-size:26px;margin-bottom:4px}.st p{font-size:15.5px;color:var(--cream)}
 .st button{padding:0;border:0;background:#000;aspect-ratio:4/3;overflow:hidden;width:100%}.st button img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transition:transform .8s}.st button:hover img{transform:scale(1.08)}
+.callout{border-left:3px solid var(--gold);background:rgba(201,161,91,.1);padding:14px 18px;margin:0 0 20px;font-size:16px}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pay div{border:1px solid var(--line);padding:14px 18px}.pay b{display:block;font-family:var(--display);font-weight:500;font-size:26px;color:var(--gold)}.pay span{font-size:14px;color:var(--mute)}.pay .nov{border-style:dashed}
+.soc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:4px 20px 20px;animation:fade .6s}.soc a{border:1px solid var(--line);padding:14px 16px;text-decoration:none;color:var(--cream);transition:background .3s}.soc a:hover{background:var(--gold);color:#1a1409}.soc b{display:block;font-family:var(--display);font-weight:500;font-size:24px}.soc span{font-size:13px;opacity:.8}
 .note{font-size:13px;color:var(--mute);margin-top:18px}
 
 #lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px}
@@ -174,6 +177,7 @@ details.coach .cb p+p{margin-top:10px}
 
 @media(max-width:1000px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:860px){
+ .pay,.soc{grid-template-columns:1fr}
  .slide{padding:104px 20px 120px}.logo{height:38px}
  html,body{overscroll-behavior:none}
  details.coach .cb{grid-template-columns:1fr}.st{grid-template-columns:1fr;gap:10px}.st .d b{display:inline;margin-right:10px}
@@ -200,8 +204,8 @@ details.coach .cb p+p{margin-top:10px}
 <section class="slide cover" style="--img:url(img/playa-grupo.jpg)" data-title="Portada">
   <div class="in">
     <span class="badge">Propuesta personalizada · Marzo – abril 2027</span>
-    <h1>Fútbol en <i>Andalucía</i><br>para doce campeones</h1>
-    <p class="sub">Una experiencia iGol para vuestro equipo Sub-12 de fútbol 7, en El Puerto de Santa María (Cádiz, España).</p>
+    <h1>Experiencia iGol<br>para <i>12 jugadores</i></h1>
+    <p class="sub">Categorías Sub-10, Sub-11 y Sub-12 · fútbol 7 · El Puerto de Santa María (Cádiz, España)</p>
     <button class="go" data-go="1">Empezar&nbsp;&nbsp;→</button>
   </div>
 </section>
@@ -211,12 +215,12 @@ details.coach .cb p+p{margin-top:10px}
   <div class="in stack">
     <div class="k">El viaje</div>
     <h2>Un equipo, <i>una experiencia</i></h2>
-    <p class="lead">Doce jugadores Sub-12 de fútbol 7 viajan juntos a Andalucía. Entrenan con la metodología iGol, juegan contra equipos de aquí y viven el fútbol español desde dentro.</p>
+    <p class="lead">Doce jugadores de las categorías Sub-10, Sub-11 y Sub-12 viajan juntos a Andalucía. Entrenan con la metodología iGol, juegan contra equipos de aquí y viven el fútbol español desde dentro.</p>
     <div class="facts">
-      <div><b>12</b><span>jugadores Sub-12</span></div>
-      <div><b>F7</b><span>fútbol 7</span></div>
-      <div><b>2</b><span>guías del grupo</span></div>
-      <div><b>8 días · 7 noches</b><span>propuesta base</span></div>
+      <div><b>14</b><span>participantes totales: 12 jugadores y 2 guías</span></div>
+      <div><b>F7</b><span>formato de competición: fútbol 7</span></div>
+      <div><b>8 · 7</b><span>duración: 8 días y 7 noches</span></div>
+      <div><b>Sub-10 a 12</b><span>categorías: Sub-10, Sub-11 y Sub-12</span></div>
     </div>
     <p class="hint" style="color:var(--cream)">Propuesta basada en 12 jugadores y 2 guías (uno de ellos con carnet de conducir de más de 2 años de vigencia y más de 25 años de edad) + 2 staff de iGol.</p>
     <p class="hint">Propuesta base de 8 días y 7 noches, personalizable. Viajaríais dentro de la ventana 19 de marzo – 4 de abril de 2027 (Semana Santa) y las fechas exactas las cerramos con vosotros.</p>
@@ -283,11 +287,12 @@ details.coach .cb p+p{margin-top:10px}
     <h2>Una estimación <i>a vuestra medida</i></h2>
     <div class="bigprice"><span class="mute">Desde</span><b>1.500 € <sup>*</sup></b><p class="mute" style="margin-top:12px">por jugador, según la personalización de la experiencia</p></div>
     <p class="foot">* 1.400 € por jugador si se factura como operación entre empresas exenta de IVA.</p>
+    <div class="pay"><div><b>4 plazos</b><span>de pago, uno al mes durante los 4 meses previos a la experiencia</span></div><div class="nov"><b>No incluye vuelos</b><span>el viaje hasta Sevilla o Jerez corre por vuestra cuenta</span></div></div>
     <div class="inc">
       <div>Alojamiento CEAAN</div><div>Alimentación: pensión completa</div><div>Traslados con iGol</div>
       <div>Entrenamientos iGol con entrenador UEFA Pro</div><div>Partidos y torneo en El Puerto</div><div>Partido de Primera División</div>
       <div>Cádiz Stadium Tour</div><div>Visitas culturales</div><div>Equipación</div>
-      <div>Seguro de responsabilidad civil</div><div>Staff iGol: Jorge de Cos y Deian Ayala</div><div>Dos guías de vuestro club</div>
+      <div>Feedback individual de cada entrenador</div><div>Seguimiento individual de cada jugador</div><div>Seguro de responsabilidad civil</div><div>Staff iGol: Jorge de Cos y Deian Ayala</div><div>Dos guías de vuestro club</div>
     </div>
     <p class="hint">Propuesta basada en 12 jugadores y 2 guías (uno de ellos con carnet de conducir de más de 2 años de vigencia y más de 25 años de edad) + 2 staff de iGol.</p>
     <p class="hint">No incluye vuelos, seguro deportivo ni gastos personales. El precio final se ajusta a fechas, rivales y número de acompañantes.</p>
@@ -307,7 +312,13 @@ details.coach .cb p+p{margin-top:10px}
     <div class="cta">
       <a class="p" href="mailto:igolacademia@gmail.com">igolacademia@gmail.com</a>
     </div>
-    <p class="hint">iGol Academia · El Puerto de Santa María, Cádiz · @igol.academia</p>
+    <details class="coach rrss"><summary><span><small>Síguenos</small>Redes sociales de iGol</span></summary>
+      <div class="soc">
+        <a href="https://www.instagram.com/igol.academia/" target="_blank" rel="noopener"><b>Instagram</b><span>@igol.academia</span></a>
+        <a href="https://www.tiktok.com/@igol.academia" target="_blank" rel="noopener"><b>TikTok</b><span>@igol.academia</span></a>
+        <a href="https://www.youtube.com/@igol.academia" target="_blank" rel="noopener"><b>YouTube</b><span>iGol Academia</span></a>
+      </div></details>
+    <p class="hint">iGol Academia · El Puerto de Santa María, Cádiz</p>
   </div>
 </section>
 
@@ -372,13 +383,16 @@ details.coach .cb p+p{margin-top:10px}
     <div><b>Clase de metodología</b> para jugadores y guías.</div>
     <div><b>Sesión específica de porteros</b> con entrenador especializado.</div>
     <div><b>El segundo guía colabora</b> en las sesiones: conoce a los niños.</div>
-    <div><b>Sesiones en español</b>, adaptadas a Sub-12 y fútbol 7.</div>
+    <div><b>Feedback individual</b> de cada entrenador al terminar la experiencia.</div>
+    <div><b>Seguimiento individual</b> de cada jugador para contar con él en futuras experiencias, en cualquier formato.</div>
+    <div><b>Sesiones en español</b>, adaptadas a Sub-10, Sub-11, Sub-12 y fútbol 7.</div>
   </div>
 </template>
 
 <template id="t-partidos">
   <div class="m-head"><div class="k">Rivales</div><h2 id="m-title">Partidos contra <i>equipos de aquí</i></h2>
   <p class="lead">Jugaréis contra canteras y clubes del fútbol andaluz. Los rivales se confirman según calendario y disponibilidad.</p></div>
+  <div class="callout"><b>Os verán los ojos de las canteras.</b> Los partidos serán presenciados por entrenadores de las canteras importantes de los equipos contra los que jugáis.</div>
   <div class="rcards">
     <div class="rc"><button class="main" data-group="cadiz" data-img="img/cadiz-1.jpg" data-cap="Cádiz CF (amarillo) frente a iGol"><img src="img/cadiz-1.jpg" alt="Cádiz CF (amarillo) frente a iGol" style="--pos:50% 52%"></button>
  <div class="info"><div class="nm"><img src="img/escudos/cadiz.png" alt="Escudo Cádiz CF"><div><strong>Cádiz CF</strong><small>Cantera · Segunda División</small></div></div><span class="ok">Previsto</span>
