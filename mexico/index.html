@@ -54,7 +54,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .facts span{font-size:13px;color:var(--mute);letter-spacing:.04em}
 
 /* menú de experiencias */
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:6px}
 .tile{position:relative;height:clamp(140px,24vh,220px);border:1px solid var(--line);background:#000;overflow:hidden;padding:0;text-align:left;border-radius:2px}
 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:transform .8s ease,opacity .5s}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(13,15,18,.92))}
@@ -146,6 +146,24 @@ button{font:inherit;color:inherit;cursor:pointer}
 .crest img{width:40px;height:46px;object-fit:contain}.crest strong{font-family:var(--display);font-weight:500;font-size:22px}
 .h4{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:22px 0 6px}
 .lbn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(13,15,18,.7);font-size:20px}.lbn.l{left:14px}.lbn.r{right:14px}
+details.coach{border:1px solid var(--gold);background:var(--bg);margin:6px 0 22px}
+details.coach summary{cursor:pointer;list-style:none;padding:16px 20px;display:flex;align-items:center;gap:14px;font-family:var(--display);font-size:26px}
+details.coach summary::-webkit-details-marker{display:none}
+details.coach summary small{font-family:var(--body);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block}
+details.coach summary::after{content:"+";margin-left:auto;font-size:30px;color:var(--gold);transition:transform .4s}
+details.coach[open] summary::after{transform:rotate(45deg)}
+details.coach .cb{display:grid;grid-template-columns:240px 1fr;gap:26px;padding:6px 20px 22px;animation:fade .6s}
+details.coach .cb>img{width:100%;height:100%;max-height:320px;object-fit:cover;object-position:50% 20%}
+details.coach .cb p+p{margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.chips span{border:1px solid var(--line);padding:5px 14px;font-size:13px;letter-spacing:.06em}
+.cph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;grid-column:1/-1}.cph button{padding:0;border:0;background:#000;aspect-ratio:4/3;overflow:hidden}.cph img{width:100%;height:100%;object-fit:cover}
+.story{display:grid;gap:14px;margin:8px 0}
+.st{display:grid;grid-template-columns:150px 1fr 230px;gap:22px;align-items:center;border-top:1px solid var(--line);padding-top:14px;opacity:0;transform:translateY(24px)}
+#modal.open .st{animation:pop .7s cubic-bezier(.2,.8,.2,1) forwards}
+#modal.open .st:nth-child(1){animation-delay:.3s}#modal.open .st:nth-child(2){animation-delay:.45s}#modal.open .st:nth-child(3){animation-delay:.6s}#modal.open .st:nth-child(4){animation-delay:.75s}#modal.open .st:nth-child(5){animation-delay:.9s}#modal.open .st:nth-child(6){animation-delay:1.05s}#modal.open .st:nth-child(7){animation-delay:1.2s}#modal.open .st:nth-child(8){animation-delay:1.35s}
+.st .d b{display:block;font-family:var(--display);font-weight:500;font-size:44px;color:var(--gold);line-height:1}.st .d span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.st h3{font-size:26px;margin-bottom:4px}.st p{font-size:15.5px;color:var(--cream)}
+.st button{padding:0;border:0;background:#000;aspect-ratio:4/3;overflow:hidden;width:100%}.st button img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transition:transform .8s}.st button:hover img{transform:scale(1.08)}
 .note{font-size:13px;color:var(--mute);margin-top:18px}
 
 #lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px}
@@ -154,9 +172,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 #lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:14px;color:var(--mute)}
 @keyframes fade{from{opacity:0}}@keyframes zoom{from{transform:scale(.88);opacity:0}}
 
+@media(max-width:1000px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:860px){
+ details.coach .cb{grid-template-columns:1fr}.st{grid-template-columns:1fr;gap:10px}.st .d b{display:inline;margin-right:10px}
  .rcards{grid-template-columns:1fr}
- .facts,.week{grid-template-columns:1fr 1fr}.tiles{grid-template-columns:1fr 1fr}.inc{grid-template-columns:1fr 1fr}
+ .facts,.week{grid-template-columns:1fr 1fr}.inc{grid-template-columns:1fr 1fr}
  .two,.pts{grid-template-columns:1fr}.arrow{display:none}
  .gal{grid-template-columns:repeat(2,1fr)}.gal button,.gal button.w{grid-column:span 1}.gal button.w{grid-column:span 2}
  body{font-size:16px}
@@ -194,9 +214,9 @@ button{font:inherit;color:inherit;cursor:pointer}
       <div><b>12</b><span>jugadores Sub-12</span></div>
       <div><b>F7</b><span>fútbol 7</span></div>
       <div><b>2</b><span>guías del grupo</span></div>
-      <div><b>19 mar – 4 abr</b><span>Semana Santa 2027</span></div>
+      <div><b>8 días · 7 noches</b><span>propuesta base</span></div>
     </div>
-    <p class="hint">Las fechas exactas dentro de esa ventana se cierran con vosotros.</p>
+    <p class="hint">Propuesta base de 8 días y 7 noches, personalizable. Viajaríais dentro de la ventana 19 de marzo – 4 de abril de 2027 (Semana Santa) y las fechas exactas las cerramos con vosotros.</p>
   </div>
 </section>
 
@@ -213,6 +233,7 @@ button{font:inherit;color:inherit;cursor:pointer}
       <button class="tile" data-open="estadio"><img src="img/es-3.jpg" alt=""><span><em>Cádiz CF</em><strong>Cádiz Stadium Tour</strong></span></button>
       <button class="tile" data-open="cultura"><img src="img/giralda.jpg" alt=""><span><em>Más allá del campo</em><strong>Ciudades y cultura</strong></span></button>
       <button class="tile" data-open="cuidado"><img src="img/care-1.jpg" alt="" style="object-position:50% 30%"><span><em>Tranquilidad</em><strong>Cuidado y traslados</strong></span></button>
+      <button class="tile" data-open="asi"><img src="img/torneo-1.jpg" alt="" style="object-position:50% 55%"><span><em>Enero de 2026</em><strong>Así fue la experiencia</strong></span></button>
     </div>
   </div>
 </section>
@@ -221,8 +242,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 <section class="slide" data-title="Una semana">
   <div class="in stack">
     <div class="k">Ritmo del programa</div>
-    <h2>Ocho días <i>sin un hueco vacío</i></h2>
-    <p class="lead">Así se organizó la última experiencia iGol (enero 2026). El vuestro se adapta a las fechas y a los rivales confirmados.</p>
+    <h2>Ocho días y siete noches, <i>sin un hueco vacío</i></h2>
+    <p class="lead">Propuesta base de 7 noches y 8 días, personalizable. Así se organizó la última experiencia iGol (enero 2026); la vuestra se adapta a fechas y rivales.</p>
     <div class="week">
       <div class="day"><b>DÍA 1</b><p>Llegada, bienvenida y primer entrenamiento</p></div>
       <div class="day"><b>DÍA 2</b><p>Entrega de camisetas con dorsal y primer partido</p></div>
@@ -233,7 +254,7 @@ button{font:inherit;color:inherit;cursor:pointer}
       <div class="day"><b>DÍA 7</b><p>Gibraltar: partido, cuevas y La Roca</p></div>
       <div class="day"><b>DÍA 8</b><p>Despedida y regreso</p></div>
     </div>
-    <p class="hint">Orientativo. La duración final del viaje dentro de la ventana 19 mar – 4 abr la definimos juntos.</p>
+    <p class="hint">Se puede alargar o acortar dentro de la ventana 19 mar – 4 abr.</p>
   </div>
 </section>
 
@@ -247,7 +268,7 @@ button{font:inherit;color:inherit;cursor:pointer}
       <div class="card"><span class="tag">Guía 1 <span class="ok">Acordado</span></span><h3>Máximo</h3><p class="mute">Acompaña al grupo desde la familia de nuestro contacto. Conoce a los niños y facilita la convivencia.</p></div>
       <div class="card"><span class="tag">Guía 2 <span class="pend">Lo designa vuestro club</span></span><h3>Un adulto responsable</h3><p class="mute">Mayor de edad, preferiblemente el <b>entrenador del equipo</b>: conoce mejor a los niños y colabora en entrenamientos y partidos.</p></div>
     </div>
-    <div class="card staff"><span class="tag">Por parte de iGol</span><h3>Jorge de Cos <i>y</i> Dejan Ayala</h3><p class="mute">Los dos entrenadores iGol que conviven con el grupo, dirigen las sesiones y organizan el viaje.</p></div>
+    <div class="card staff"><span class="tag">Por parte de iGol</span><h3>Jorge de Cos <i>y</i> Deian Ayala</h3><p class="mute">Los dos entrenadores iGol que conviven con el grupo, dirigen las sesiones y organizan el viaje.</p></div>
   </div>
 </section>
 
@@ -262,7 +283,7 @@ button{font:inherit;color:inherit;cursor:pointer}
       <div>Alojamiento CEAAN</div><div>Alimentación: pensión completa</div><div>Traslados con iGol</div>
       <div>Entrenamientos iGol con entrenador UEFA Pro</div><div>Partidos y torneo en El Puerto</div><div>Partido de Primera División</div>
       <div>Cádiz Stadium Tour</div><div>Visitas culturales</div><div>Equipación</div>
-      <div>Seguro de responsabilidad civil</div><div>Staff iGol: Jorge de Cos y Dejan Ayala</div><div>Dos guías de vuestro club</div>
+      <div>Seguro de responsabilidad civil</div><div>Staff iGol: Jorge de Cos y Deian Ayala</div><div>Dos guías de vuestro club</div>
     </div>
     <p class="hint">No incluye vuelos, seguro deportivo ni gastos personales. El precio final se ajusta a fechas, rivales y número de acompañantes.</p>
   </div>
@@ -323,6 +344,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 <template id="t-entrenos">
   <div class="m-head"><div class="k">Metodología iGol</div><h2 id="m-title">Entrenar <i>como en España</i></h2>
   <p class="lead">Sesiones dirigidas por Jorge de Cos, entrenador UEFA PRO, con la metodología de la academia: pocos conceptos claros, mucha repetición con balón y corrección en el momento.</p></div>
+  <details class="coach"><summary><span><small>El entrenador</small>Jorge de Cos · UEFA PRO</span></summary>
+    <div class="cb"><img src="img/coach.jpg" alt="Jorge de Cos, entrenador UEFA PRO">
+    <div><p>Fundador de iGol y entrenador con licencia UEFA PRO. Ha trabajado en la <b>Barça Academy</b>, en la <b>academia del RCD Espanyol</b> y en la <b>LaLiga Academy de Dubái</b>, y ha entrenado a jugadores en Europa, Estados Unidos y Oriente Medio.</p>
+    <p>Prepara él mismo cada sesión y la dirige en el campo: corrige a cada jugador por su nombre, no es un campus donde se pierden entre la multitud. Trabaja el juego de posición, la toma de decisiones y el escaneo, como se enseña en las mejores canteras de España.</p>
+    <div class="chips"><span>FC Barcelona · Barça Academy</span><span>RCD Espanyol Academy</span><span>LaLiga Academy Dubái</span><span>Europa · EE. UU. · Oriente Medio</span></div></div>
+    <div class="cph"><button data-group="co" data-img="img/barca-session.jpg" data-cap="Sesión en la ciudad deportiva del FC Barcelona"><img src="img/barca-session.jpg" alt="Sesión en la ciudad deportiva del Barça"></button><button data-group="co" data-img="img/espanyol.jpg" data-cap="Con el cuerpo técnico del RCD Espanyol"><img src="img/espanyol.jpg" alt="Con el cuerpo técnico del Espanyol"></button><button data-group="co" data-img="img/dubai.jpg" data-cap="Sesión en la LaLiga Academy de Dubái"><img src="img/dubai.jpg" alt="LaLiga Academy Dubái"></button></div></div></details>
   <div class="gal">
     <button class="w" data-group="en" data-img="img/en-1.jpg" data-cap="Entrenamiento nocturno con focos"><img src="img/en-1.jpg" alt="Entrenamiento nocturno con focos" style="--pos:50% 22%"><span class="c">Entrenamiento nocturno con focos</span></button>
     <button data-group="en" data-img="img/en-2.jpg" data-cap="Corrección individual"><img src="img/en-2.jpg" alt="Corrección individual" style="--pos:50% 22%"><span class="c">Corrección individual</span></button>
@@ -447,6 +474,22 @@ button{font:inherit;color:inherit;cursor:pointer}
     <div><b>Césped y banquillos</b> del estadio.</div>
   </div>
   <p class="note">Fotos de la visita del grupo checo en enero de 2026.</p>
+</template>
+
+<template id="t-asi">
+  <div class="m-head"><div class="k">Enero de 2026 · 16 jugadores sub-13 de la República Checa</div><h2 id="m-title">Así fue <i>la experiencia</i></h2>
+  <p class="lead">Ocho días y siete noches con un grupo checo. Este fue el ritmo: entrenar, descansar, jugar y conocer. La vuestra la personalizamos sobre esta base.</p></div>
+  <div class="story">
+  <div class="st"><div class="d"><b>1</b><span>Martes 27</span></div><div><h3>Llegada y primer entrenamiento</h3><p>Aterrizaje en Sevilla, traslado a la residencia, reunión de bienvenida con las normas, entrega de equipación y primer entrenamiento con focos.</p></div><button data-group="as" data-img="img/care-1.jpg" data-cap="Día 1: Llegada y primer entrenamiento"><img src="img/care-1.jpg" alt="Llegada y primer entrenamiento" style="--pos:50% 28%"></button></div>
+  <div class="st"><div class="d"><b>2</b><span>Miércoles 28</span></div><div><h3>Día de Cádiz</h3><p>Entrenamiento de mañana con porteros, Cádiz Stadium Tour y por la tarde partido contra la cantera del Cádiz.</p></div><button data-group="as" data-img="img/cadiz-1.jpg" data-cap="Día 2: Día de Cádiz"><img src="img/cadiz-1.jpg" alt="Día de Cádiz" style="--pos:50% 52%"></button></div>
+  <div class="st"><div class="d"><b>3</b><span>Jueves 29</span></div><div><h3>Partido contra el Atlético Sanluqueño</h3><p>Entrenamiento por la mañana y por la tarde, partido en el campo del Sanluqueño.</p></div><button data-group="as" data-img="img/sanlu-foto.jpg" data-cap="Día 3: Partido contra el Atlético Sanluqueño"><img src="img/sanlu-foto.jpg" alt="Partido contra el Atlético Sanluqueño" style="--pos:50% 50%"></button></div>
+  <div class="st"><div class="d"><b>4</b><span>Viernes 30</span></div><div><h3>Fútbol y ciudad</h3><p>Entrenamiento con sesión de porteros, y por la tarde Cádiz capital: casco antiguo y castillo de San Sebastián.</p></div><button data-group="as" data-img="img/castillo.jpg" data-cap="Día 4: Fútbol y ciudad"><img src="img/castillo.jpg" alt="Fútbol y ciudad" style="--pos:50% 50%"></button></div>
+  <div class="st"><div class="d"><b>5</b><span>Sábado 31</span></div><div><h3>Día de torneo</h3><p>Torneo en El Puerto contra Portuense, Trasmallo y Guadalete.</p></div><button data-group="as" data-img="img/torneo-1.jpg" data-cap="Día 5: Día de torneo"><img src="img/torneo-1.jpg" alt="Día de torneo" style="--pos:50% 58%"></button></div>
+  <div class="st"><div class="d"><b>6</b><span>Domingo 1</span></div><div><h3>Sevilla y Primera División</h3><p>Entrenamiento, viaje a Sevilla, Giralda y partido en La Cartuja: Betis contra Valencia.</p></div><button data-group="as" data-img="img/betis-2.jpg" data-cap="Día 6: Sevilla y Primera División"><img src="img/betis-2.jpg" alt="Sevilla y Primera División" style="--pos:50% 60%"></button></div>
+  <div class="st"><div class="d"><b>7</b><span>Lunes 2</span></div><div><h3>Gibraltar</h3><p>Cruce de la frontera, partido contra Gibraltar, la Roca y las cuevas de San Miguel.</p></div><button data-group="as" data-img="img/gib-formacion.jpg" data-cap="Día 7: Gibraltar"><img src="img/gib-formacion.jpg" alt="Gibraltar" style="--pos:50% 50%"></button></div>
+  <div class="st"><div class="d"><b>8</b><span>Martes 3</span></div><div><h3>Despedida</h3><p>Recogida de maletas y regreso desde el aeropuerto.</p></div><button data-group="as" data-img="img/care-3.jpg" data-cap="Día 8: Despedida"><img src="img/care-3.jpg" alt="Despedida" style="--pos:50% 40%"></button></div>
+  </div>
+  <p class="note">Fotos de la experiencia real de enero de 2026 con el SKP checo.</p>
 </template>
 
 <script>
