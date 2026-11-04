@@ -73,6 +73,15 @@ svg{display:block;width:100%;height:auto}
 @keyframes pass{0%,15%{transform:translate(0,0)}55%,85%{transform:translate(var(--dx),var(--dy))}100%{transform:translate(0,0)}}
 .a-shift{animation:shift 4s ease-in-out infinite}
 @keyframes shift{0%,10%{transform:translateX(0)}45%,60%{transform:translateX(70px)}95%,100%{transform:translateX(0)}}
+.tc .d svg{max-width:340px;margin-top:10px}
+.a-dc{animation:dc 4s ease-in-out infinite}
+@keyframes dc{0%,8%{transform:translate(0,0)}38%,52%{transform:translate(75px,67px)}72%,88%{transform:translate(20px,87px)}100%{transform:translate(0,0)}}
+.a-ft{animation:ft 3.4s ease-in-out infinite}
+@keyframes ft{0%,8%{transform:translate(0,0)}35%,45%{transform:translate(68px,0)}70%,85%{transform:translate(82px,-43px)}100%{transform:translate(0,0)}}
+.a-pp{animation:pp 3s ease-in-out infinite}
+@keyframes pp{0%,5%{transform:translate(0,0)}30%,38%{transform:translate(60px,-95px)}65%,75%{transform:translate(155px,-15px)}100%{transform:translate(0,0)}}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.18}50%{opacity:.45}}
 .a-out{animation:out 4s ease-in-out infinite}
 @keyframes out{0%,10%{transform:translate(0,0)}40%,55%{transform:translate(var(--dx),var(--dy))}90%,100%{transform:translate(0,0)}}
 #nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;gap:10px;padding:0 clamp(10px,3vw,40px);background:rgba(11,13,11,.94);border-top:1px solid var(--line);z-index:5}
@@ -101,6 +110,10 @@ svg{display:block;width:100%;height:auto}
  h2{font-size:54px}.lead{font-size:17px}
  .a-pass,.a-shift,.a-out,.beat{animation:none}
  .next-btn{display:none!important}
+ .grid.g4c{grid-template-columns:repeat(4,1fr)!important;align-items:start}
+ .tc .d svg{margin-top:8px}
+ .tc small{font-size:12px}
+ .pulse,.a-dc,.a-ft,.a-pp{animation:none}
 }
 </style>
 </head>
@@ -182,11 +195,15 @@ svg{display:block;width:100%;height:auto}
     <div class="tc open static"><b>Conducción</b><span class="d"><span><i>Llevar el balón con la cabeza arriba.</i></span></span></div>
   </div>
   <div style="margin:6px 0 -6px"><div class="k" style="margin-bottom:4px">Conceptos técnico-tácticos</div><p class="mute" style="font-size:15px">Técnica que depende de un contexto táctico: solo tienen sentido según lo que pasa en el juego.</p></div>
-  <div class="grid g2">
-    <button class="tc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Controlo hacia el lado donde quiero jugar después. El primer toque ya decide.</i></span></span></button>
-    <button class="tc"><b>Body shape</b><small>Perfilamiento</small><span class="d"><span><i>Colocar el cuerpo de lado antes de recibir para ver el campo y tener más opciones.</i></span></span></button>
-    <button class="tc"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>Jugar de primeras cuando no hay tiempo para controlar, o cuando hace falta para aumentar el ritmo del juego.</i></span></span></button>
-    <button class="tc"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Tocar, moverte, jugar de primeras y pasar al espacio cuando estás acorralado.</i></span></span></button>
+  <div class="grid g2 g4c" style="align-items:start">
+    <button class="tc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Controlo hacia el lado donde quiero jugar después, lejos del rival. El primer toque ya decide.
+      <svg viewBox="0 0 300 190" role="img" aria-label="Control orientado hacia el lado libre"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><circle class="me" cx="45" cy="80" r="14"/><circle class="me" cx="150" cy="165" r="14"/><circle class="opp" cx="215" cy="115" r="14"/><path class="arr" d="M62 88L132 150"/><path class="arr" d="M132 172L92 180"/><circle class="ball a-dc" cx="65" cy="88" r="7"/></svg></i></span></span></button>
+    <button class="tc"><b>Body shape</b><small>Perfilamiento</small><span class="d"><span><i>Colocar el cuerpo de lado antes de recibir para ver el campo y tener más opciones.
+      <svg viewBox="0 0 300 190" role="img" aria-label="Cuerpo cerrado frente a cuerpo perfilado"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><path class="pulse" d="M80 95L135 80L135 110Z" fill="#2DEBC6"/><path class="pulse" d="M220 95L290 35L290 155Z" fill="#2DEBC6"/><circle class="me" cx="80" cy="95" r="14"/><circle class="me" cx="220" cy="95" r="14"/><circle class="ball" cx="96" cy="108" r="6"/><circle class="ball" cx="236" cy="108" r="6"/><text class="cap" x="80" y="176" text-anchor="middle">cerrado</text><text class="cap" x="220" y="176" text-anchor="middle">perfilado</text></svg></i></span></span></button>
+    <button class="tc"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>Jugar de primeras cuando no hay tiempo para controlar, o cuando hace falta para aumentar el ritmo del juego.
+      <svg viewBox="0 0 300 190" role="img" aria-label="Primer toque con rival encima"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><circle class="me" cx="40" cy="95" r="14"/><circle class="me" cx="140" cy="95" r="14"/><circle class="opp" cx="235" cy="95" r="14"/><circle class="me" cx="222" cy="35" r="14"/><path class="arr" d="M216 95H162"/><circle class="ball a-ft" cx="58" cy="95" r="7"/><path class="arr" d="M58 95H126"/></svg></i></span></span></button>
+    <button class="tc"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Tocar, moverte, jugar de primeras y pasar al espacio cuando estás acorralado.
+      <svg viewBox="0 0 300 190" role="img" aria-label="Pases rápidos entre tres jugadores"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><circle class="opp" cx="110" cy="105" r="13"/><circle class="opp" cx="200" cy="85" r="13"/><circle class="opp" cx="165" cy="160" r="13"/><circle class="me" cx="60" cy="150" r="14"/><circle class="me" cx="150" cy="50" r="14"/><circle class="me" cx="245" cy="135" r="14"/><circle class="ball a-pp" cx="75" cy="150" r="7"/></svg></i></span></span></button>
   </div>
 </section>
 
