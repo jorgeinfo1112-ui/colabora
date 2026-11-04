@@ -125,6 +125,7 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
  html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-adjust:exact;print-color-adjust:exact}
  #deck{position:static;inset:auto}
  .slide{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;width:1280px;height:800px;overflow:hidden;page-break-after:always;break-after:page;padding:26px 56px 14px;gap:10px}
+ .slide:last-of-type{page-break-after:auto;break-after:auto}
  #nav,#menu,.x,.hint,.back-link,.next-btn,.tc[data-go]{display:none!important}
  .cols{grid-template-columns:1.05fr 1fr!important}.g2{grid-template-columns:repeat(2,1fr)!important}.g3{grid-template-columns:repeat(3,1fr)!important}.g5{grid-template-columns:repeat(5,1fr)!important}
  .tc .d{grid-template-rows:1fr!important}.tc b::after{display:none}
