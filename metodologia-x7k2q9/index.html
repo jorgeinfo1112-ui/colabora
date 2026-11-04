@@ -18,34 +18,39 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 :focus-visible{outline:2px solid var(--mint);outline-offset:3px}
 h1,h2,h3,p{margin:0}
 h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.98;font-weight:800;letter-spacing:.01em}
-h1{font-size:clamp(54px,11vw,150px)}h2{font-size:clamp(38px,5.6vw,72px)}h3{font-size:26px}
+h1{font-size:clamp(54px,11vw,150px)}h2{font-size:clamp(36px,5vw,64px)}h3{font-size:26px}
 em{font-style:normal;color:var(--mint)}
-.k{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:12px}
-.lead{font-size:clamp(17px,1.7vw,21px);max-width:60ch;color:var(--cream)}
+.k{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:10px}
+.lead{font-size:clamp(16px,1.5vw,19px);max-width:62ch}
 .mute{color:var(--mute)}
 #deck{position:fixed;inset:0 0 62px 0}
-.slide{position:absolute;inset:0;padding:clamp(22px,4vw,56px) clamp(16px,5vw,72px) 24px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(26px);transition:opacity .4s,transform .4s,visibility 0s .4s;display:flex;flex-direction:column;gap:22px}
+.slide{position:absolute;inset:0;padding:clamp(18px,3vw,40px) clamp(16px,5vw,72px) 22px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateX(26px);transition:opacity .4s,transform .4s,visibility 0s .4s;display:flex;flex-direction:column;gap:16px}
 .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .4s,transform .4s}
 .slide.back{transform:translateX(-26px)}
-.head{display:grid;gap:6px}
+.head{display:grid;gap:4px}
 .cols{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(18px,3vw,44px);align-items:start}
-.grid{display:grid;gap:12px}
+.grid{display:grid;gap:10px}
 .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
-.tc{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg2);border-radius:14px;padding:16px 18px;transition:border-color .2s,background .2s,transform .2s;position:relative}
-.tc:hover{border-color:var(--mint);transform:translateY(-2px)}
-.tc b{font-family:var(--display);font-size:24px;text-transform:uppercase;letter-spacing:.02em;display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:700}
-.tc b::after{content:"+";color:var(--mint);font-size:26px;line-height:1;transition:transform .25s}
-.tc small{display:block;color:var(--mute);font-size:14px;margin-top:2px}
-.tc .d{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s;color:var(--cream);font-size:16px}
+.tc{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg2);border-radius:14px;padding:12px 16px;transition:border-color .2s,background .2s,transform .2s;position:relative}
+.tc:hover{border-color:var(--mint);transform:translateY(-1px)}
+.tc b{font-family:var(--display);font-size:22px;text-transform:uppercase;letter-spacing:.02em;display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:700}
+.tc b::after{content:"+";color:var(--mint);font-size:24px;line-height:1;transition:transform .25s}
+.tc small{display:block;color:var(--mute);font-size:13px;margin-top:1px}
+.tc .d{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s;color:var(--cream);font-size:15px}
 .tc .d>span{overflow:hidden;display:block}
-.tc .d>span>i{display:block;font-style:normal;padding-top:10px}
+.tc .d>span>i{display:block;font-style:normal;padding-top:8px}
 .tc.open{border-color:var(--mint);background:#0f1f1b}
 .tc.open b::after{transform:rotate(45deg)}
 .tc.open .d{grid-template-rows:1fr}
 .tc[data-go] b::after,.tc.static b::after{display:none}
+.tc[data-go] b::after{display:inline}
+.tc[data-go] b::after{content:"→"}
 .tc.static{pointer-events:none}
+.tc.key{background:var(--mint);color:#06100e;border-color:var(--mint)}
+.tc.key b::after{color:#06100e}.tc.key small{color:#0b3a31}
 .tc .l{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--mint);color:#06100e;font-family:var(--display);font-weight:800;font-size:30px;margin-right:12px}
 .tc.heart b{justify-content:flex-start}.tc.heart b::after{margin-left:auto}
+.n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--mint);color:#06100e;font-size:15px;margin-right:8px;font-family:var(--display);font-weight:800}
 .cover{align-items:center;justify-content:center;text-align:center;gap:10px}
 .cover img{width:min(300px,52vw);margin-bottom:6px}
 .cover .bar{width:90px;height:4px;background:var(--mint);margin:14px auto}
@@ -55,35 +60,52 @@ svg{display:block;width:100%;height:auto}
 .node circle{fill:var(--bg);stroke:var(--mint);stroke-width:3;transition:fill .2s}
 .node text{fill:var(--cream);font-family:var(--display);font-weight:800;text-transform:uppercase;pointer-events:none}
 .node:hover circle,.node:focus circle{fill:var(--mintd)}
+.node2{cursor:pointer}.node2 text{transition:fill .2s}.node2:hover text.hh,.node2:focus text.hh{fill:var(--mint)}
 .beat{transform-origin:300px 270px;animation:beat 2.6s ease-in-out infinite}
 @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.025)}24%{transform:scale(1)}36%{transform:scale(1.02)}}
-.pitch{fill:#0d2a22;stroke:rgba(243,241,231,.55);stroke-width:2}
-.ln{stroke:rgba(243,241,231,.55);stroke-width:2;fill:none}
-.me{fill:#d9ddd6;stroke:#555;stroke-width:1.5}.opp{fill:var(--red);stroke:#7a1d20;stroke-width:1.5}
-.ball{fill:var(--cream);stroke:#000;stroke-width:1.5}
-.arr{stroke:var(--mint);stroke-width:3;fill:none;stroke-dasharray:7 6}
-.cap{font-size:13px;fill:var(--cream);font-family:var(--body)}
-.panel{border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--bg2)}
-.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--mute);margin-top:10px}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
-.back-link{align-self:flex-start;color:var(--mint);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.panel{border:1px solid var(--line);border-radius:16px;padding:10px;background:var(--bg2)}
+.back-link{align-self:flex-start;color:var(--mint);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer}
 .big{font-family:var(--display);font-size:clamp(26px,3.4vw,44px);text-transform:uppercase;font-weight:800;line-height:1.05}
-.callout{border-left:4px solid var(--mint);padding:6px 0 6px 16px;font-size:clamp(17px,1.7vw,21px)}
-.a-pass{animation:pass 3s ease-in-out infinite}
-@keyframes pass{0%,15%{transform:translate(0,0)}55%,85%{transform:translate(var(--dx),var(--dy))}100%{transform:translate(0,0)}}
-.a-shift{animation:shift 4s ease-in-out infinite}
-@keyframes shift{0%,10%{transform:translateX(0)}45%,60%{transform:translateX(70px)}95%,100%{transform:translateX(0)}}
-.tc .d svg{max-width:340px;margin-top:10px}
-.a-dc{animation:dc 4s ease-in-out infinite}
-@keyframes dc{0%,8%{transform:translate(0,0)}38%,52%{transform:translate(75px,67px)}72%,88%{transform:translate(20px,87px)}100%{transform:translate(0,0)}}
-.a-ft{animation:ft 3.4s ease-in-out infinite}
-@keyframes ft{0%,8%{transform:translate(0,0)}35%,45%{transform:translate(68px,0)}70%,85%{transform:translate(82px,-43px)}100%{transform:translate(0,0)}}
-.a-pp{animation:pp 3s ease-in-out infinite}
-@keyframes pp{0%,5%{transform:translate(0,0)}30%,38%{transform:translate(60px,-95px)}65%,75%{transform:translate(155px,-15px)}100%{transform:translate(0,0)}}
-.pulse{animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.18}50%{opacity:.45}}
-.a-out{animation:out 4s ease-in-out infinite}
-@keyframes out{0%,10%{transform:translate(0,0)}40%,55%{transform:translate(var(--dx),var(--dy))}90%,100%{transform:translate(0,0)}}
+.callout{border-left:4px solid var(--mint);padding:4px 0 4px 14px;font-size:clamp(16px,1.5vw,19px)}
+.pill{display:inline-block;border:1px solid var(--mint);color:var(--mint);border-radius:999px;padding:2px 12px;font-size:13px;margin-right:8px}
+/* explorer */
+.exp{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(16px,2.6vw,36px);align-items:start}
+.xcap{min-height:48px;margin-top:10px;font-size:16px;color:var(--cream);border-left:4px solid var(--mint);padding:2px 0 2px 12px}
+.items{display:grid;gap:9px}
+svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
+.pt{fill:#0d2a22;stroke:rgba(243,241,231,.55);stroke-width:2}
+.ln{stroke:rgba(243,241,231,.4);stroke-width:1.6;fill:none}
+.pl{transition:transform 1s ease-in-out,opacity .5s}
+.nt .pl{transition:none}
+.pl circle{r:13px;stroke-width:1.5}
+.pl.t-me circle{fill:#d9ddd6;stroke:#555}
+.pl.t-opp circle{fill:#ff5a5f;stroke:#7a1d20}
+.pl.t-gk circle{fill:#f0c93a;stroke:#7a6410}
+.pl.t-ball circle{r:6px;fill:#F3F1E7;stroke:#000}
+.pl.hl circle{stroke:#2DEBC6;stroke-width:4}
+.pl text{fill:var(--cream);font-size:11px;text-anchor:middle;font-family:var(--body);font-weight:600;paint-order:stroke;stroke:#0d2a22;stroke-width:3px}
+.ar{stroke:#2DEBC6;stroke-width:3;fill:none;stroke-linecap:round}
+.ar.bad{stroke:#ff5a5f;stroke-dasharray:6 5}
+.cone{fill:rgba(45,235,198,.28)}
+.zone{fill:rgba(45,235,198,.14);stroke:#2DEBC6;stroke-dasharray:4 4;stroke-width:2}
+.dt{fill:#A6FFEC;font-size:12px;font-family:var(--body);font-weight:700;paint-order:stroke;stroke:#0d2a22;stroke-width:3px}
+.dt.r{fill:#ff8f93}
+/* escaneo / llave */
+.keyart{filter:drop-shadow(0 0 22px rgba(45,235,198,.45));animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(45,235,198,.3))}50%{filter:drop-shadow(0 0 28px rgba(45,235,198,.7))}}
+.pupil{animation:look 3.2s ease-in-out infinite}
+@keyframes look{0%,100%{transform:translateX(-14px)}50%{transform:translateX(14px)}}
+.keytxt{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(30px,4vw,52px);line-height:1}
+/* gauge */
+.gauge .needle{transform-origin:150px 150px;transition:transform 1.2s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)}
+.gauge[data-lvl="hi"] .needle{transform:rotate(68deg)}
+.gauge[data-lvl="lo"] .needle{transform:rotate(-72deg)}
+.fail{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.fail span{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;border:2px solid var(--mint);border-radius:10px;padding:4px 14px;position:relative;transition:all .5s}
+.gauge[data-lvl="lo"] .fail span{border-color:var(--red);color:var(--red);opacity:.7}
+.gauge[data-lvl="lo"] .fail span::after{content:"✕";margin-left:8px}
+.gauge[data-lvl="hi"] .fail span::after{content:"✓";margin-left:8px;color:var(--mint)}
+.gauge[data-lvl="mid"] .fail span::after{content:"·";margin-left:8px}
 #nav{position:fixed;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;gap:10px;padding:0 clamp(10px,3vw,40px);background:rgba(11,13,11,.94);border-top:1px solid var(--line);z-index:5}
 #nav button{border:1px solid var(--line);border-radius:999px;height:40px;min-width:40px;padding:0 14px;font-weight:600;font-size:14px}
 #nav button:hover{border-color:var(--mint);color:var(--mint)}
@@ -96,30 +118,31 @@ svg{display:block;width:100%;height:auto}
 #menu a:hover{color:var(--mint)}
 #menu a span{color:var(--mute);font-size:13px;margin-right:12px}
 .x{position:fixed;top:14px;right:18px;font-size:30px;color:var(--cream);z-index:10;display:none}#menu.on~.x{display:block}
-@media(max-width:860px){.cols,.g2,.g3{grid-template-columns:1fr}.g5{grid-template-columns:1fr 1fr}.tc b{font-size:21px}}
+@media(max-width:860px){.cols,.g2,.g3,.exp{grid-template-columns:1fr}.g5{grid-template-columns:1fr 1fr}.tc b{font-size:20px}svg.dg{max-height:60vh}}
+/* PDF */
 @media print{
  @page{size:1280px 800px;margin:0}
  html,body{height:auto;overflow:visible;background:var(--bg);-webkit-print-color-adjust:exact;print-color-adjust:exact}
  #deck{position:static;inset:auto}
- .slide{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;width:1280px;height:800px;overflow:hidden;page-break-after:always;break-after:page;padding:34px 60px 20px;gap:14px}
- #nav,#menu,.x,.hint,.back-link{display:none!important}
+ .slide{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;width:1280px;height:800px;overflow:hidden;page-break-after:always;break-after:page;padding:26px 56px 14px;gap:10px}
+ #nav,#menu,.x,.hint,.back-link,.next-btn,.tc[data-go]{display:none!important}
  .cols{grid-template-columns:1.05fr 1fr!important}.g2{grid-template-columns:repeat(2,1fr)!important}.g3{grid-template-columns:repeat(3,1fr)!important}.g5{grid-template-columns:repeat(5,1fr)!important}
  .tc .d{grid-template-rows:1fr!important}.tc b::after{display:none}
- .tc{padding:11px 14px;break-inside:avoid}.tc b{font-size:21px}.tc .d{font-size:14px}
- .tc .l{width:36px;height:36px;font-size:24px}
- h2{font-size:54px}.lead{font-size:17px}
- .a-pass,.a-shift,.a-out,.beat{animation:none}
- .next-btn{display:none!important}
- .grid.g4c{grid-template-columns:repeat(4,1fr)!important;align-items:start}
- .tc .d svg{margin-top:8px}
- .tc small{font-size:12px}
- .pulse,.a-dc,.a-ft,.a-pp{animation:none}
+ .tc{padding:9px 12px;break-inside:avoid}.tc b{font-size:19px}.tc .d{font-size:13px}.tc .d>span>i{padding-top:4px}
+ .tc .l{width:34px;height:34px;font-size:22px}
+ h2{font-size:48px}.lead{font-size:16px}
+ .beat,.keyart,.pupil{animation:none}
+ .exp{display:block}.xmain{display:none}
+ .items{grid-template-columns:repeat(3,1fr);gap:10px}.items.n4{grid-template-columns:repeat(4,1fr)}.items.n7{grid-template-columns:repeat(4,1fr)}
+ .mini{margin-top:6px}.mini svg{height:215px;width:100%}.items.n3 .mini svg,.items.n4 .mini svg{height:330px}
+ .tc.static{display:block}
 }
 </style>
 </head>
 <body>
 <main id="deck">
 
+<!-- PORTADA -->
 <section class="slide cover" id="portada" data-t="Portada">
   <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDQzNCAyNzYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyOyI+CiAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwxLC00MiwtMTQuMjM0MzY5KSI+CiAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4xLDAsMCwtMC4xLDAsMzA0KSI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xODIyLDI4ODlDMTc5MywyODg0IDE3NTEsMjg3MSAxNzI5LDI4NTlDMTY2MCwyODI1IDE2MTQsMjc1OCAxNjM3LDI3MjdDMTY0MiwyNzIxIDE2NTMsMjY4OSAxNjYwLDI2NThDMTY3MiwyNjA2IDE2NzEsMjU5OCAxNjU2LDI1ODFDMTYzNywyNTYwIDE2NDAsMjU0MSAxNjc2LDI0NTNMMTY5OSwyMzk1TDE3NjAsMjM5OEMxNzkzLDIzOTkgMTgyMCwyMzk4IDE4MjAsMjM5NUMxODIwLDIzOTEgMTgwOSwyMzcwIDE3OTYsMjM0N0MxNzY4LDIyOTkgMTcyMCwyMTY4IDE3MjAsMjE0MUMxNzIwLDIxMzEgMTcxMywyMTE3IDE3MDUsMjExMEMxNjk3LDIxMDMgMTY5MCwyMDkwIDE2OTAsMjA4MEMxNjkwLDIwNzEgMTY4MSwyMDU1IDE2NzAsMjA0NUMxNjU5LDIwMzUgMTY1MCwyMDIxIDE2NTAsMjAxM0MxNjUwLDE5ODMgMTYzMCwyMDA2IDE1NTcsMjExOUMxNDc2LDIyNDMgMTQ0NSwyMjY5IDEzOTgsMjI1NUMxMzg1LDIyNTEgMTMzNSwyMjE5IDEyODUsMjE4NUMxMTc1LDIxMDkgMTEyMCwyMDgwIDEwODIsMjA4MEMxMDUyLDIwODAgOTQ4LDIxNjAgOTIwLDIyMDVDODg4LDIyNTggODU3LDIyMTggODcxLDIxNDNDODc2LDIxMTggODk1LDIwNzkgOTE1LDIwNTNDOTM0LDIwMjggOTU1LDE5ODkgOTYyLDE5NjhDOTcyLDE5MzMgMTAwMSwxOTAwIDEwMjIsMTkwMEMxMDI2LDE5MDAgMTA0NCwxOTEzIDEwNjIsMTkyOUMxMTA5LDE5NjkgMTE0NCwxOTg1IDEyMzIsMjAwNEMxMjgxLDIwMTUgMTMyMywyMDMyIDEzNDksMjA1MUwxMzkwLDIwODBMMTQwMSwyMDUzQzE0MDcsMjAzNyAxNDE1LDIwMDYgMTQxNywxOTgzQzE0MjMsMTkzNSAxNDE2LDE5MzEgMTM1MSwxOTUwQzEzMDcsMTk2MiAxMjg5LDE5NTIgMTI1MCwxODg4QzEyMDAsMTgwNyAxMTIyLDE3MDggMTA5MiwxNjg3QzEwMzksMTY1MiA5NTAsMTYxMCA5MjYsMTYxMEM4ODYsMTYxMCA4ODcsMTU5MyA5MjcsMTU2NkM5NTgsMTU0NiA5NzgsMTU0MSAxMDM1LDE1NDBDMTA3NCwxNTQwIDExMTcsMTUzOSAxMTMyLDE1MzhDMTE3MiwxNTM3IDExOTAsMTU1NiAxMTkwLDE2MDFDMTE5MCwxNjMyIDExOTUsMTY0MyAxMjE4LDE2NTZDMTI5NCwxNzAzIDEzMTcsMTcyMiAxMzM0LDE3NTVDMTM2NywxODE1IDE0MDcsMTc5NCAxMzk0LDE3MjRDMTM4OSwxNjk1IDEzOTEsMTY4OSAxNDE0LDE2NzlMMTQzOSwxNjY3TDEzODksMTYwOUMxMjA2LDEzOTggMTA4OCwxMDQxIDExMDMsNzQ1QzExMDYsNjg1IDExMTYsNjA4IDExMjUsNTc1QzExODMsMzY1IDEzMzMsMjIxIDE1NDUsMTc0QzE3NjQsMTI2IDIxNDcsMTU4IDIzNDYsMjQwTDIzOTgsMjYyTDI0MTksMzUzQzI0MzEsNDA0IDI0NDksNDkyIDI0NTksNTUwQzI0NzAsNjA4IDI0OTAsNzExIDI1MDUsNzgwQzI1MzAsOTAyIDI1NTIsMTAxNyAyNTY1LDEwOTNMMjU3MSwxMTMwTDE5NDAsMTEzMEwxOTM2LDExMDhDMTkxMywxMDAxIDE4OTAsODU3IDE4OTUsODUwQzE4OTksODQ0IDE5NTYsODQwIDIwMjYsODQwQzIwOTQsODQwIDIxNTAsODM3IDIxNTAsODMzQzIxNTAsODIxIDIxMTIsNjExIDIwOTcsNTQwTDIwODMsNDc1TDIwMjQsNDYyQzE5NTAsNDQ2IDE3OTMsNDUyIDE3MjMsNDc0QzE2NDMsNDk5IDE1OTEsNTQ1IDE1NTAsNjI1TDE1MTUsNjkzTDE1MTYsODM5QzE1MTgsMTAxNSAxNTQ0LDExMzIgMTYxNSwxMjc1QzE2OTEsMTQzMCAxNzkyLDE1MjEgMTkzOSwxNTY3QzIwNzQsMTYwOCAyMzM2LDE1OTUgMjQ2NCwxNTQxQzI0OTAsMTUyOSAyNTE3LDE1MjAgMjUyNCwxNTIwQzI1MzUsMTUyMCAyNTkxLDE3NjQgMjU5MCwxODExQzI1OTAsMTg0MiAyNTExLDE4NjIgMjI1NSwxODk4QzIyMDYsMTkwNSAyMjA1LDE5MDYgMjE5NiwxOTQ1QzIxOTIsMTk2NyAyMTc3LDIwMTggMjE2MywyMDU5QzIxNTAsMjA5OSAyMTQxLDIxNDIgMjE0NCwyMTUzQzIxNDcsMjE2NSAyMTMxLDIyMDkgMjEwMywyMjY0QzIwNTMsMjM2NSAyMDA2LDI0MzAgMTk4NCwyNDMwQzE5NjAsMjQzMCAxOTY4LDI0NDcgMjAxMywyNDg3QzIwNzksMjU0NyAyMTA4LDI1OTcgMjExNSwyNjY0QzIxMTksMjY5NiAyMTE3LDI3MzIgMjExMiwyNzQ0QzIxMDcsMjc1NiAyMDk4LDI3NzcgMjA5MSwyNzkzQzIwODUsMjgwOCAyMDc1LDI4MjAgMjA2OCwyODIwQzIwNjEsMjgyMCAyMDQyLDI4MzQgMjAyNSwyODUxQzIwMDksMjg2OCAxOTg4LDI4NzkgMTk3OSwyODc3QzE5NzAsMjg3NSAxOTUyLDI4NzkgMTkzOSwyODg2QzE5MTIsMjkwMSAxODk3LDI5MDEgMTgyMiwyODg5Wk0yMDc2LDE5NThDMjA4NSwxOTE4IDIwODUsMTkwNyAyMDc0LDE5MDNDMjA1MCwxODk0IDIwNDAsMTkxMSAyMDQwLDE5NTlDMjA0MCwyMDM5IDIwNTgsMjAzOSAyMDc2LDE5NThaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8L2c+CiAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4xLDAsMCwtMC4xLDAsMzA0KSI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMDc1LDI2NzVDMTA3MCwyNjczIDEwNTMsMjY2OSAxMDM4LDI2NjZDOTc1LDI2NTIgOTEwLDI1NjUgOTEwLDI0OTZDOTExLDI0MjAgOTc2LDIzMzggMTA0OCwyMzIyQzExMjMsMjMwNSAxMTg2LDIzMzAgMTIzNywyMzk3QzEyNjEsMjQyOCAxMjY1LDI0NDMgMTI2NSwyNDk2QzEyNjUsMjU1MSAxMjYxLDI1NjMgMTIzNCwyNTk3QzExOTAsMjY1MCAxMTE2LDI2ODcgMTA3NSwyNjc1WiIgc3R5bGU9ImZpbGw6d2hpdGU7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMSwwLDAsLTAuMSwwLDMwNCkiPgogICAgICAgICAgICA8cGF0aCBkPSJNNDM4NiwxODUzQzQzODMsMTg0MyA0Mzc4LDE4MTcgNDM3NSwxNzk1QzQzNzEsMTc3MyA0MzUxLDE2NjEgNDMyOSwxNTQ1QzQzMDgsMTQzMCA0MjgwLDEyNzIgNDI2NiwxMTk1QzQyNTMsMTExOCA0MjMwLDk5MiA0MjE1LDkxNUM0MjAxLDgzOCA0MTc2LDY5OSA0MTYwLDYwNUM0MTQ0LDUxMiA0MTE5LDM4MSA0MTA2LDMxNUM0MDkyLDI1MCA0MDgzLDE5MyA0MDg2LDE5MUM0MDkzLDE4MyA0NDM3LDE4NCA0NDQ0LDE5MUM0NDQ4LDE5NCA0NDY4LDI5OCA0NDkwLDQyMUM0NTEyLDU0NCA0NTQxLDcwNCA0NTU0LDc3NUM0NTY4LDg0NyA0NTg2LDk1MCA0NTk1LDEwMDVDNDYwNCwxMDYwIDQ2MjcsMTE4NiA0NjQ2LDEyODVDNDY2NSwxMzg0IDQ2OTQsMTU0MyA0NzExLDE2MzlDNDcyOCwxNzM1IDQ3NDQsMTgyNiA0NzQ3LDE4NDJMNDc1MywxODcwTDQ1NzIsMTg3MEM0NDA5LDE4NzAgNDM5MSwxODY4IDQzODYsMTg1M1oiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDwvZz4KICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjEsMCwwLC0wLjEsMCwzMDQpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTMzMDEsMTUxOUMzMTcxLDE0OTQgMzAzNywxNDMxIDI5NDksMTM1N0MyODIzLDEyNDggMjcxNCwxMDMwIDI2ODAsODE1QzI2NjUsNzI2IDI2NjYsNTczIDI2ODEsNTAxQzI3MTIsMzQ2IDI4MzcsMjE2IDI5OTUsMTc1QzMxNTUsMTM0IDMzMjksMTM0IDM0OTUsMTc2QzM4MDgsMjU2IDQwMTMsNTQ3IDQwMzYsOTQzQzQwNDgsMTE0OCA0MDEwLDEyODEgMzkxMiwxMzc5QzM4NTIsMTQzOSAzNzQzLDE0OTMgMzYzOCwxNTE0QzM1NTUsMTUzMSAzMzc1LDE1MzQgMzMwMSwxNTE5Wk0zNTQ1LDEyNDFDMzYzNSwxMjAwIDM2NTgsMTE0MCAzNjQ2LDk2N0MzNjMzLDc2OCAzNTc0LDU4OSAzNDkzLDQ5OUMzNDMzLDQzMiAzMzkwLDQxNSAzMjg0LDQxNUMzMjAxLDQxNSAzMTkwLDQxNyAzMTUxLDQ0M0MzMDcwLDQ5NiAzMDQ3LDU5NiAzMDc0LDc3MEMzMTE3LDEwNDEgMzE5OSwxMjA0IDMzMTYsMTI0NUMzMzc0LDEyNjYgMzQ5NiwxMjY0IDM1NDUsMTI0MVoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDwvZz4KICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjEsMCwwLC0wLjEsMCwzMDQpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTY2MCwxMzQwTDYyNiwxMzM1TDU2NCw5OTBDNTMwLDgwMCA0ODQsNTQ2IDQ2MSw0MjRDNDM4LDMwMyA0MjAsMTk4IDQyMCwxOTJDNDIwLDE4MyA0NjQsMTgwIDU5NywxODJMNzc1LDE4NUw3OTgsMzAwQzgxMCwzNjMgODQxLDUyNSA4NjUsNjYwQzg4OSw3OTUgOTI0LDk4NiA5NDMsMTA4NUM5OTEsMTMzMyA5OTIsMTM0MCA5ODMsMTM0MEM4NzMsMTM0NCA2ODcsMTM0NCA2NjAsMTM0MFoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="iGol">
   <div class="bar"></div>
@@ -127,307 +150,311 @@ svg{display:block;width:100%;height:auto}
   <p class="hint">Pulsa → o desliza para empezar</p>
 </section>
 
+<!-- FILOSOFÍA -->
 <section class="slide" id="filosofia" data-t="Nuestra filosofía">
   <div class="head"><div class="k">Cómo pensamos</div><h2>Hablamos el <em>idioma del jugador</em></h2></div>
   <div class="cols">
     <div style="display:grid;gap:18px">
-      <p class="lead">Una metodología que el niño entiende y puede <em>visualizar</em>, para que en todo momento sepa qué está haciendo y por qué.</p>
-      <p class="callout">Si el jugador no lo entiende, no lo puede hacer en el campo.</p>
+      <p class="lead">Una metodología que el niño entiende y puede <em>visualizar</em>, para que en todo momento sepa qué está haciendo.</p>
+      <p class="callout">Si no lo entiende, no lo puede hacer en el campo.</p>
     </div>
     <div class="grid">
-      <div class="tc open static"><b>Fácil de entender</b><span class="d"><span><i>Conceptos cortos, con nombres que el niño recuerda y repite.</i></span></span></div>
-      <div class="tc open static"><b>Fácil de visualizar</b><span class="d"><span><i>Dibujos y esquemas: se ve antes de jugarlo.</i></span></span></div>
-      <div class="tc open static"><b>Fácil de identificar</b><span class="d"><span><i>En cada ejercicio, el jugador sabe en qué parte del mapa está trabajando.</i></span></span></div>
+      <div class="tc open static"><b>Fácil de entender</b></div>
+      <div class="tc open static"><b>Fácil de visualizar</b></div>
+      <div class="tc open static"><b>Fácil de identificar</b><span class="d"><span><i>Sabe en qué parte del mapa está trabajando.</i></span></span></div>
     </div>
   </div>
 </section>
 
+<!-- VALORES -->
 <section class="slide" id="valores" data-t="Los valores · lo primero">
   <div class="head"><div class="k">Lo primero de todo</div><h2>Los <em>valores</em></h2></div>
-  <p class="lead">Dentro y fuera del fútbol, son lo que te hará <em>triunfar en la vida</em>. Por eso van antes que cualquier ejercicio, y por eso en el mapa están en el centro: en el corazón.</p>
+  <p class="lead">Dentro y fuera del fútbol, te harán <em>triunfar en la vida</em>. Por eso están en el centro: en el corazón.</p>
   <div class="grid">
-    <button class="tc heart open"><b><span class="l">H</span>Humble</b><small>Humildad</small><span class="d"><span><i>Todos aprendemos, siempre. Ganas sin presumir y pierdes sin hundirte.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">E</span>Effort</b><small>Esfuerzo</small><span class="d"><span><i>Das lo máximo en cada ejercicio, también cuando nadie mira.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">A</span>Ambition</b><small>Ambición</small><span class="d"><span><i>Quieres ser mejor cada día y te exiges más a ti mismo.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">R</span>Respect</b><small>Respeto</small><span class="d"><span><i>A compañeros, rivales, entrenadores, árbitros y a ti mismo.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">T</span>Teamwork</b><small>Trabajo en equipo</small><span class="d"><span><i>Nadie gana solo: ayudas, animas y juegas para el grupo.</i></span></span></button>
+    <button class="tc heart open"><b><span class="l">H</span>Humble · Humildad</b><span class="d"><span><i>Todos aprendemos, siempre. Ganas sin presumir, pierdes sin hundirte.</i></span></span></button>
+    <button class="tc heart open"><b><span class="l">E</span>Effort · Esfuerzo</b><span class="d"><span><i>Das lo máximo, también cuando nadie mira.</i></span></span></button>
+    <button class="tc heart open"><b><span class="l">A</span>Ambition · Ambición</b><span class="d"><span><i>Quieres ser mejor cada día.</i></span></span></button>
+    <button class="tc heart open"><b><span class="l">R</span>Respect · Respeto</b><span class="d"><span><i>A compañeros, rivales, entrenadores, árbitros y a ti mismo.</i></span></span></button>
+    <button class="tc heart open"><b><span class="l">T</span>Teamwork · Equipo</b><span class="d"><span><i>Nadie gana solo: ayudas, animas y juegas para el grupo.</i></span></span></button>
   </div>
-  <p class="mute" style="font-size:14px">Juntas forman la palabra HEART: corazón.</p>
 </section>
 
+<!-- MAPA -->
 <section class="slide" id="mapa" data-t="El mapa del jugador">
   <div class="head"><div class="k">La estructura</div><h2>El jugador iGol, <em>en un dibujo</em></h2></div>
   <div class="cols">
     <div class="panel">
-      <svg viewBox="0 0 600 560" role="img" aria-label="Triángulo de técnica, táctica y físico rodeado de un corazón de valores">
+      <svg viewBox="0 0 600 560" role="img" aria-label="Triángulo de técnica, táctica y físico rodeado de un corazón de valores" style="max-height:calc(100vh - 250px)">
         <g class="beat">
           <path d="M300 530C80 390 20 250 20 165C20 75 90 22 160 22C220 22 270 58 300 105C330 58 380 22 440 22C510 22 580 75 580 165C580 250 520 390 300 530Z" fill="rgba(45,235,198,.08)" stroke="#2DEBC6" stroke-width="5"/>
         </g>
         <polygon points="150,170 450,170 300,420" fill="rgba(45,235,198,.12)" stroke="#2DEBC6" stroke-width="3" stroke-linejoin="round"/>
-        <text x="300" y="228" text-anchor="middle" font-family="Barlow Condensed" font-weight="800" font-size="46" fill="#F3F1E7">HEART</text>
-        <text x="300" y="256" text-anchor="middle" font-family="Inter" font-size="15" fill="#A6FFEC">valores</text>
-        <g class="node" tabindex="0" data-go="tecnica" data-info="Técnica: control, pase y conducción. Lo más básico de todo."><circle cx="150" cy="170" r="48"/><text x="150" y="178" text-anchor="middle" font-size="22">Técnica</text></g>
-        <g class="node" tabindex="0" data-go="tactica" data-info="Táctica: ataque, defensa, transiciones y balón parado."><circle cx="450" cy="170" r="48"/><text x="450" y="178" text-anchor="middle" font-size="22">Táctica</text></g>
-        <g class="node" tabindex="0" data-go="fisico" data-info="Físico: la gasolina que lo mueve todo."><circle cx="300" cy="420" r="48"/><text x="300" y="428" text-anchor="middle" font-size="22">Físico</text></g>
-        <g class="node" tabindex="0" data-go="valores" data-info="Valores: el corazón. Lo primero de todo."><rect x="250" y="288" width="100" height="1" style="opacity:0"/></g>
+        <g class="node2" tabindex="0" data-go="valores" aria-label="Valores">
+          <rect x="215" y="185" width="170" height="90" fill="transparent"/>
+          <text class="hh" x="300" y="228" text-anchor="middle" font-family="Barlow Condensed" font-weight="800" font-size="46" fill="#F3F1E7">HEART</text>
+          <text x="300" y="258" text-anchor="middle" font-family="Inter" font-size="15" fill="#A6FFEC">valores · pincha</text>
+        </g>
+        <g class="node" tabindex="0" data-go="tecnica"><circle cx="150" cy="170" r="48"/><text x="150" y="178" text-anchor="middle" font-size="22">Técnica</text></g>
+        <g class="node" tabindex="0" data-go="tactica"><circle cx="450" cy="170" r="48"/><text x="450" y="178" text-anchor="middle" font-size="22">Táctica</text></g>
+        <g class="node" tabindex="0" data-go="fisico"><circle cx="300" cy="420" r="48"/><text x="300" y="428" text-anchor="middle" font-size="22">Físico</text></g>
       </svg>
     </div>
-    <div style="display:grid;gap:16px">
-      <p class="lead">Un <em>triángulo</em> rodeado por un <em>corazón</em>. Es el jugador completo.</p>
+    <div style="display:grid;gap:12px">
+      <p class="lead">Un <em>triángulo</em> rodeado por un <em>corazón</em>. Pincha en cada parte.</p>
       <div class="grid">
+        <button class="tc" data-go="valores"><b>Valores <small style="margin:0">el corazón · lo primero</small></b></button>
         <button class="tc" data-go="tecnica"><b>Técnica <small style="margin:0">arriba · izquierda</small></b></button>
         <button class="tc" data-go="tactica"><b>Táctica <small style="margin:0">arriba · derecha</small></b></button>
         <button class="tc" data-go="fisico"><b>Físico <small style="margin:0">abajo</small></b></button>
-        <button class="tc" data-go="valores"><b>Valores <small style="margin:0">el corazón</small></b></button>
       </div>
-      <p class="callout" id="mapinfo">Toca una esquina del triángulo para abrirla.</p>
     </div>
   </div>
 </section>
 
+<!-- TÉCNICA -->
 <section class="slide" id="tecnica" data-t="Técnica">
   <a class="back-link" data-go="mapa">← Volver al mapa</a>
-  <div class="head"><div class="k">Esquina 1 · lo más básico</div><h2><em>Técnica</em></h2></div>
-  <p class="lead">Son técnicas imprescindibles que el jugador debe aprender a la perfección <em>con las dos piernas</em>. Las trabajamos de forma analítica y también en ejercicios contextualizados.</p>
-  <div class="grid g3">
-    <div class="tc open static"><b>Control</b><span class="d"><span><i>Dejar el balón listo para lo siguiente.</i></span></span></div>
-    <div class="tc open static"><b>Pase</b><span class="d"><span><i>Preciso, con ambas piernas.</i></span></span></div>
-    <div class="tc open static"><b>Conducción</b><span class="d"><span><i>Llevar el balón con la cabeza arriba.</i></span></span></div>
-  </div>
-  <div style="margin:6px 0 -6px"><div class="k" style="margin-bottom:4px">Conceptos técnico-tácticos</div><p class="mute" style="font-size:15px">Técnica que depende de un contexto táctico: solo tienen sentido según lo que pasa en el juego.</p></div>
-  <div class="grid g2 g4c" style="align-items:start">
-    <button class="tc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Controlo hacia el lado donde quiero jugar después, lejos del rival. El primer toque ya decide.
-      <svg viewBox="0 0 300 190" role="img" aria-label="Control orientado hacia el lado libre"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><circle class="me" cx="45" cy="80" r="14"/><circle class="me" cx="150" cy="165" r="14"/><circle class="opp" cx="215" cy="115" r="14"/><path class="arr" d="M62 88L132 150"/><path class="arr" d="M132 172L92 180"/><circle class="ball a-dc" cx="65" cy="88" r="7"/></svg></i></span></span></button>
-    <button class="tc"><b>Body shape</b><small>Perfilamiento</small><span class="d"><span><i>Colocar el cuerpo de lado antes de recibir para ver el campo y tener más opciones.
-      <svg viewBox="0 0 300 190" role="img" aria-label="Cuerpo cerrado frente a cuerpo perfilado"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><path class="pulse" d="M80 95L135 80L135 110Z" fill="#2DEBC6"/><path class="pulse" d="M220 95L290 35L290 155Z" fill="#2DEBC6"/><circle class="me" cx="80" cy="95" r="14"/><circle class="me" cx="220" cy="95" r="14"/><circle class="ball" cx="96" cy="108" r="6"/><circle class="ball" cx="236" cy="108" r="6"/><text class="cap" x="80" y="176" text-anchor="middle">cerrado</text><text class="cap" x="220" y="176" text-anchor="middle">perfilado</text></svg></i></span></span></button>
-    <button class="tc"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>Jugar de primeras cuando no hay tiempo para controlar, o cuando hace falta para aumentar el ritmo del juego.
-      <svg viewBox="0 0 300 190" role="img" aria-label="Primer toque con rival encima"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><circle class="me" cx="40" cy="95" r="14"/><circle class="me" cx="140" cy="95" r="14"/><circle class="opp" cx="235" cy="95" r="14"/><circle class="me" cx="222" cy="35" r="14"/><path class="arr" d="M216 95H162"/><circle class="ball a-ft" cx="58" cy="95" r="7"/><path class="arr" d="M58 95H126"/></svg></i></span></span></button>
-    <button class="tc"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Tocar, moverte, jugar de primeras y pasar al espacio cuando estás acorralado.
-      <svg viewBox="0 0 300 190" role="img" aria-label="Pases rápidos entre tres jugadores"><rect class="pitch" x="2" y="2" width="296" height="186" rx="8"/><circle class="opp" cx="110" cy="105" r="13"/><circle class="opp" cx="200" cy="85" r="13"/><circle class="opp" cx="165" cy="160" r="13"/><circle class="me" cx="60" cy="150" r="14"/><circle class="me" cx="150" cy="50" r="14"/><circle class="me" cx="245" cy="135" r="14"/><circle class="ball a-pp" cx="75" cy="150" r="7"/></svg></i></span></span></button>
+  <div class="head"><div class="k">Esquina 1 · la base más importante</div><h2><em>Técnica</em> + escaneo</h2></div>
+  <p class="lead"><span class="pill">Con las dos piernas</span><span class="pill">Analítico</span><span class="pill">Contextualizado</span></p>
+  <div class="exp" data-dg="tk">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="control"><b>Control</b><span class="d"><span><i>Dejo el balón listo.</i></span></span></button>
+      <button class="tc" data-sc="pase"><b>Pase</b><span class="d"><span><i>Preciso, a mi compañero.</i></span></span></button>
+      <button class="tc" data-sc="cond"><b>Conducción</b><span class="d"><span><i>Cabeza arriba.</i></span></span></button>
+      <button class="tc" data-sc="piernas"><b>Dos piernas</b><span class="d"><span><i>Derecha e izquierda, a la perfección.</i></span></span></button>
+      <button class="tc key" data-go="scanning"><b>El hábito del escaneo <small>la llave de todo</small></b></button>
+      <button class="tc" data-go="tecnotactico"><b>Conceptos técnico-tácticos</b></button>
+    </div>
   </div>
 </section>
 
+<!-- TÉCNICO-TÁCTICOS -->
+<section class="slide" id="tecnotactico" data-t="Conceptos técnico-tácticos">
+  <a class="back-link" data-go="tecnica">← Volver a técnica</a>
+  <div class="head"><div class="k">Dependen de un contexto táctico</div><h2>Conceptos <em>técnico-tácticos</em></h2></div>
+  <div class="exp" data-dg="tt">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="dc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Controlo hacia el lado libre.</i></span></span></button>
+      <button class="tc" data-sc="bs"><b>Body shape</b><small>Perfilamiento</small><span class="d"><span><i>Cuerpo de lado: veo más campo.</i></span></span></button>
+      <button class="tc" data-sc="ft"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>De primeras si no hay tiempo, o para dar ritmo.</i></span></span></button>
+      <button class="tc" data-sc="pp"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Toca, muévete, pasa al espacio.</i></span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ESCANEO -->
 <section class="slide" id="scanning" data-t="Escaneo · la llave">
-  <div class="head"><div class="k">Antes de la táctica</div><h2>El hábito del <em>escaneo</em></h2></div>
+  <a class="back-link" data-go="tecnica">← Volver a técnica</a>
+  <div class="head"><div class="k">Junto a control, pase y conducción: la base del fútbol</div><h2>El hábito del <em>escaneo</em></h2></div>
   <div class="cols">
-    <div style="display:grid;gap:16px">
-      <p class="lead">Es la <em>llave del entendimiento</em>: desbloquea la táctica. Antes de recibir, y siempre, <em>mira a tu alrededor</em>: compañeros, rivales y espacios.</p>
-      <p class="callout">Quien escanea sabe qué va a hacer antes de que le llegue el balón.</p>
+    <div style="display:grid;gap:14px">
+      <svg class="keyart" viewBox="0 0 380 170" role="img" aria-label="Una llave con un ojo" style="max-width:520px">
+        <circle cx="80" cy="85" r="58" fill="rgba(45,235,198,.1)" stroke="#2DEBC6" stroke-width="14"/>
+        <ellipse cx="80" cy="85" rx="34" ry="20" fill="#0B0D0B" stroke="#F3F1E7" stroke-width="3"/>
+        <g class="pupil"><circle cx="80" cy="85" r="11" fill="#2DEBC6"/></g>
+        <rect x="136" y="78" width="214" height="14" rx="7" fill="#2DEBC6"/>
+        <rect x="270" y="88" width="14" height="36" rx="4" fill="#2DEBC6"/>
+        <rect x="302" y="88" width="14" height="26" rx="4" fill="#2DEBC6"/>
+        <rect x="334" y="88" width="14" height="42" rx="4" fill="#2DEBC6"/>
+      </svg>
+      <div class="keytxt">La llave que <em>abre la táctica</em></div>
+      <p class="lead">Mira a tu alrededor <em>antes de recibir</em>: compañeros · rivales · espacios.</p>
+      <p class="callout">Lo más importante del fútbol, junto a control, pase y conducción.</p>
     </div>
-    <div class="grid">
-      <button class="tc"><b>Don't walk, on jog</b><small>No andes, trota</small><span class="d"><span><i>Siempre en movimiento, listo para actuar.</i></span></span></button>
-      <button class="tc"><b>Show up every time</b><small>Aparece siempre</small><span class="d"><span><i>Ofrécete en cada jugada, no solo cuando te toca.</i></span></span></button>
-      <button class="tc"><b>Don't force it, keep playing</b><small>No fuerces, sigue jugando</small><span class="d"><span><i>Si no sale, no te obsesiones: sigue jugando (jugar hacia atrás no es ilegal).</i></span></span></button>
-      <button class="tc"><b>Unpredictable</b><small>Impredecible</small><span class="d"><span><i>Si el rival no sabe qué vas a hacer, no puede pararte.</i></span></span></button>
+    <div class="exp" data-dg="sc" style="grid-template-columns:1fr">
+      <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+      <div class="items" style="display:none"><button class="tc" data-sc="scan"></button></div>
     </div>
   </div>
 </section>
 
+<!-- HÁBITOS -->
+<section class="slide" id="habitos" data-t="Hábitos antes de la táctica">
+  <div class="head"><div class="k">Antes de la táctica</div><h2>Hábitos del <em>jugador iGol</em></h2></div>
+  <div class="exp" data-dg="hb">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="jog"><b>Don’t walk, on jog</b><small>No andes: siempre activo</small><span class="d"><span><i>Siempre en movimiento, aunque sea trotando.</i></span></span></button>
+      <button class="tc" data-sc="show"><b>Show up every time</b><small>Siempre intervienes</small><span class="d"><span><i>Aunque el balón esté lejos, siempre tienes un rol en la jugada.</i></span></span></button>
+      <button class="tc" data-sc="keep"><b>Don’t force it, keep playing</b><small>No fuerces, sigue jugando</small><span class="d"><span><i>No fuerces la pérdida si el premio no interesa. Fuérzala si detrás hay gol. Si no avanzas, juega atrás (playback).</i></span></span></button>
+      <button class="tc" data-sc="unp"><b>Unpredictable</b><small>No ser predecible</small><span class="d"><span><i>No repitas el patrón si no funciona.</i></span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- TÁCTICA -->
 <section class="slide" id="tactica" data-t="Táctica">
   <a class="back-link" data-go="mapa">← Volver al mapa</a>
   <div class="head"><div class="k">Esquina 2</div><h2><em>Táctica</em></h2></div>
   <div class="cols">
     <div class="panel">
-      <svg viewBox="0 0 700 440" role="img" aria-label="Rombo de ataque, defensa y transiciones">
+      <svg viewBox="0 0 700 440" role="img" aria-label="Rombo de ataque, defensa y transiciones" style="max-height:calc(100vh - 300px)">
         <polygon points="350,50 640,220 350,390 60,220" fill="rgba(45,235,198,.08)" stroke="#2DEBC6" stroke-width="3" stroke-linejoin="round"/>
-        <polygon points="350,160 460,220 350,280 240,220" fill="rgba(255,255,255,.05)" stroke="rgba(243,241,231,.5)" stroke-width="2"/>
-        <text x="350" y="214" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">BALÓN</text>
-        <text x="350" y="238" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">PARADO</text>
-        <text x="190" y="120" text-anchor="middle" font-family="Inter" font-size="13" fill="#A6FFEC" transform="rotate(-30 190 120)">transiciones</text>
-        <text x="510" y="120" text-anchor="middle" font-family="Inter" font-size="13" fill="#A6FFEC" transform="rotate(30 510 120)">transiciones</text>
-        <text x="190" y="332" text-anchor="middle" font-family="Inter" font-size="13" fill="#A6FFEC" transform="rotate(30 190 332)">transiciones</text>
-        <text x="510" y="332" text-anchor="middle" font-family="Inter" font-size="13" fill="#A6FFEC" transform="rotate(-30 510 332)">transiciones</text>
-        <g class="node" tabindex="0" data-go="ataque" data-info="Ataque: con balón, abrimos el campo y avanzamos."><circle cx="350" cy="50" r="44"/><text x="350" y="56" text-anchor="middle" font-size="19">Ataque</text></g>
-        <g class="node" tabindex="0" data-go="defensa" data-info="Defensa: sin balón, compactos y moviéndonos juntos."><circle cx="350" cy="390" r="44"/><text x="350" y="396" text-anchor="middle" font-size="19">Defensa</text></g>
-        <g class="node" tabindex="0" data-go="perdida" data-info="Pérdida (transición defensiva): perdemos el balón. Presión inmediata."><circle cx="60" cy="220" r="48"/><text x="60" y="226" text-anchor="middle" font-size="19">Pérdida</text></g>
-        <g class="node" tabindex="0" data-go="recuperacion" data-info="Recuperación (transición ofensiva): recuperamos el balón. ¿Contraataque o pase seguro?"><circle cx="640" cy="220" r="48"/><text x="640" y="214" text-anchor="middle" font-size="15">Recupe-</text><text x="640" y="232" text-anchor="middle" font-size="15">ración</text></g>
+        <g class="node2" tabindex="0" data-go="balon-parado"><polygon points="350,160 460,220 350,280 240,220" fill="rgba(255,255,255,.07)" stroke="rgba(243,241,231,.5)" stroke-width="2"/>
+        <text class="hh" x="350" y="214" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">BALÓN</text>
+        <text class="hh" x="350" y="238" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">PARADO</text></g>
+        <path class="ar" d="M312 74L108 192" marker-end="url(#ah)"/><path class="ar" d="M98 246L312 368" marker-end="url(#ah)"/><path class="ar" d="M388 368L602 246" marker-end="url(#ah)"/><path class="ar" d="M602 194L392 76" marker-end="url(#ah)"/>
+        <g class="node" tabindex="0" data-go="ataque"><circle cx="350" cy="50" r="44"/><text x="350" y="50" text-anchor="middle" font-size="17">Ataque</text><text x="350" y="68" text-anchor="middle" font-size="11" style="font-family:Inter;text-transform:none;font-weight:600;fill:#A6FFEC">organizado</text></g>
+        <g class="node" tabindex="0" data-go="defensa"><circle cx="350" cy="390" r="44"/><text x="350" y="384" text-anchor="middle" font-size="17">Defensa</text><text x="350" y="402" text-anchor="middle" font-size="11" style="font-family:Inter;text-transform:none;font-weight:600;fill:#A6FFEC">organizada</text></g>
+        <g class="node" tabindex="0" data-go="perdida"><circle cx="60" cy="220" r="48"/><text x="60" y="226" text-anchor="middle" font-size="18">Pérdida</text></g>
+        <g class="node" tabindex="0" data-go="recuperacion"><circle cx="640" cy="220" r="48"/><text x="640" y="214" text-anchor="middle" font-size="15">Recupe-</text><text x="640" y="232" text-anchor="middle" font-size="15">ración</text></g>
       </svg>
     </div>
-    <div style="display:grid;gap:12px">
-      <p class="lead">Un <em>rombo aplastado</em>. Toca cada esquina para entrar.</p>
+    <div style="display:grid;gap:10px">
+      <p class="lead">Un <em>rombo aplastado</em>. Pincha cada esquina.</p>
       <div class="grid">
-        <button class="tc" data-go="ataque"><b>Ataque <small style="margin:0">arriba</small></b></button>
-        <button class="tc" data-go="perdida"><b>Pérdida <small style="margin:0">izquierda · transición defensiva</small></b></button>
-        <button class="tc" data-go="recuperacion"><b>Recuperación <small style="margin:0">derecha · transición ofensiva</small></b></button>
-        <button class="tc" data-go="defensa"><b>Defensa <small style="margin:0">abajo</small></b></button>
+        <button class="tc" data-go="ataque"><b>Ataque organizado <small style="margin:0">arriba</small></b></button>
+        <button class="tc" data-go="perdida"><b>Pérdida <small style="margin:0">izquierda · transición</small></b></button>
+        <button class="tc" data-go="recuperacion"><b>Recuperación <small style="margin:0">derecha · transición</small></b></button>
+        <button class="tc" data-go="defensa"><b>Defensa organizada <small style="margin:0">abajo</small></b></button>
         <button class="tc" data-go="balon-parado"><b>Balón parado <small style="margin:0">centro</small></b></button>
       </div>
-      <p class="callout" id="tacinfo">En las transiciones lo clave es <em>predecir</em> y <em>reaccionar</em>.</p>
+      <p class="callout">Pérdida y recuperación son las <em>transiciones</em>: <span class="n">1</span>Predecir <span class="n">2</span>Reaccionar <span class="n">3</span>Activar</p>
+      <button class="tc key next-btn" data-go="ataque" style="max-width:300px"><b>Siguiente: Ataque</b></button>
     </div>
   </div>
 </section>
 
+<!-- ATAQUE -->
 <section class="slide" id="ataque" data-t="Ataque">
-  <a class="back-link" data-go="tactica">← Volver a táctica</a>
-  <div class="head"><div class="k">Táctica · con balón</div><h2><em>Ataque</em></h2></div>
-  <div class="cols">
-    <div class="grid">
-      <button class="tc open"><b>Abrir el campo y avanzar</b><span class="d"><span><i>Siempre que se pueda, hacia delante y por el carril central.</i></span></span></button>
-      <button class="tc open"><b>Prioridad: no perder el balón</b><span class="d"><span><i>No forzar la pérdida. Solo arriesgamos si hay una opción clara: nada de riesgos por premios pequeños.</i></span></span></button>
-      <button class="tc open"><b>Un viaje en conjunto</b><span class="d"><span><i>Nadie se queda descolgado. Atacando: más opciones para quien tiene el balón. Si perdemos: el equipo no está estirado y podemos presionar.</i></span></span></button>
-    </div>
-    <div>
-      <div class="panel">
-        <svg viewBox="0 0 400 260" role="img" aria-label="Break pass: pase entre dos rivales">
-          <rect class="pitch" x="2" y="2" width="396" height="256" rx="8"/>
-          <circle class="me" cx="200" cy="40" r="20"/><circle class="me" cx="200" cy="220" r="20"/>
-          <circle class="opp" cx="200" cy="100" r="22"/><circle class="opp" cx="200" cy="165" r="22"/>
-          <circle class="me" cx="70" cy="132" r="20"/><circle class="me" cx="335" cy="132" r="20"/>
-          <path class="arr" d="M92 132H312"/>
-          <circle class="ball a-pass" style="--dx:245px;--dy:0" cx="90" cy="132" r="9"/>
-        </svg>
-        <div class="legend"><span><i style="background:#d9ddd6"></i>iGol</span><span><i style="background:#ff5a5f"></i>Rival</span></div>
-      </div>
-      <button class="tc open" style="margin-top:12px"><b>Break pass · pase entre líneas</b><span class="d"><span><i>Siempre que sea posible: un pase entre dos rivales hasta un compañero que está entre líneas.</i></span></span></button>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Ataque organizado</div><h2><em>Ataque</em></h2></div>
+  <div class="exp" data-dg="at">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items n7">
+      <button class="tc" data-sc="open"><b>Abrir el campo</b><span class="d"><span><i>Ancho y profundo.</i></span></span></button>
+      <button class="tc" data-sc="avanzar"><b>Hacia dónde voy</b><small>Orden de prioridad</small><span class="d"><span><i>1º adelante por el centro · 2º bandas · 3º pase atrás.</i></span></span></button>
+      <button class="tc" data-sc="perder"><b>No perder el balón</b><span class="d"><span><i>No forzar la pérdida. Solo arriesgo si hay opción clara: sin riesgos por premios pequeños.</i></span></span></button>
+      <button class="tc" data-sc="break"><b>Break pass</b><small>Pase entre líneas</small><span class="d"><span><i>Pase entre dos rivales a un compañero entre líneas.</i></span></span></button>
+      <button class="tc" data-sc="conj"><b>Un viaje en conjunto</b><span class="d"><span><i>Nadie descolgado: más opciones y equipo no estirado.</i></span></span></button>
+      <button class="tc key" data-go="referencias"><b>Referencias</b></button>
+      <button class="tc key" data-go="balance"><b>Equilibrio · balance</b></button>
     </div>
   </div>
-  <button class="tc next-btn" data-go="referencias" style="max-width:420px"><b>Siguiente: referencias →</b></button>
 </section>
 
+<!-- REFERENCIAS -->
 <section class="slide" id="referencias" data-t="Ataque · referencias">
   <a class="back-link" data-go="ataque">← Volver a ataque</a>
   <div class="head"><div class="k">Ataque · la estructura</div><h2>Las <em>referencias</em></h2></div>
-  <div class="cols">
-    <div class="panel">
-      <svg viewBox="0 0 400 400" role="img" aria-label="Cinco referencias en el campo">
-        <rect class="pitch" x="2" y="2" width="396" height="396" rx="8"/>
-        <path class="ln" d="M2 200H398"/><circle class="ln" cx="200" cy="200" r="46"/>
-        <circle class="me" cx="200" cy="330" r="20"/><circle class="me" cx="200" cy="205" r="20"/>
-        <circle class="me" cx="55" cy="150" r="20"/><circle class="me" cx="345" cy="150" r="20"/>
-        <circle class="me" cx="200" cy="55" r="20"/>
-        <circle class="me a-out" style="--dx:-60px;--dy:-60px;fill:#2DEBC6" cx="345" cy="150" r="20"/>
-        <text class="cap" x="200" y="372" text-anchor="middle">central · atrás</text>
-        <text class="cap" x="200" y="244" text-anchor="middle">medio</text>
-        <text class="cap" x="55" y="188" text-anchor="middle">banda</text>
-        <text class="cap" x="345" y="188" text-anchor="middle">banda</text>
-        <text class="cap" x="200" y="92" text-anchor="middle">arriba</text>
-      </svg>
-      <div class="legend"><span><i style="background:#2DEBC6"></i>sale de su referencia… y vuelve</span></div>
-    </div>
-    <div class="grid">
-      <button class="tc open"><b>5 referencias</b><span class="d"><span><i>Una figura atrás en el centro (como un central), un centrocampista en medio, una abierta en cada banda y una referencia arriba.</i></span></span></button>
-      <button class="tc open"><b>La estructura no se desmorona</b><span class="d"><span><i>Desde la referencia haces el movimiento. Si no recibes, <em>vuelves a ella</em> o vuelves a abrir el campo.</i></span></span></button>
-      <button class="tc open"><b>¿Por qué?</b><span class="d"><span><i>Al moverte arrastras rivales y generas espacio. Con todos pegados al balón no hay espacio.</i></span></span></button>
-      <button class="tc open"><b>Timing</b><span class="d"><span><i>Aparecer en el momento justo y en el lugar justo, y no antes.</i></span></span></button>
+  <div class="exp" data-dg="rf">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="ref"><b>5 referencias</b><span class="d"><span><i>Central atrás · medio · 2 bandas · delantero. La estructura no se desmorona.</i></span></span></button>
+      <button class="tc" data-sc="apoyo"><b>Apoyo de banda</b><span class="d"><span><i>Baja sin cerrarse y da línea de pase.</i></span></span></button>
+      <button class="tc" data-sc="hueco"><b>Delantero al hueco</b><span class="d"><span><i>Busca el hueco entre el medio y la banda.</i></span></span></button>
+      <button class="tc" data-sc="timing"><b>Timing</b><span class="d"><span><i>En el momento justo, en el lugar justo, y no antes. Si no recibes, vuelves a tu referencia.</i></span></span></button>
     </div>
   </div>
-  <button class="tc next-btn" data-go="balance" style="max-width:420px"><b>Siguiente: equilibrio →</b></button>
 </section>
 
+<!-- BALANCE -->
 <section class="slide" id="balance" data-t="Ataque · equilibrio">
-  <a class="back-link" data-go="referencias">← Volver a referencias</a>
-  <div class="head"><div class="k">Ataque · pensando en la pérdida</div><h2>Equilibrio <em>(balance)</em></h2></div>
-  <div class="cols">
-    <div class="panel">
-      <svg viewBox="0 0 400 420" role="img" aria-label="Equilibrio defensivo mientras se ataca">
-        <rect class="pitch" x="2" y="2" width="396" height="416" rx="8"/>
-        <path class="ln" d="M2 210H398"/><rect class="ln" x="125" y="2" width="150" height="60"/><rect class="ln" x="125" y="358" width="150" height="60"/>
-        <circle class="me" cx="150" cy="40" r="17"/><circle class="me" cx="250" cy="40" r="17"/><circle class="me" cx="200" cy="75" r="17"/>
-        <circle class="ball" cx="352" cy="26" r="9"/>
-        <circle class="opp" cx="200" cy="205" r="20"/>
-        <circle class="me" cx="200" cy="168" r="18" style="fill:#2DEBC6"/>
-        <circle class="me" cx="200" cy="245" r="18"/>
-        <circle class="me" cx="200" cy="335" r="18"/>
-        <text class="cap" x="226" y="172">anticipación</text><text class="cap" x="226" y="250">marca</text>
-        <text class="cap" x="226" y="340">portero adelantado</text>
-        <text class="cap" x="214" y="112" style="font-size:12px">zona de rechace</text>
-      </svg>
-    </div>
-    <div class="grid">
-      <button class="tc open"><b>Siempre uno más que ellos</b><span class="d"><span><i>Atrás debe haber un compañero por cada rival que deja arriba, <em>más uno</em>. Si dejan dos delanteros: dos defensas detrás de ellos, uno por delante para la anticipación y el portero bien adelantado a la espalda.</i></span></span></button>
-      <button class="tc open"><b>Si no dejan a nadie arriba</b><span class="d"><span><i>Entonces se suman todos al ataque, salvo uno.</i></span></span></button>
-      <button class="tc open"><b>El portero</b><span class="d"><span><i>Vigila los hombros de sus defensas y se mantiene adelantado.</i></span></span></button>
-      <button class="tc open"><b>Mínimo uno en la zona de rechace</b><span class="d"><span><i>Para recoger el balón si el ataque termina mal.</i></span></span></button>
+  <a class="back-link" data-go="ataque">← Volver a ataque</a>
+  <div class="head"><div class="k">Ataque · pensando en la pérdida · ejemplo: córner</div><h2>Equilibrio <em>(balance)</em></h2></div>
+  <div class="exp" data-dg="bl">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items n7">
+      <button class="tc" data-sc="all"><b>Córner a favor</b><span class="d"><span><i>Siempre uno más que rivales arriba.</i></span></span></button>
+      <button class="tc" data-sc="remate"><b>Hombres al remate</b><span class="d"><span><i>Atacan el centro del área.</i></span></span></button>
+      <button class="tc" data-sc="rechace"><b>Hombre al rechace</b><span class="d"><span><i>Rodea el área: evita que cojan el rechace, finaliza y evita el contraataque.</i></span></span></button>
+      <button class="tc" data-sc="antic"><b>Hombre a la anticipación</b><span class="d"><span><i>Pendiente de que no la reciba el delantero rival.</i></span></span></button>
+      <button class="tc" data-sc="marca"><b>Hombre a la marca</b><span class="d"><span><i>El delantero nunca libre: siempre en desventaja.</i></span></span></button>
+      <button class="tc" data-sc="portero"><b>Portero adelantado</b><span class="d"><span><i>A la espalda del hombre a la marca.</i></span></span></button>
+      <button class="tc" data-sc="nadie"><b>Si no dejan a nadie arriba</b><span class="d"><span><i>Todos al ataque salvo uno que se queda y otro que acompaña.</i></span></span></button>
     </div>
   </div>
 </section>
 
+<!-- DEFENSA -->
 <section class="slide" id="defensa" data-t="Defensa">
-  <a class="back-link" data-go="tactica">← Volver a táctica</a>
-  <div class="head"><div class="k">Táctica · sin balón</div><h2><em>Defensa</em></h2></div>
-  <div class="cols">
-    <div style="display:grid;gap:12px">
-      <button class="tc open"><b>Compactos</b><small>To close · cerrarse</small><span class="d"><span><i>Cuando defendemos estamos juntos y cerrados: sin huecos entre líneas.</i></span></span></button>
-      <button class="tc open"><b>Movimientos en conjunto</b><span class="d"><span><i>El equipo se mueve unido según dónde esté el balón.</i></span></span></button>
-      <div class="grid g3">
-        <div class="tc open static"><b>Step</b><small>Salir</small></div>
-        <div class="tc open static"><b>Drop</b><small>Bajar</small></div>
-        <div class="tc open static"><b>Shift</b><small>Bascular</small></div>
-      </div>
-      <button class="tc open"><b>Smart defense</b><small>Defensa inteligente</small><span class="d"><span><i>Saber cómo presionar según lo que tienes detrás. Hay que escanear antes.</i></span></span></button>
-    </div>
-    <div class="panel">
-      <svg viewBox="0 0 400 300" role="img" aria-label="Basculación del equipo hacia el lado del balón">
-        <rect class="pitch" x="2" y="2" width="396" height="296" rx="8"/>
-        <circle class="opp" cx="90" cy="50" r="16"/><circle class="opp" cx="310" cy="50" r="16"/>
-        <g class="a-shift"><circle class="me" cx="60" cy="150" r="16"/><circle class="me" cx="120" cy="130" r="16"/><circle class="me" cx="180" cy="150" r="16"/><circle class="me" cx="240" cy="130" r="16"/>
-        <circle class="me" cx="80" cy="230" r="16"/><circle class="me" cx="140" cy="230" r="16"/><circle class="me" cx="200" cy="230" r="16"/></g>
-        <circle class="ball" cx="310" cy="72" r="8"/>
-        <text class="cap" x="200" y="284" text-anchor="middle">el equipo se mueve con el balón →</text>
-      </svg>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Defensa organizada</div><h2><em>Defensa</em></h2></div>
+  <div class="exp" data-dg="df">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items n7">
+      <button class="tc" data-sc="conjunto"><b>Movimiento en conjunto</b><small>Todo junto, siempre</small><span class="d"><span><i>Engloba: compactos, salir, bajar y bascular.</i></span></span></button>
+      <button class="tc" data-sc="compactos"><b>Compactos</b><small>To close</small><span class="d"><span><i>De abiertos a cerrados.</i></span></span></button>
+      <button class="tc" data-sc="step"><b>Step</b><small>Salir</small><span class="d"><span><i>Balón arriba: el equipo sale.</i></span></span></button>
+      <button class="tc" data-sc="drop"><b>Drop</b><small>Bajar</small><span class="d"><span><i>Balón cerca: el equipo baja.</i></span></span></button>
+      <button class="tc" data-sc="shift"><b>Shift</b><small>Bascular</small><span class="d"><span><i>El equipo se mueve de lado con el balón.</i></span></span></button>
+      <button class="tc" data-sc="smart"><b>Smart defense</b><small>Defensa inteligente</small><span class="d"><span><i>Presiono según lo que tengo detrás. Hay que escanear.</i></span></span></button>
     </div>
   </div>
 </section>
 
+<!-- PÉRDIDA -->
 <section class="slide" id="perdida" data-t="Pérdida">
-  <a class="back-link" data-go="tactica">← Volver a táctica</a>
-  <div class="head"><div class="k">Transición defensiva · perdemos el balón</div><h2><em>Pérdida</em></h2></div>
-  <p class="lead">Hay otras formas de gestionar la pérdida, pero en iGol hacemos hincapié en la <em>presión tras pérdida</em>.</p>
-  <div class="cols">
-    <div class="grid">
-      <button class="tc open"><b>Predecir</b><span class="d"><span><i>Leer el juego para reaccionar segundos antes. Ejemplo: un compañero corre hacia el córner con el balón botando y dos rivales encima. Va a haber transición: hay que estar cerca antes de que pase.</i></span></span></button>
-      <button class="tc open"><b>Reaccionar rápido</b><span class="d"><span><i>Todos se activan para que nadie llegue tarde. <em>El que pierde el balón es el primero en reaccionar.</em></i></span></span></button>
-    </div>
-    <div class="grid">
-      <button class="tc open"><b>Los más cercanos: presión</b><span class="d"><span><i>Tapan las líneas de pase inmediatas antes de que el rival que ha robado el balón tenga tiempo de reaccionar.</i></span></span></button>
-      <button class="tc open"><b>Los lejanos: bajar y cerrar</b><span class="d"><span><i>Drop rápido y cerrar espacios.</i></span></span></button>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Transición · perdemos el balón</div><h2><em>Pérdida</em></h2></div>
+  <div class="exp" data-dg="ps">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="pred"><b><span class="n">1</span>Predecir</b><span class="d"><span><i>Leo el juego y me acerco antes de que ocurra.</i></span></span></button>
+      <button class="tc" data-sc="reac"><b><span class="n">2</span>Reaccionar</b><span class="d"><span><i>El que pierde el balón es el primero en reaccionar.</i></span></span></button>
+      <button class="tc" data-sc="act"><b><span class="n">3</span>Activar</b><span class="d"><span><i>Cercanos: tapan líneas de pase y evitan el balón largo. Lejanos: segundas líneas de pase.</i></span></span></button>
     </div>
   </div>
 </section>
 
+<!-- RECUPERACIÓN -->
 <section class="slide" id="recuperacion" data-t="Recuperación">
-  <a class="back-link" data-go="tactica">← Volver a táctica</a>
-  <div class="head"><div class="k">Transición ofensiva · recuperamos el balón</div><h2><em>Recuperación</em></h2></div>
-  <div class="cols">
-    <div class="grid">
-      <button class="tc open"><b>Predecir</b><span class="d"><span><i>Igual que en la pérdida: leer el juego para anticipar que vamos a recuperar y estar cerca.</i></span></span></button>
-      <button class="tc open"><b>El que recupera, escanea</b><span class="d"><span><i>Con lo que ha visto en sus últimos escaneos antes de robar, elige entre dos opciones.</i></span></span></button>
-    </div>
-    <div class="grid">
-      <button class="tc open"><b>Opción 1 · Contraataque</b><span class="d"><span><i>Solo si es <em>súper claro</em>.</i></span></span></button>
-      <button class="tc open"><b>Opción 2 · Pase de seguridad</b><span class="d"><span><i>Si no es súper claro: pase seguro, para no forzar más transiciones y tener el control del juego.</i></span></span></button>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Transición · recuperamos el balón</div><h2><em>Recuperación</em></h2></div>
+  <div class="exp" data-dg="rc">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="pred"><b><span class="n">1</span>Predecir</b><span class="d"><span><i>Leo que voy a recuperar y estoy cerca.</i></span></span></button>
+      <button class="tc" data-sc="reac"><b><span class="n">2</span>Reaccionar</b><span class="d"><span><i>El que recupera escanea: ¿contraataque o seguridad?</i></span></span></button>
+      <button class="tc" data-sc="contra"><b><span class="n">3</span>Activar · contraataque</b><span class="d"><span><i>Solo si es súper claro.</i></span></span></button>
+      <button class="tc" data-sc="seguro"><b><span class="n">3</span>Activar · pase seguro</b><span class="d"><span><i>Si no es claro: pase de seguridad y el resto hace el campo grande.</i></span></span></button>
     </div>
   </div>
-  <p class="callout">Mientras tanto, el resto <em>hace el campo grande</em> y cambia la mentalidad de defensiva a ofensiva.</p>
 </section>
 
+<!-- BALÓN PARADO -->
 <section class="slide" id="balon-parado" data-t="Balón parado">
-  <a class="back-link" data-go="tactica">← Volver a táctica</a>
-  <div class="head"><div class="k">Dentro del rombo</div><h2>Balón <em>parado</em></h2></div>
-  <p class="lead">En cada jugada a balón parado hay <em>referencias obligatorias</em>, tanto al atacar como al defender.</p>
-  <div class="grid g3">
-    <button class="tc open"><b>Personas en zona</b><span class="d"><span><i>Atacando y defendiendo.</i></span></span></button>
-    <button class="tc open"><b>Personas en zona de rechace</b><span class="d"><span><i>Atacando y defendiendo.</i></span></span></button>
-    <button class="tc open"><b>Personas de equilibrio</b><span class="d"><span><i>Al defender: tantas como delanteros deje el rival.</i></span></span></button>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Dentro del rombo · ejemplo: defendiendo un córner</div><h2>Balón <em>parado</em></h2></div>
+  <div class="exp" data-dg="bp">
+    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
+    <div class="items">
+      <button class="tc" data-sc="zona"><b>Personas en zona</b><span class="d"><span><i>Atacando y defendiendo.</i></span></span></button>
+      <button class="tc" data-sc="marca"><b>Personas a la marca</b><span class="d"><span><i>Estorban y dejan libres a los de zona, dándoles comodidad.</i></span></span></button>
+      <button class="tc" data-sc="rechace"><b>Personas en zona de rechace</b><span class="d"><span><i>Atacando y defendiendo.</i></span></span></button>
+      <button class="tc" data-sc="equi"><b>Personas de equilibrio</b><span class="d"><span><i>Tantas como delanteros deje el rival.</i></span></span></button>
+      <button class="tc" data-sc="delantero"><b>Un delantero arriba</b><span class="d"><span><i>Arrastra a dos rivales: el despeje no es posesión regalada.</i></span></span></button>
+    </div>
   </div>
-  <button class="tc open" style="max-width:820px"><b>Defendiendo: dejar un delantero arriba</b><span class="d"><span><i>Arrastra a dos rivales. Si hay despeje, no regalamos la posesión: ese delantero pelea el balón, el equipo sale de su zona, los rivales quedan en fuera de juego y evitamos hundirnos atrás.</i></span></span></button>
 </section>
 
+<!-- FÍSICO -->
 <section class="slide" id="fisico" data-t="Físico">
   <a class="back-link" data-go="mapa">← Volver al mapa</a>
-  <div class="head"><div class="k">Esquina 3</div><h2><em>Físico</em> · la gasolina</h2></div>
+  <div class="head"><div class="k">Esquina 3 · la gasolina</div><h2><em>Físico</em></h2></div>
   <div class="cols">
-    <div style="display:grid;gap:16px">
-      <p class="lead">Es la gasolina que te permite hacerlo todo. <em>Si falta, la técnica y la táctica fallan.</em></p>
-      <p class="callout">Stamina: aguantar al máximo, de principio a fin.</p>
+    <div class="panel gauge" id="gauge" data-lvl="mid">
+      <svg viewBox="0 0 300 190" role="img" aria-label="Medidor de gasolina">
+        <path d="M40 150A110 110 0 0 1 260 150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="22" stroke-linecap="round"/>
+        <path d="M40 150A110 110 0 0 1 150 40" fill="none" stroke="#ff5a5f" stroke-width="22" stroke-linecap="round" opacity=".7"/>
+        <path d="M150 40A110 110 0 0 1 260 150" fill="none" stroke="#2DEBC6" stroke-width="22" stroke-linecap="round"/>
+        <text x="40" y="182" fill="#F3F1E7" font-family="Barlow Condensed" font-weight="800" font-size="22" text-anchor="middle">VACÍO</text>
+        <text x="260" y="182" fill="#F3F1E7" font-family="Barlow Condensed" font-weight="800" font-size="22" text-anchor="middle">LLENO</text>
+        <g class="needle"><path d="M150 150L150 58" stroke="#F3F1E7" stroke-width="6" stroke-linecap="round"/><circle cx="150" cy="150" r="10" fill="#F3F1E7"/></g>
+      </svg>
+      <div class="fail"><span>Técnica</span><span>Táctica</span></div>
     </div>
-    <div class="grid">
-      <button class="tc open"><b>Todo con balón</b><span class="d"><span><i>No trabajamos el físico sin balón. Es más fiel a lo que pasa en un partido real, y en categorías de formación está demostrado que no hace falta.</i></span></span></button>
-      <button class="tc open"><b>Máxima intensidad</b><span class="d"><span><i>Los ejercicios se hacen a tope. Si no, nos olvidamos del apartado físico.</i></span></span></button>
+    <div class="items" id="fitems">
+      <button class="tc" data-lvl="mid"><b>Todo con balón</b><span class="d"><span><i>Nunca sin balón: es lo más fiel al partido real.</i></span></span></button>
+      <button class="tc" data-lvl="hi"><b>Autoexigencia · máxima intensidad</b><span class="d"><span><i>Cada ejercicio a tope.</i></span></span></button>
+      <button class="tc" data-lvl="lo"><b>Sin gasolina…</b><span class="d"><span><i>La técnica y la táctica fallan.</i></span></span></button>
     </div>
   </div>
 </section>
 
+<!-- CIERRE -->
 <section class="slide cover" id="cierre" data-t="Cierre">
   <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDQzNCAyNzYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM6c2VyaWY9Imh0dHA6Ly93d3cuc2VyaWYuY29tLyIgc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoyOyI+CiAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwxLC00MiwtMTQuMjM0MzY5KSI+CiAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4xLDAsMCwtMC4xLDAsMzA0KSI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xODIyLDI4ODlDMTc5MywyODg0IDE3NTEsMjg3MSAxNzI5LDI4NTlDMTY2MCwyODI1IDE2MTQsMjc1OCAxNjM3LDI3MjdDMTY0MiwyNzIxIDE2NTMsMjY4OSAxNjYwLDI2NThDMTY3MiwyNjA2IDE2NzEsMjU5OCAxNjU2LDI1ODFDMTYzNywyNTYwIDE2NDAsMjU0MSAxNjc2LDI0NTNMMTY5OSwyMzk1TDE3NjAsMjM5OEMxNzkzLDIzOTkgMTgyMCwyMzk4IDE4MjAsMjM5NUMxODIwLDIzOTEgMTgwOSwyMzcwIDE3OTYsMjM0N0MxNzY4LDIyOTkgMTcyMCwyMTY4IDE3MjAsMjE0MUMxNzIwLDIxMzEgMTcxMywyMTE3IDE3MDUsMjExMEMxNjk3LDIxMDMgMTY5MCwyMDkwIDE2OTAsMjA4MEMxNjkwLDIwNzEgMTY4MSwyMDU1IDE2NzAsMjA0NUMxNjU5LDIwMzUgMTY1MCwyMDIxIDE2NTAsMjAxM0MxNjUwLDE5ODMgMTYzMCwyMDA2IDE1NTcsMjExOUMxNDc2LDIyNDMgMTQ0NSwyMjY5IDEzOTgsMjI1NUMxMzg1LDIyNTEgMTMzNSwyMjE5IDEyODUsMjE4NUMxMTc1LDIxMDkgMTEyMCwyMDgwIDEwODIsMjA4MEMxMDUyLDIwODAgOTQ4LDIxNjAgOTIwLDIyMDVDODg4LDIyNTggODU3LDIyMTggODcxLDIxNDNDODc2LDIxMTggODk1LDIwNzkgOTE1LDIwNTNDOTM0LDIwMjggOTU1LDE5ODkgOTYyLDE5NjhDOTcyLDE5MzMgMTAwMSwxOTAwIDEwMjIsMTkwMEMxMDI2LDE5MDAgMTA0NCwxOTEzIDEwNjIsMTkyOUMxMTA5LDE5NjkgMTE0NCwxOTg1IDEyMzIsMjAwNEMxMjgxLDIwMTUgMTMyMywyMDMyIDEzNDksMjA1MUwxMzkwLDIwODBMMTQwMSwyMDUzQzE0MDcsMjAzNyAxNDE1LDIwMDYgMTQxNywxOTgzQzE0MjMsMTkzNSAxNDE2LDE5MzEgMTM1MSwxOTUwQzEzMDcsMTk2MiAxMjg5LDE5NTIgMTI1MCwxODg4QzEyMDAsMTgwNyAxMTIyLDE3MDggMTA5MiwxNjg3QzEwMzksMTY1MiA5NTAsMTYxMCA5MjYsMTYxMEM4ODYsMTYxMCA4ODcsMTU5MyA5MjcsMTU2NkM5NTgsMTU0NiA5NzgsMTU0MSAxMDM1LDE1NDBDMTA3NCwxNTQwIDExMTcsMTUzOSAxMTMyLDE1MzhDMTE3MiwxNTM3IDExOTAsMTU1NiAxMTkwLDE2MDFDMTE5MCwxNjMyIDExOTUsMTY0MyAxMjE4LDE2NTZDMTI5NCwxNzAzIDEzMTcsMTcyMiAxMzM0LDE3NTVDMTM2NywxODE1IDE0MDcsMTc5NCAxMzk0LDE3MjRDMTM4OSwxNjk1IDEzOTEsMTY4OSAxNDE0LDE2NzlMMTQzOSwxNjY3TDEzODksMTYwOUMxMjA2LDEzOTggMTA4OCwxMDQxIDExMDMsNzQ1QzExMDYsNjg1IDExMTYsNjA4IDExMjUsNTc1QzExODMsMzY1IDEzMzMsMjIxIDE1NDUsMTc0QzE3NjQsMTI2IDIxNDcsMTU4IDIzNDYsMjQwTDIzOTgsMjYyTDI0MTksMzUzQzI0MzEsNDA0IDI0NDksNDkyIDI0NTksNTUwQzI0NzAsNjA4IDI0OTAsNzExIDI1MDUsNzgwQzI1MzAsOTAyIDI1NTIsMTAxNyAyNTY1LDEwOTNMMjU3MSwxMTMwTDE5NDAsMTEzMEwxOTM2LDExMDhDMTkxMywxMDAxIDE4OTAsODU3IDE4OTUsODUwQzE4OTksODQ0IDE5NTYsODQwIDIwMjYsODQwQzIwOTQsODQwIDIxNTAsODM3IDIxNTAsODMzQzIxNTAsODIxIDIxMTIsNjExIDIwOTcsNTQwTDIwODMsNDc1TDIwMjQsNDYyQzE5NTAsNDQ2IDE3OTMsNDUyIDE3MjMsNDc0QzE2NDMsNDk5IDE1OTEsNTQ1IDE1NTAsNjI1TDE1MTUsNjkzTDE1MTYsODM5QzE1MTgsMTAxNSAxNTQ0LDExMzIgMTYxNSwxMjc1QzE2OTEsMTQzMCAxNzkyLDE1MjEgMTkzOSwxNTY3QzIwNzQsMTYwOCAyMzM2LDE1OTUgMjQ2NCwxNTQxQzI0OTAsMTUyOSAyNTE3LDE1MjAgMjUyNCwxNTIwQzI1MzUsMTUyMCAyNTkxLDE3NjQgMjU5MCwxODExQzI1OTAsMTg0MiAyNTExLDE4NjIgMjI1NSwxODk4QzIyMDYsMTkwNSAyMjA1LDE5MDYgMjE5NiwxOTQ1QzIxOTIsMTk2NyAyMTc3LDIwMTggMjE2MywyMDU5QzIxNTAsMjA5OSAyMTQxLDIxNDIgMjE0NCwyMTUzQzIxNDcsMjE2NSAyMTMxLDIyMDkgMjEwMywyMjY0QzIwNTMsMjM2NSAyMDA2LDI0MzAgMTk4NCwyNDMwQzE5NjAsMjQzMCAxOTY4LDI0NDcgMjAxMywyNDg3QzIwNzksMjU0NyAyMTA4LDI1OTcgMjExNSwyNjY0QzIxMTksMjY5NiAyMTE3LDI3MzIgMjExMiwyNzQ0QzIxMDcsMjc1NiAyMDk4LDI3NzcgMjA5MSwyNzkzQzIwODUsMjgwOCAyMDc1LDI4MjAgMjA2OCwyODIwQzIwNjEsMjgyMCAyMDQyLDI4MzQgMjAyNSwyODUxQzIwMDksMjg2OCAxOTg4LDI4NzkgMTk3OSwyODc3QzE5NzAsMjg3NSAxOTUyLDI4NzkgMTkzOSwyODg2QzE5MTIsMjkwMSAxODk3LDI5MDEgMTgyMiwyODg5Wk0yMDc2LDE5NThDMjA4NSwxOTE4IDIwODUsMTkwNyAyMDc0LDE5MDNDMjA1MCwxODk0IDIwNDAsMTkxMSAyMDQwLDE5NTlDMjA0MCwyMDM5IDIwNTgsMjAzOSAyMDc2LDE5NThaIiBzdHlsZT0iZmlsbDp3aGl0ZTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8L2c+CiAgICAgICAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4xLDAsMCwtMC4xLDAsMzA0KSI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMDc1LDI2NzVDMTA3MCwyNjczIDEwNTMsMjY2OSAxMDM4LDI2NjZDOTc1LDI2NTIgOTEwLDI1NjUgOTEwLDI0OTZDOTExLDI0MjAgOTc2LDIzMzggMTA0OCwyMzIyQzExMjMsMjMwNSAxMTg2LDIzMzAgMTIzNywyMzk3QzEyNjEsMjQyOCAxMjY1LDI0NDMgMTI2NSwyNDk2QzEyNjUsMjU1MSAxMjYxLDI1NjMgMTIzNCwyNTk3QzExOTAsMjY1MCAxMTE2LDI2ODcgMTA3NSwyNjc1WiIgc3R5bGU9ImZpbGw6d2hpdGU7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgPC9nPgogICAgICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMSwwLDAsLTAuMSwwLDMwNCkiPgogICAgICAgICAgICA8cGF0aCBkPSJNNDM4NiwxODUzQzQzODMsMTg0MyA0Mzc4LDE4MTcgNDM3NSwxNzk1QzQzNzEsMTc3MyA0MzUxLDE2NjEgNDMyOSwxNTQ1QzQzMDgsMTQzMCA0MjgwLDEyNzIgNDI2NiwxMTk1QzQyNTMsMTExOCA0MjMwLDk5MiA0MjE1LDkxNUM0MjAxLDgzOCA0MTc2LDY5OSA0MTYwLDYwNUM0MTQ0LDUxMiA0MTE5LDM4MSA0MTA2LDMxNUM0MDkyLDI1MCA0MDgzLDE5MyA0MDg2LDE5MUM0MDkzLDE4MyA0NDM3LDE4NCA0NDQ0LDE5MUM0NDQ4LDE5NCA0NDY4LDI5OCA0NDkwLDQyMUM0NTEyLDU0NCA0NTQxLDcwNCA0NTU0LDc3NUM0NTY4LDg0NyA0NTg2LDk1MCA0NTk1LDEwMDVDNDYwNCwxMDYwIDQ2MjcsMTE4NiA0NjQ2LDEyODVDNDY2NSwxMzg0IDQ2OTQsMTU0MyA0NzExLDE2MzlDNDcyOCwxNzM1IDQ3NDQsMTgyNiA0NzQ3LDE4NDJMNDc1MywxODcwTDQ1NzIsMTg3MEM0NDA5LDE4NzAgNDM5MSwxODY4IDQzODYsMTg1M1oiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDwvZz4KICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjEsMCwwLC0wLjEsMCwzMDQpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTMzMDEsMTUxOUMzMTcxLDE0OTQgMzAzNywxNDMxIDI5NDksMTM1N0MyODIzLDEyNDggMjcxNCwxMDMwIDI2ODAsODE1QzI2NjUsNzI2IDI2NjYsNTczIDI2ODEsNTAxQzI3MTIsMzQ2IDI4MzcsMjE2IDI5OTUsMTc1QzMxNTUsMTM0IDMzMjksMTM0IDM0OTUsMTc2QzM4MDgsMjU2IDQwMTMsNTQ3IDQwMzYsOTQzQzQwNDgsMTE0OCA0MDEwLDEyODEgMzkxMiwxMzc5QzM4NTIsMTQzOSAzNzQzLDE0OTMgMzYzOCwxNTE0QzM1NTUsMTUzMSAzMzc1LDE1MzQgMzMwMSwxNTE5Wk0zNTQ1LDEyNDFDMzYzNSwxMjAwIDM2NTgsMTE0MCAzNjQ2LDk2N0MzNjMzLDc2OCAzNTc0LDU4OSAzNDkzLDQ5OUMzNDMzLDQzMiAzMzkwLDQxNSAzMjg0LDQxNUMzMjAxLDQxNSAzMTkwLDQxNyAzMTUxLDQ0M0MzMDcwLDQ5NiAzMDQ3LDU5NiAzMDc0LDc3MEMzMTE3LDEwNDEgMzE5OSwxMjA0IDMzMTYsMTI0NUMzMzc0LDEyNjYgMzQ5NiwxMjY0IDM1NDUsMTI0MVoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDwvZz4KICAgICAgICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgwLjEsMCwwLC0wLjEsMCwzMDQpIj4KICAgICAgICAgICAgPHBhdGggZD0iTTY2MCwxMzQwTDYyNiwxMzM1TDU2NCw5OTBDNTMwLDgwMCA0ODQsNTQ2IDQ2MSw0MjRDNDM4LDMwMyA0MjAsMTk4IDQyMCwxOTJDNDIwLDE4MyA0NjQsMTgwIDU5NywxODJMNzc1LDE4NUw3OTgsMzAwQzgxMCwzNjMgODQxLDUyNSA4NjUsNjYwQzg4OSw3OTUgOTI0LDk4NiA5NDMsMTA4NUM5OTEsMTMzMyA5OTIsMTM0MCA5ODMsMTM0MEM4NzMsMTM0NCA2ODcsMTM0NCA2NjAsMTM0MFoiIHN0eWxlPSJmaWxsOndoaXRlO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="iGol">
   <div class="bar"></div>
@@ -448,44 +475,253 @@ svg{display:block;width:100%;height:auto}
 <div id="menu"><h3>Índice</h3><div id="ml"></div></div>
 <button class="x" id="bx" aria-label="Cerrar">×</button>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2DEBC6"/></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#ff5a5f"/></marker>
+</defs></svg>
+
 <script>
 (function(){
-  var S=[].slice.call(document.querySelectorAll('.slide')),i=0,P=document.querySelector('#prog i'),C=document.getElementById('cnt');
-  function idx(id){for(var k=0;k<S.length;k++)if(S[k].id===id)return k;return -1}
-  function show(n,push){
-    if(n<0||n>=S.length)return;
-    S.forEach(function(s,k){s.classList.toggle('on',k===n);s.classList.toggle('back',k<n)});
-    S[n].scrollTop=0;i=n;
-    P.style.width=((n+1)/S.length*100)+'%';C.textContent=(n+1)+' / '+S.length;
-    try{if(push!==false)history.replaceState(null,'','#'+S[n].id)}catch(e){}
+/* ---------- helpers de dibujo ---------- */
+var FULL='<rect class="pt" x="4" y="4" width="292" height="412" rx="6"/><path class="ln" d="M4 210H296"/><circle class="ln" cx="150" cy="210" r="30"/><rect class="ln" x="80" y="4" width="140" height="62"/><rect class="ln" x="80" y="354" width="140" height="62"/><rect class="ln" x="115" y="4" width="70" height="24"/><rect class="ln" x="115" y="392" width="70" height="24"/>';
+var BOX='<rect class="pt" x="3" y="3" width="294" height="184" rx="6"/>';
+function A(a,b,c,d,k){return '<path class="ar'+(k?' '+k:'')+'" d="M'+a+' '+b+'L'+c+' '+d+'" marker-end="url(#'+(k==='bad'?'ahr':'ah')+')"/>'}
+function T(x,y,s,k){return '<text class="dt'+(k?' '+k:'')+'" x="'+x+'" y="'+y+'" text-anchor="middle">'+s+'</text>'}
+function CN(x,y,ang,len,sp){var r=Math.PI/180,a=(ang-sp)*r,b=(ang+sp)*r;return '<path class="cone" d="M'+x+' '+y+'L'+(x+len*Math.cos(a)).toFixed(1)+' '+(y+len*Math.sin(a)).toFixed(1)+'L'+(x+len*Math.cos(b)).toFixed(1)+' '+(y+len*Math.sin(b)).toFixed(1)+'Z"/>'}
+function Z(x,y,r){return '<circle class="zone" cx="'+x+'" cy="'+y+'" r="'+r+'"/>'}
+function S(pos,cap,draw,hl,ms){return {pos:pos,cap:cap,draw:draw||'',hl:hl||[],ms:ms||2100}}
+function M(a,b){var o={},k;for(k in a)o[k]=a[k];for(k in b)o[k]=b[k];return o}
+function me(l){return {t:'me',l:l||''}}function op(l){return {t:'opp',l:l||''}}function ball(){return {t:'ball'}}function gk(l){return {t:'gk',l:l||''}}
+
+var DG={};
+
+/* ---- técnica (campo corto) ---- */
+DG.tk={w:300,h:190,pitch:BOX,pl:{c:me('compañero'),t:me('tú'),b:ball()},sc:{
+ control:[S({c:[40,80],t:[150,95],b:[56,80]},'Me llega el balón',A(58,82,136,94)),S({c:[40,80],t:[150,95],b:[140,100]},'Control: el balón queda a mis pies, listo para lo siguiente','',['t'])],
+ pase:[S({t:[60,95],b:[76,95],c:[240,95]},'Pase: preciso',A(78,95,224,95),['t']),S({t:[60,95],b:[228,95],c:[240,95]},'…a la altura de mi compañero','',['c'])],
+ cond:[S({t:[40,100],b:[56,100]},'Conducción: cabeza arriba',CN(40,100,0,80,28),['t']),S({t:[235,100],b:[251,100]},'Llevo el balón y miro',CN(235,100,0,50,28)+A(60,100,220,100),['t'])],
+ piernas:[S({t:[150,95],b:[166,110]},'Pierna derecha',T(166,150,'derecha'),['t']),S({t:[150,95],b:[134,110]},'Pierna izquierda',T(134,150,'izquierda'),['t'])]
+}};
+
+/* ---- técnico-tácticos ---- */
+DG.tt={w:300,h:190,pitch:BOX,pl:{c:me('pasa'),t:me('tú'),r:op('rival'),m:me('libre'),b:ball(),c1:me(),r1:op(),r2:op(),r3:op(),a:me(),bb:me(),cc:me()},sc:{
+ dc:[S({c:[45,60],t:[150,150],r:[228,105],b:[62,68]},'Me llega el balón con un rival cerca',A(62,70,136,142)),
+     S({c:[45,60],t:[150,150],r:[228,105],b:[142,140]},'Lo recibo…','',['t']),
+     S({c:[45,60],t:[150,150],r:[228,105],b:[92,165]},'Control orientado: lo llevo al lado libre, lejos del rival',A(140,150,98,163),['t'])],
+ bs:[S({t:[150,95],b:[166,108],c1:[45,45],r:[240,55],m:[245,150]},'Cuerpo cerrado: veo poco',CN(150,95,35,70,16),['t']),
+     S({t:[150,95],b:[166,108],c1:[45,45],r:[240,55],m:[245,150]},'Cuerpo perfilado (de lado): veo el campo y tengo más opciones',CN(150,95,-10,125,70),['t','c1','m'])],
+ ft:[S({c:[40,95],t:[140,95],r:[238,95],m:[222,38],b:[58,95]},'El balón llega y el rival ya viene',A(60,95,124,95)+A(222,95,162,95,'bad')),
+     S({c:[40,95],t:[140,95],r:[238,95],m:[222,38],b:[134,95]},'No hay tiempo para controlar… o hace falta más ritmo','',['t']),
+     S({c:[40,95],t:[140,95],r:[220,95],m:[222,38],b:[214,46]},'Primer toque: juego de primeras',A(146,90,208,50),['t'])],
+ pp:[S({a:[60,150],bb:[150,50],cc:[245,135],r1:[110,105],r2:[200,85],r3:[160,160],b:[75,150]},'Ping-pong: toco…',A(76,146,134,58),['a']),
+     S({a:[95,125],bb:[150,50],cc:[245,135],r1:[110,105],r2:[200,85],r3:[160,160],b:[138,56]},'…me muevo…',A(160,54,230,128),['bb']),
+     S({a:[95,125],bb:[150,50],cc:[245,135],r1:[110,105],r2:[200,85],r3:[160,160],b:[232,132]},'…y pasamos al espacio, de primeras','',['cc'])]
+}};
+
+/* ---- escaneo ---- */
+DG.sc={w:300,h:190,pitch:BOX,pl:{p:me('tú'),c1:me('compañero'),c2:me('compañero'),r:op('rival'),r2:op('rival'),b:ball()},sc:{
+ scan:[S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Compañeros',CN(150,95,-145,110,26),['c1']),
+       S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Rivales',CN(150,95,-30,110,26),['r']),
+       S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Espacios',CN(150,95,30,110,26)+Z(215,125,24),['c2']),
+       S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Rivales detrás',CN(150,95,150,110,26),['r2'])]
+}};
+
+/* ---- hábitos ---- */
+DG.hb={w:300,h:420,pitch:FULL,pl:{p1:me(),p2:me(),p3:me(),s:me('parado'),c:me(),o1:op(),o2:op(),st:me(),f1:me(),f2:me(),f3:me(),gk:gk(),m:me(),w:me(),d:me(),b:ball()},sc:{
+ jog:[S({p1:[100,250],p2:[200,250],p3:[150,330],s:[45,300]},'No andes: siempre activo',T(45,332,'andando ✕','r')+A(100,244,126,222)+A(200,244,174,262)+A(150,324,110,300)),
+      S({p1:[130,215],p2:[172,275],p3:[105,300],s:[45,300]},'Siempre en movimiento, aunque sea trotando',T(45,332,'andando ✕','r'),['p1','p2','p3'])],
+ show:[S({c:[255,90],b:[255,102],o1:[238,70],f1:[60,300],f2:[110,230],f3:[200,340],gk:[150,395]},'El balón está lejos…','',['c']),
+       S({c:[255,90],b:[255,102],o1:[238,70],f1:[125,275],f2:[165,195],f3:[205,300],gk:[150,380]},'…pero siempre tengo un rol: cobertura, equilibrio, apoyo',A(60,296,120,278)+A(110,226,160,198)+A(200,336,205,304),['f1','f2','f3'])],
+ keep:[S({c:[150,250],b:[150,262],o1:[150,212],st:[150,100],o2:[120,160]},'No fuerces: si el premio no interesa, no arriesgues',A(150,242,150,115,'bad')+T(195,190,'riesgo','r')),
+       S({c:[150,250],b:[150,330],o1:[150,212],st:[150,100],o2:[120,160],d:[150,335]},'Si no puedes avanzar, juega atrás (playback)',A(150,266,150,318),['d']),
+       S({c:[150,110],b:[150,122],o1:[150,82],st:[190,60],gk:[150,22]},'Fuérzala solo si detrás hay un gol',A(158,108,195,70)+T(220,40,'¡gol!'),['c'])],
+ unp:[S({m:[150,300],b:[150,312],w:[60,240],o1:[85,232]},'Mismo patrón…',A(145,298,72,250)+T(60,225,'patrón')),
+      S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248]},'…repetido: el rival ya lo lee',A(145,298,72,250,'bad'),['o1']),
+      S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248],st:[150,140]},'No ser predecible: cambio si no funciona',A(150,290,150,155),['st'])]
+}};
+
+/* ---- ataque ---- */
+DG.at={w:300,h:420,pitch:FULL,pl:{gk:gk(),d1:me(),d2:me(),m:me(),w1:me(),w2:me(),st:me(),o1:op(),o2:op(),o3:op(),b:ball()},sc:{
+ open:[S({gk:[150,390],d1:[130,320],d2:[170,320],m:[150,285],w1:[130,265],w2:[170,265],st:[150,250],o1:[120,170],o2:[180,170],o3:[150,215],b:[150,297]},'Todos juntos: el rival lo tiene fácil'),
+       S({gk:[150,385],d1:[70,330],d2:[230,330],m:[150,280],w1:[35,200],w2:[265,200],st:[150,110],o1:[120,170],o2:[180,170],o3:[150,215],b:[150,292]},'Abrir el campo: ancho y profundo',A(132,262,48,208)+A(168,262,252,208)+A(150,242,150,128)+T(150,370,'ancho'),['w1','w2','st'],2600)],
+ avanzar:(function(){var V={gk:[150,390],d1:[110,335],m:[150,262],st:[150,105],w1:[45,195],w2:[255,195],o1:[110,200],o2:[190,200],b:[150,274]};
+   var a1=A(150,252,150,122)+T(166,190,'1'),a2=a1+A(165,264,248,208)+A(135,264,52,208)+T(222,222,'2'),a3=a2+A(140,276,116,326)+T(112,300,'3');
+   return [S(V,'1º hacia delante, por el carril central',a1,['st']),S(V,'2º si no se puede, a las bandas',a2,['w1','w2']),S(V,'3º si tampoco, pase atrás',a3,['d1'])]})(),
+ perder:[S({m:[150,250],b:[150,262],o1:[150,215],o2:[125,165],o3:[175,165],st:[150,100],d1:[110,300]},'Pase forzado: mucho riesgo, premio pequeño',A(150,244,150,112,'bad')+T(205,185,'riesgo','r')),
+         S({m:[150,250],b:[125,170],o1:[150,215],o2:[125,165],o3:[175,165],st:[150,100],d1:[110,300]},'Se pierde el balón ✕','',['o2']),
+         S({m:[150,250],b:[150,262],o1:[150,215],o2:[125,165],o3:[175,165],st:[150,100],d1:[110,300]},'Mejor: pase seguro. No fuerzo la pérdida',A(142,268,118,292),['d1'])],
+ break:[S({m:[150,300],b:[150,312],o1:[105,225],o2:[195,225],o3:[150,120],st:[150,178],w1:[45,235],w2:[255,235]},'Break pass = pase entre líneas',A(150,292,150,194)+T(150,268,'entre dos rivales')+T(60,210,'línea 1','r')+T(60,132,'línea 2','r')),
+        S({m:[150,300],b:[150,190],o1:[105,225],o2:[195,225],o3:[150,120],st:[150,178],w1:[45,235],w2:[255,235]},'Pase entre dos rivales, a un compañero entre líneas','',['st'])],
+ conj:[S({gk:[150,395],d1:[100,345],d2:[200,345],m:[150,310],w1:[60,270],w2:[240,270],st:[150,70],b:[150,322]},'Equipo estirado: alguien se queda descolgado',T(150,110,'descolgado','r')),
+       S({gk:[150,380],d1:[100,285],d2:[200,285],m:[150,235],w1:[60,205],w2:[240,205],st:[150,110],b:[150,247]},'Un viaje en conjunto: nadie descolgado',A(100,330,100,295)+A(200,330,200,295)+A(150,296,150,246)+A(60,262,60,215)+A(240,262,240,215),['d1','d2','m','w1','w2','st'])]
+}};
+
+/* ---- referencias ---- */
+(function(){var R0={cb:[150,335],m:[150,240],bl:[40,175],br:[260,175],st:[150,70],o1:[235,215],o2:[140,130],o3:[90,150],b:[150,347]};
+ var R1=M(R0,{br:[266,275],o1:[248,262]});
+ DG.rf={w:300,h:420,pitch:FULL,pl:{cb:me('central'),m:me('medio'),bl:me('banda'),br:me('banda'),st:me('delantero'),o1:op(),o2:op(),o3:op(),b:ball()},sc:{
+  ref:[S(R0,'Cada uno tiene su referencia. Desde ahí se mueve… y vuelve',Z(150,335,22)+Z(150,240,22)+Z(40,175,22)+Z(260,175,22)+Z(150,70,22),['cb','m','bl','br','st'],3000)],
+  apoyo:[S(R0,'Balón al central','',['cb']),S(R1,'Apoyo: la banda baja sin cerrarse y da línea de pase',A(260,190,266,262)+A(168,335,258,284),['br']),S(M(R1,{b:[266,288]}),'Recibe abierto, con campo por delante','',['br']),S(R0,'Si no recibe, vuelve a su referencia')],
+  hueco:[S(R0,'Balón al central','',['cb']),S(R1,'La banda baja y arrastra a su marcador',A(260,190,266,262),['br']),S(M(R1,{st:[212,185]}),'El delantero busca el hueco entre el medio y la banda',A(155,82,208,175),['st']),S(R0,'Si no recibe, vuelve a su referencia')],
+  timing:[S(R0,'Espera… no antes','',['st']),S(R1,'Se abre el espacio…','',['br']),S(M(R1,{st:[212,185]}),'Ahora: en el momento justo, en el lugar justo',A(155,82,208,175),['st'])]
+ }}})();
+
+/* ---- equilibrio (córner) ---- */
+(function(){var L={ck:[283,14],r1:[128,40],r2:[172,46],rb:[150,120],an:[150,188],mk:[156,278],gk:[150,345],fw:[148,236],b:[283,26]};
+ DG.bl={w:300,h:420,pitch:FULL,pl:{ck:me('córner'),r1:me('remate'),r2:me('remate'),rb:me('rechace'),an:me('anticipación'),mk:me('marca'),gk:gk('portero'),fw:op('delantero rival'),q:me('se queda'),ac:me('acompaña'),r3:me(),r4:me(),b:ball()},sc:{
+  all:[S(L,'Córner a favor: ¿quién se queda atrás?','',['ck']),S(M(L,{b:[150,55]}),'2 al remate · 1 al rechace · 1 anticipación · 1 marca · portero adelantado',A(278,24,160,54),['r1','r2','rb','an','mk','gk'],3200)],
+  remate:[S(L,'Hombres al remate','',['r1','r2']),S(M(L,{b:[150,52],r1:[142,48]}),'Atacan el centro del área',A(278,24,160,54),['r1','r2'])],
+  rechace:[S(M(L,{b:[150,52]}),'El balón se despeja…','',['rb']),S(M(L,{b:[150,140]}),'…cae fuera del área',A(150,58,150,134,'bad'),['rb']),S(M(L,{b:[150,128],rb:[150,128]}),'Hombre al rechace: rodea el área, evita que cojan el rechace, finaliza y evita el contraataque',A(150,122,150,66),['rb'],3000)],
+  antic:[S(M(L,{b:[150,60]}),'Despeje largo hacia el delantero rival…',A(150,66,150,208,'bad'),['an']),S(M(L,{b:[150,214],an:[150,206],fw:[150,232]}),'La anticipación está pendiente: el delantero no la recibe','',['an'])],
+  marca:[S(L,'Hombre a la marca','',['mk']),S(M(L,{fw:[80,236],mk:[88,278]}),'Si el delantero se va a la izquierda…','',['mk']),S(M(L,{fw:[220,236],mk:[212,278]}),'…o a la derecha, siempre por detrás de él','',['mk']),S(M(L,{fw:[150,160],mk:[150,188],an:[150,150]}),'…o va largo: nunca está libre; siempre en desventaja','',['mk'])],
+  portero:[S(L,'Portero adelantado','',['gk']),S(M(L,{gk:[150,305],b:[150,300]}),'A la espalda del hombre a la marca: sale a por lo que pase por encima',A(150,338,150,310),['gk'])],
+  nadie:[S({ck:[283,14],r1:[128,40],r2:[172,46],r3:[100,78],r4:[200,78],rb:[150,120],ac:[150,168],q:[150,262],gk:[150,322],b:[283,26]},'Si no dejan a nadie arriba: todos al ataque salvo uno',A(278,24,160,54),['r1','r2','r3','r4','rb']),
+         S({ck:[283,14],r1:[128,40],r2:[172,46],r3:[100,78],r4:[200,78],rb:[150,120],ac:[150,168],q:[150,262],gk:[150,322],b:[150,60]},'Uno se queda, otro acompaña y hace la anticipación, mucho más cerca de la jugada','',['q','ac'],3200)]
+ }}})();
+
+/* ---- defensa ---- */
+(function(){var C={gk:[150,395],d1:[108,335],d2:[150,338],d3:[192,335],m1:[100,290],m2:[150,292],m3:[200,290],o:[150,190],o2:[90,170],o3:[210,170],b:[150,202]};
+ function sh(dx,dy,ex){var o={};['gk','d1','d2','d3','m1','m2','m3'].forEach(function(k){o[k]=[C[k][0]+dx,C[k][1]+(k==='gk'?0:dy)]});return M(o,ex||{})}
+ var UP=M(sh(0,-60),{gk:[150,380]});
+ var BU={o:[150,110],o2:[90,95],o3:[210,95],b:[150,122]};
+ DG.df={w:300,h:420,pitch:FULL,pl:{gk:gk(),d1:me(),d2:me(),d3:me(),m1:me(),m2:me(),m3:me(),o:op(),o2:op(),o3:op(),b:ball()},sc:{
+  conjunto:[S(C,'Compactos…','',['d1','d2','d3','m1','m2','m3']),S(M(UP,BU),'…salir (step) con el balón arriba…',A(150,330,150,278)),S(M(sh(60,-60),{o:[210,110],b:[210,122],o2:[150,95],o3:[270,95],gk:[170,380]}),'…bascular (shift) hacia el balón…',A(110,260,160,260)+A(160,310,210,310)),S(M(sh(0,10),{o:[150,225],o2:[90,215],o3:[210,215],b:[150,237]}),'…y bajar (drop) si se acerca. Siempre todos juntos',A(150,320,150,350))],
+  compactos:[S(M(C,{d1:[40,335],d3:[260,335],m1:[30,285],m3:[270,285]}),'Abiertos: hay huecos',T(150,250,'huecos','r')),S(C,'Compactos (to close): nos cerramos, sin huecos',A(50,335,98,335)+A(250,335,202,335)+A(40,285,90,285)+A(260,285,210,285),['d1','d2','d3','m1','m2','m3'])],
+  step:[S(M(C,BU),'El balón está lejos de mi portería…','',['o']),S(M(UP,BU),'Step (salir): el equipo sale',A(150,330,150,268)+A(150,285,150,225),['d1','d2','d3','m1','m2','m3'])],
+  drop:[S(M(UP,{o:[150,235],o2:[90,225],o3:[210,225],b:[150,247]}),'El balón se acerca…','',['o']),S(M(C,{d1:[108,345],d2:[150,348],d3:[192,345],m1:[100,310],m2:[150,312],m3:[200,310],o:[150,235],o2:[90,225],o3:[210,225],b:[150,247]}),'Drop (bajar): el equipo baja',A(150,268,150,308),['d1','d2','d3','m1','m2','m3'])],
+  shift:[S(M(sh(-50,0),{o:[95,190],o2:[40,175],o3:[150,175],b:[95,202]}),'El balón está a la izquierda…','',['o']),S(M(sh(55,0),{o:[215,190],o2:[160,175],o3:[265,175],b:[215,202]}),'Shift (bascular): el equipo se mueve de lado con el balón',A(100,300,170,300)+A(100,345,170,345),['d1','d2','d3','m1','m2','m3'])],
+  smart:[S({o:[150,200],b:[150,212],m2:[150,262],d2:[150,318],d1:[95,325]},'Smart defense: antes de presionar, escaneo. ¿Qué tengo detrás?',CN(150,262,90,75,38),['m2']),
+         S({o:[150,200],b:[150,212],m2:[150,225],d2:[150,318],d1:[95,325]},'Hay cobertura detrás: presiono',A(150,255,150,232),['m2']),
+         S({o:[150,200],b:[150,212],m2:[150,262],d2:[45,335],d1:[250,335]},'Sin cobertura detrás…',CN(150,262,90,75,38),['m2']),
+         S({o:[150,200],b:[150,212],m2:[150,285],d2:[45,335],d1:[250,335]},'…no me la juego: retraso y espero',A(150,266,150,282,'bad'),['m2'])]
+ }}})();
+
+/* ---- pérdida ---- */
+(function(){var P={gk:[150,395],c:[262,70],n1:[218,140],n2:[200,100],f1:[150,250],f2:[80,215],b:[262,82],o1:[238,52],o2:[246,100],o3:[170,95]};
+ DG.ps={w:300,h:420,pitch:FULL,pl:{c:me('pierde'),n1:me('cercano'),n2:me('cercano'),f1:me('lejano'),f2:me('lejano'),o1:op(),o2:op(),o3:op(),b:ball()},sc:{
+  pred:[S({c:[262,70],b:[262,82],o1:[236,50],o2:[250,100],n1:[205,165],f1:[150,250],f2:[80,215],o3:[170,95]},'Predecir: va a haber pérdida (dos rivales presionan en el córner)',T(262,140,'¡va a perder!','r'),['c']),
+        S({c:[262,70],b:[262,82],o1:[236,50],o2:[250,100],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Me acerco ANTES de que ocurra',A(205,160,224,120)+A(180,215,198,148),['n1','n2'])],
+  reac:[S({c:[268,100],b:[246,72],o1:[240,60],o2:[246,108],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Pérdida: el rival roba el balón','',['o1']),
+        S({c:[256,80],b:[246,72],o1:[240,60],o2:[246,108],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Reaccionar: el que pierde el balón es el primero en reaccionar',A(268,96,258,84),['c'])],
+  act:[S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,90],n2:[205,70],f1:[140,150],f2:[80,115],o3:[170,95]},'Activar: los cercanos tapan líneas de pase y evitan el balón largo',T(226,55,'✕','r')+T(205,80,'✕','r')+A(238,60,218,44,'bad')+A(238,64,176,92,'bad'),['n1','n2']),
+       S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,90],n2:[205,70],f1:[140,150],f2:[80,115],o3:[170,95]},'Los lejanos: segundas líneas de pase (y ganan tiempo para pensar)',A(150,195,142,160)+A(95,160,82,125),['f1','f2'])]
+ }}})();
+
+/* ---- recuperación ---- */
+(function(){DG.rc={w:300,h:420,pitch:FULL,pl:{r:me('recupera'),st:me(),d1:me(),w1:me(),w2:me(),m:me(),o1:op(),o2:op(),o3:op(),b:ball()},sc:{
+  pred:[S({o1:[150,215],b:[150,226],r:[150,262],o2:[115,170],o3:[190,170]},'Predecir: leo que voy a recuperar y estoy cerca',A(150,254,150,236),['r'])],
+  reac:[S({o1:[150,215],b:[150,246],r:[150,240],o2:[115,170],o3:[190,170]},'Reaccionar: el que recupera escanea',CN(150,240,-90,80,42)+CN(150,240,90,60,30),['r'])],
+  contra:[S({r:[150,236],b:[150,247],st:[150,95],o1:[150,215],o2:[100,270],o3:[200,270],d1:[150,300]},'Contraataque: solo si la ocasión es súper clara',A(150,230,150,112),['r','st']),S({r:[150,236],b:[150,110],st:[150,95],o1:[150,215],o2:[100,270],o3:[200,270],d1:[150,300]},'Los rivales quedan atrás: ocasión clara','',['st'])],
+  seguro:[S({r:[150,236],b:[150,247],st:[150,95],m:[150,215],o1:[130,205],o2:[170,205],d1:[150,300],w1:[110,200],w2:[190,200]},'Si no es súper claro: pase de seguridad',A(150,254,150,290),['r']),
+          S({r:[150,236],b:[150,312],st:[150,70],m:[150,215],o1:[130,205],o2:[170,205],d1:[150,300],w1:[40,170],w2:[260,170]},'El resto hace el campo grande y pasa a mentalidad ofensiva',A(110,200,48,172)+A(190,200,252,172)+A(150,100,150,76),['w1','w2','st'],2800)]
+ }}})();
+
+/* ---- balón parado (defendiendo córner) ---- */
+(function(){var Z0={gk:[150,18],z1:[116,34],z2:[150,44],z3:[184,34],a1:[100,60],a2:[200,62],a3:[150,92],ck:[283,14],b:[283,26]};
+ var K=M(Z0,{k1:[108,52],k2:[192,54],k3:[144,86]});
+ DG.bp={w:300,h:420,pitch:FULL,pl:{gk:gk(),z1:me('zona'),z2:me('zona'),z3:me('zona'),k1:me('marca'),k2:me('marca'),k3:me('marca'),a1:op(),a2:op(),a3:op(),ck:op(),rb:me('rechace'),fwd:me('delantero'),x1:op(),x2:op(),e1:me('equilibrio'),e2:me('equilibrio'),ea:me('anticipación'),b:ball()},sc:{
+  zona:[S(Z0,'Defendiendo en zona: cada uno cuida un espacio y ataca el balón',Z(116,34,22)+Z(150,44,22)+Z(184,34,22),['z1','z2','z3'],2800)],
+  marca:[S(K,'A la marca: estorban al rival…',A(108,56,102,62)+A(192,58,198,64),['k1','k2','k3']),S(K,'…y dejan libres a los de zona, dándoles comodidad',Z(116,34,22)+Z(150,44,22)+Z(184,34,22),['z1','z2','z3'],2800)],
+  rechace:[S(M(K,{rb:[150,128]}),'Zona de rechace: tanto atacando como defendiendo',Z(150,128,30),['rb'],2800)],
+  equi:[S({x1:[128,236],x2:[172,236],e1:[132,264],e2:[168,264],ea:[150,206],gk:[150,330]},'Equilibrio: tantos como delanteros deje el rival, más uno de anticipación',T(150,300,'2 rivales arriba → 2 a la marca + 1','')),
+       ],
+  delantero:[S(M(K,{fwd:[150,215],x1:[126,232],x2:[174,232],b:[150,66]}),'Un delantero arriba: arrastra a dos rivales','',['fwd']),S(M(K,{fwd:[150,205],x1:[126,232],x2:[174,232],b:[150,205]}),'Si hay despeje, no regalamos la posesión: el equipo sale y los rivales quedan en fuera de juego',A(150,70,150,198),['fwd'],3000)]
+ }}})();
+
+/* ---------- motor ---------- */
+function build(cfg,svg){
+  svg.setAttribute('viewBox','0 0 '+cfg.w+' '+cfg.h);
+  var ids=Object.keys(cfg.pl).sort(function(a,b){return (cfg.pl[a].t==='ball')-(cfg.pl[b].t==='ball')});
+  var h=cfg.pitch+'<g class="dl"></g>';
+  ids.forEach(function(id){var p=cfg.pl[id];h+='<g class="pl t-'+p.t+'" data-id="'+id+'" style="opacity:0;transform:translate(150px,150px)"><circle cx="0" cy="0" r="13"/>'+(p.l?'<text y="27">'+p.l+'</text>':'')+'</g>'});
+  svg.innerHTML=h;
+  var x={cfg:cfg,svg:svg,ids:ids,g:{},dl:svg.querySelector('.dl'),t:null};
+  ids.forEach(function(id){x.g[id]=svg.querySelector('[data-id="'+id+'"]')});
+  return x;
+}
+function apply(x,step,jump,cap){
+  if(jump)x.svg.classList.add('nt');
+  x.ids.forEach(function(id){var g=x.g[id],p=step.pos[id];
+    if(p){g.style.opacity=1;g.style.transform='translate('+p[0]+'px,'+p[1]+'px)'}else g.style.opacity=0;
+    g.classList.toggle('hl',step.hl.indexOf(id)>-1)});
+  x.dl.innerHTML=step.draw;
+  if(cap)cap.textContent=step.cap;
+  if(jump){void x.svg.getBoundingClientRect();x.svg.classList.remove('nt')}
+}
+function play(x,name,cap,slide){
+  clearTimeout(x.t);x.run=(x.run||0)+1;var my=x.run,st=x.cfg.sc[name],i=0;
+  function go(){
+    if(my!==x.run)return;
+    if(!slide.classList.contains('on')){x.t=setTimeout(go,400);return}
+    if(i>=st.length){x.t=setTimeout(function(){i=0;go()},2600);return}
+    var s=st[i];apply(x,s,i===0,cap);i++;x.t=setTimeout(go,s.ms);
   }
-  function go(id){var n=idx(id);if(n>=0)show(n)}
-  document.addEventListener('click',function(e){
-    var g=e.target.closest('[data-go]');
-    if(g){go(g.getAttribute('data-go'));return}
-    var t=e.target.closest('.tc');
-    if(t&&t.tagName==='BUTTON')t.classList.toggle('open');
-  });
-  document.querySelectorAll('.node').forEach(function(n){
-    function info(){var sl=n.closest('.slide'),box=sl.querySelector('.callout[id]');if(box)box.textContent=n.getAttribute('data-info')}
-    n.addEventListener('mouseenter',info);n.addEventListener('focus',info);
-    n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go(n.getAttribute('data-go'))}});
-  });
-  document.getElementById('bn').onclick=function(){show(i+1)};
-  document.getElementById('bp').onclick=function(){show(i-1)};
-  var M=document.getElementById('menu'),L=document.getElementById('ml');
-  S.forEach(function(s,k){var a=document.createElement('a');a.innerHTML='<span>'+(k+1)+'</span>'+s.getAttribute('data-t');a.onclick=function(){M.classList.remove('on');show(k)};L.appendChild(a)});
-  document.getElementById('bm').onclick=function(){M.classList.add('on')};
-  document.getElementById('bx').onclick=function(){M.classList.remove('on')};
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){M.classList.remove('on');return}
-    if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1)}
-    else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1)}
-  });
-  var x0=null,y0=null;
-  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
-  document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)show(i+(dx<0?1:-1));x0=null},{passive:true});
-  var st=idx((location.hash||'').slice(1));show(st>=0?st:0,false);
+  go();
+}
+var PDF=/[?&]pdf/.test(location.search);
+if(PDF)document.documentElement.classList.add('pdf');
+
+document.querySelectorAll('.exp[data-dg]').forEach(function(ex){
+  var cfg=DG[ex.getAttribute('data-dg')],slide=ex.closest('.slide'),items=[].slice.call(ex.querySelectorAll('.tc[data-sc]'));
+  var box=ex.querySelector('.items');if(box)box.classList.add('n'+items.length);
+  if(PDF){
+    items.forEach(function(it){var m=document.createElement('div');m.className='mini';m.innerHTML='<svg class="dg"></svg>';it.appendChild(m);
+      var x=build(cfg,m.querySelector('svg')),st=cfg.sc[it.getAttribute('data-sc')],s=st[st.length-1];apply(x,s,true,null);
+      var c=document.createElement('div');c.style.cssText='font-size:12px;color:#A6FFEC;margin-top:4px';c.textContent=s.cap;m.appendChild(c);it.classList.add('open')});
+    return;
+  }
+  var x=build(cfg,ex.querySelector('svg.dg')),cap=ex.querySelector('.xcap');
+  function pick(it){items.forEach(function(o){o.classList.toggle('open',o===it)});play(x,it.getAttribute('data-sc'),cap,slide)}
+  ex._pick=pick;
+  if(items.length)pick(items[0]);
+});
+
+/* físico */
+(function(){var g=document.getElementById('gauge'),its=[].slice.call(document.querySelectorAll('#fitems .tc'));
+  function pick(it){its.forEach(function(o){o.classList.toggle('open',o===it)});g.setAttribute('data-lvl',it.getAttribute('data-lvl'))}
+  its.forEach(function(it){it.addEventListener('click',function(e){e.stopPropagation();pick(it)})});
+  if(PDF){its.forEach(function(o){o.classList.add('open')});g.setAttribute('data-lvl','hi')}else pick(its[0]);
+})();
+
+/* ---------- navegación ---------- */
+var S_=[].slice.call(document.querySelectorAll('.slide')),i=0,P=document.querySelector('#prog i'),C_=document.getElementById('cnt');
+function idx(id){for(var k=0;k<S_.length;k++)if(S_[k].id===id)return k;return -1}
+function show(n,push){
+  if(n<0||n>=S_.length)return;
+  S_.forEach(function(s,k){s.classList.toggle('on',k===n);s.classList.toggle('back',k<n)});
+  S_[n].scrollTop=0;i=n;
+  P.style.width=((n+1)/S_.length*100)+'%';C_.textContent=(n+1)+' / '+S_.length;
+  try{if(push!==false)history.replaceState(null,'','#'+S_[n].id)}catch(e){}
+}
+function go(id){var n=idx(id);if(n>=0)show(n)}
+document.addEventListener('click',function(e){
+  var g=e.target.closest('[data-go]');
+  if(g){go(g.getAttribute('data-go'));return}
+  var t=e.target.closest('.tc');
+  if(!t||t.tagName!=='BUTTON')return;
+  var ex=t.closest('.exp');
+  if(t.hasAttribute('data-sc')&&ex&&ex._pick){ex._pick(t);return}
+  if(t.hasAttribute('data-lvl'))return;
+  t.classList.toggle('open');
+});
+document.querySelectorAll('.node,.node2').forEach(function(n){
+  n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go(n.getAttribute('data-go'))}});
+});
+document.getElementById('bn').onclick=function(){show(i+1)};
+document.getElementById('bp').onclick=function(){show(i-1)};
+var M_=document.getElementById('menu'),L_=document.getElementById('ml');
+S_.forEach(function(s,k){var a=document.createElement('a');a.innerHTML='<span>'+(k+1)+'</span>'+s.getAttribute('data-t');a.onclick=function(){M_.classList.remove('on');show(k)};L_.appendChild(a)});
+document.getElementById('bm').onclick=function(){M_.classList.add('on')};
+document.getElementById('bx').onclick=function(){M_.classList.remove('on')};
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){M_.classList.remove('on');return}
+  if(e.key==='ArrowRight'||e.key==='PageDown'){show(i+1)}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1)}
+});
+var x0=null,y0=null;
+document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5)show(i+(dx<0?1:-1));x0=null},{passive:true});
+var st=idx((location.hash||'').slice(1));show(st>=0?st:0,false);
 })();
 </script>
 </body>
