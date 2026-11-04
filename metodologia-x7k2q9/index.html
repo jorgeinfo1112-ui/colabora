@@ -138,6 +138,43 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
  .mini{margin-top:6px}.mini svg{height:215px;width:100%}.items.n3 .mini svg,.items.n4 .mini svg{height:330px}
  .tc.static{display:block}
 }
+/* ---- v3: pies, burbujas, tarjetas con icono, esfuerzos ---- */
+.pl .rot{transition:transform 1s ease-in-out}
+.nt .pl,.nt .pl .rot{transition:none}
+.pl .ft{fill:none;stroke-width:5;stroke-linecap:round}
+.pl.t-me .ft{stroke:#d9ddd6}.pl.t-opp .ft{stroke:#ff5a5f}.pl.t-gk .ft{stroke:#f0c93a}
+svg.dg{max-height:calc(100vh - 380px)}
+.pl text.sd{text-anchor:start}
+.pl.clk{cursor:pointer}.pl.clk:hover circle{stroke:#2DEBC6;stroke-width:3.5}
+.pl.clk text{fill:#A6FFEC}
+.bub rect{fill:#F3F1E7;stroke:#2DEBC6;stroke-width:1.5}.bub path{fill:#F3F1E7;stroke:none}
+.bub text{fill:#06100e;font-family:var(--body);font-weight:700;font-size:11px}
+.vgrid{display:grid;gap:12px;grid-template-columns:repeat(5,1fr);flex:1;align-items:stretch}
+.vgrid.v3{grid-template-columns:repeat(3,1fr)}
+.vc{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:18px 14px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:44px;text-align:center;gap:10px}
+.vc svg.ic{width:100px;height:100px;fill:none;stroke:#2DEBC6;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.vc.big svg.ic{width:120px;height:120px}
+.vc b{font-family:var(--display);font-size:28px;text-transform:uppercase;font-weight:800;line-height:1}
+.vc b em{font-size:1.25em}
+.vc small{color:var(--mint);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.vc p{font-size:15px;color:var(--cream)}
+.grp{grid-column:1/-1;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mint);font-weight:600;margin-top:6px}
+.hint2{font-size:15px;color:var(--mute)}
+.eff rect.bar{fill:#2DEBC6;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(var(--mid));transition:transform .9s cubic-bezier(.3,1.3,.5,1),fill .5s}
+.eff[data-lvl="hi"] rect.bar{transform:scaleY(var(--hi))}
+.eff[data-lvl="lo"] rect.bar{transform:scaleY(var(--lo));fill:#ff5a5f}
+.eff[data-lvl="mid"] .fail span::after{content:"·"}
+.eff[data-lvl="lo"] .fail span{border-color:var(--red);color:var(--red);opacity:.7}
+.eff[data-lvl="lo"] .fail span::after{content:"✕";margin-left:8px}
+.eff[data-lvl="hi"] .fail span::after{content:"✓";margin-left:8px;color:var(--mint)}
+.eff .ax{fill:#a7ada6;font-family:var(--body);font-size:11px}
+@media(max-width:860px){.vgrid,.vgrid.v3{grid-template-columns:1fr 1fr}.vc svg.ic{width:52px;height:52px}}
+@media print{
+ .vgrid{grid-template-columns:repeat(5,1fr)!important}.vgrid.v3{grid-template-columns:repeat(3,1fr)!important}
+ .vc{padding:12px 10px}.vc b{font-size:24px}.vc p{font-size:13px}
+ .grp{grid-column:1/-1}
+ .eff rect.bar{transition:none}
+}
 </style>
 </head>
 <body>
@@ -154,29 +191,11 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
 <!-- FILOSOFÍA -->
 <section class="slide" id="filosofia" data-t="Nuestra filosofía">
   <div class="head"><div class="k">Cómo pensamos</div><h2>Hablamos el <em>idioma del jugador</em></h2></div>
-  <div class="cols">
-    <div style="display:grid;gap:18px">
-      <p class="lead">Una metodología que el niño entiende y puede <em>visualizar</em>, para que en todo momento sepa qué está haciendo.</p>
-      <p class="callout">Si no lo entiende, no lo puede hacer en el campo.</p>
-    </div>
-    <div class="grid">
-      <div class="tc open static"><b>Fácil de entender</b></div>
-      <div class="tc open static"><b>Fácil de visualizar</b></div>
-      <div class="tc open static"><b>Fácil de identificar</b><span class="d"><span><i>Sabe en qué parte del mapa está trabajando.</i></span></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- VALORES -->
-<section class="slide" id="valores" data-t="Los valores · lo primero">
-  <div class="head"><div class="k">Lo primero de todo</div><h2>Los <em>valores</em></h2></div>
-  <p class="lead">Dentro y fuera del fútbol, te harán <em>triunfar en la vida</em>. Por eso están en el centro: en el corazón.</p>
-  <div class="grid">
-    <button class="tc heart open"><b><span class="l">H</span>Humble · Humildad</b><span class="d"><span><i>Todos aprendemos, siempre. Ganas sin presumir, pierdes sin hundirte.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">E</span>Effort · Esfuerzo</b><span class="d"><span><i>Das lo máximo, también cuando nadie mira.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">A</span>Ambition · Ambición</b><span class="d"><span><i>Quieres ser mejor cada día.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">R</span>Respect · Respeto</b><span class="d"><span><i>A compañeros, rivales, entrenadores, árbitros y a ti mismo.</i></span></span></button>
-    <button class="tc heart open"><b><span class="l">T</span>Teamwork · Equipo</b><span class="d"><span><i>Nadie gana solo: ayudas, animas y juegas para el grupo.</i></span></span></button>
+  <p class="lead">Una metodología que el niño entiende y puede <em>visualizar</em>, para que en todo momento sepa qué está haciendo. <em>Si no lo entiende, no lo puede hacer en el campo.</em></p>
+  <div class="vgrid v3">
+    <div class="vc big"><svg class="ic" viewBox="0 0 48 48"><path d="M24 5A13 13 0 0 0 16 29V34H32V29A13 13 0 0 0 24 5Z"/><path d="M18 40H30M20 44H28"/></svg><b>Fácil de <em>entender</em></b><p>Se explica en su idioma.</p></div>
+    <div class="vc big"><svg class="ic" viewBox="0 0 48 48"><path d="M3 24Q24 4 45 24Q24 44 3 24Z"/><circle cx="24" cy="24" r="7"/></svg><b>Fácil de <em>visualizar</em></b><p>Se ve en un dibujo.</p></div>
+    <div class="vc big"><svg class="ic" viewBox="0 0 48 48"><path d="M24 44Q10 28 10 19A14 14 0 0 1 38 19Q38 28 24 44Z"/><circle cx="24" cy="19" r="5"/></svg><b>Fácil de <em>identificar</em></b><p>Sabe en qué parte del mapa está trabajando.</p></div>
   </div>
 </section>
 
@@ -196,38 +215,48 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
           <text x="300" y="258" text-anchor="middle" font-family="Inter" font-size="15" fill="#A6FFEC">valores · pincha</text>
         </g>
         <g class="node" tabindex="0" data-go="tecnica"><circle cx="150" cy="170" r="48"/><text x="150" y="178" text-anchor="middle" font-size="22">Técnica</text></g>
-        <g class="node" tabindex="0" data-go="tactica"><circle cx="450" cy="170" r="48"/><text x="450" y="178" text-anchor="middle" font-size="22">Táctica</text></g>
+        <g class="node" tabindex="0" data-go="scanning"><circle cx="450" cy="170" r="48"/><text x="450" y="178" text-anchor="middle" font-size="22">Táctica</text></g>
         <g class="node" tabindex="0" data-go="fisico"><circle cx="300" cy="420" r="48"/><text x="300" y="428" text-anchor="middle" font-size="22">Físico</text></g>
       </svg>
     </div>
     <div style="display:grid;gap:12px">
       <p class="lead">Un <em>triángulo</em> rodeado por un <em>corazón</em>. Pincha en cada parte.</p>
       <div class="grid">
-        <button class="tc" data-go="valores"><b>Valores <small style="margin:0">el corazón · lo primero</small></b></button>
+        <button class="tc" data-go="valores"><b>Valores <small style="margin:0">el corazón</small></b></button>
         <button class="tc" data-go="tecnica"><b>Técnica <small style="margin:0">arriba · izquierda</small></b></button>
-        <button class="tc" data-go="tactica"><b>Táctica <small style="margin:0">arriba · derecha</small></b></button>
+        <button class="tc" data-go="scanning"><b>Táctica <small style="margin:0">arriba · derecha</small></b></button>
         <button class="tc" data-go="fisico"><b>Físico <small style="margin:0">abajo</small></b></button>
       </div>
     </div>
   </div>
 </section>
 
+<!-- VALORES -->
+<section class="slide" id="valores" data-t="Los valores · HEART">
+  <a class="back-link" data-go="mapa">← Volver al mapa</a>
+  <div class="head"><div class="k">El corazón · lo primero de todo</div><h2>Los <em>valores</em></h2></div>
+  <p class="lead">Dentro y fuera del fútbol, te harán <em>triunfar en la vida</em>.</p>
+  <div class="vgrid">
+    <div class="vc"><svg class="ic" viewBox="0 0 48 48"><path d="M24 42V22M24 31Q13 31 11 19Q22 19 24 31M24 27Q35 27 37 15Q26 15 24 27M10 42H38"/></svg><b><em>H</em>umble</b><small>Humildad</small><p>Todos aprendemos, siempre. Ganas sin presumir, pierdes sin hundirte.</p></div>
+    <div class="vc"><svg class="ic" viewBox="0 0 48 48"><path d="M27 5L12 27H23L20 43L36 20H25Z"/></svg><b><em>E</em>ffort</b><small>Esfuerzo</small><p>Das lo máximo, también cuando nadie mira.</p></div>
+    <div class="vc"><svg class="ic" viewBox="0 0 48 48"><path d="M5 41L19 17L28 31L33 24L43 41Z"/><path d="M19 17V6L30 10L19 13"/></svg><b><em>A</em>mbition</b><small>Ambición</small><p>Quieres ser mejor cada día.</p></div>
+    <div class="vc"><svg class="ic" viewBox="0 0 48 48"><circle cx="12" cy="13" r="5"/><circle cx="36" cy="13" r="5"/><path d="M4 41V30Q4 23 12 23Q20 23 20 30V41M28 41V30Q28 23 36 23Q44 23 44 30V41"/><path d="M20 33H28"/></svg><b><em>R</em>espect</b><small>Respeto</small><p>A compañeros, rivales, entrenadores, árbitros y a ti mismo.</p></div>
+    <div class="vc"><svg class="ic" viewBox="0 0 48 48"><circle cx="24" cy="10" r="5"/><circle cx="10" cy="34" r="5"/><circle cx="38" cy="34" r="5"/><path d="M21 15L13 29M27 15L35 29M15 34H33"/></svg><b><em>T</em>eamwork</b><small>Equipo</small><p>Nadie gana solo: ayudas, animas y juegas para el grupo.</p></div>
+  </div>
+</section>
+
 <!-- TÉCNICA -->
 <section class="slide" id="tecnica" data-t="Técnica">
   <a class="back-link" data-go="mapa">← Volver al mapa</a>
-  <div class="head"><div class="k">Esquina 1 · la base más importante</div><h2><em>Técnica</em> + escaneo</h2></div>
+  <div class="head"><div class="k">Esquina 1 · la base más importante</div><h2><em>Técnica</em></h2></div>
   <p class="lead"><span class="pill">Con las dos piernas</span><span class="pill">Analítico</span><span class="pill">Contextualizado</span></p>
-  <div class="exp" data-dg="tk">
-    <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
-    <div class="items">
-      <button class="tc" data-sc="control"><b>Control</b><span class="d"><span><i>Dejo el balón listo.</i></span></span></button>
-      <button class="tc" data-sc="pase"><b>Pase</b><span class="d"><span><i>Preciso, a mi compañero.</i></span></span></button>
-      <button class="tc" data-sc="cond"><b>Conducción</b><span class="d"><span><i>Cabeza arriba.</i></span></span></button>
-      <button class="tc" data-sc="piernas"><b>Dos piernas</b><span class="d"><span><i>Derecha e izquierda, a la perfección.</i></span></span></button>
-      <button class="tc key" data-go="scanning"><b>El hábito del escaneo <small>la llave de todo</small></b></button>
-      <button class="tc" data-go="tecnotactico"><b>Conceptos técnico-tácticos</b></button>
-    </div>
+  <div class="grid g2">
+    <div class="tc open static"><b>Control</b><span class="d"><span><i>Dejo el balón listo.</i></span></span></div>
+    <div class="tc open static"><b>Pase</b><span class="d"><span><i>Preciso, a mi compañero.</i></span></span></div>
+    <div class="tc open static"><b>Conducción</b><span class="d"><span><i>Cabeza arriba.</i></span></span></div>
+    <div class="tc open static"><b>Dos piernas</b><span class="d"><span><i>Derecha e izquierda, a la perfección.</i></span></span></div>
   </div>
+  <button class="tc key" data-go="tecnotactico" style="max-width:420px"><b>Conceptos técnico-tácticos</b></button>
 </section>
 
 <!-- TÉCNICO-TÁCTICOS -->
@@ -237,18 +266,19 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
   <div class="exp" data-dg="tt">
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items">
-      <button class="tc" data-sc="dc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Controlo hacia el lado libre.</i></span></span></button>
-      <button class="tc" data-sc="bs"><b>Body shape</b><small>Perfilamiento</small><span class="d"><span><i>Cuerpo de lado: veo más campo.</i></span></span></button>
-      <button class="tc" data-sc="ft"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>De primeras si no hay tiempo, o para dar ritmo.</i></span></span></button>
-      <button class="tc" data-sc="pp"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Toca, muévete, pasa al espacio.</i></span></span></button>
+      <button class="tc" data-sc="dc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Según los rivales o hacia dónde quiero jugar, ya perfilado y mirando el campo.</i></span></span></button>
+      <button class="tc" data-sc="bs"><b>Body shape</b><small>Perfilamiento · sobre todo el que va a recibir</small><span class="d"><span><i>Pies y cuerpo de lado antes de recibir: veo más campo y tengo más opciones.</i></span></span></button>
+      <button class="tc" data-sc="ft"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>De primeras y de cara si el rival está encima y no hay tiempo para dos toques. También para subir el ritmo de juego.</i></span></span></button>
+      <button class="tc" data-sc="pp"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Toco, me muevo y pasamos al espacio que ataca el compañero, entre los rivales.</i></span></span></button>
+      <button class="tc key" data-go="mapa"><b>Volver al mapa</b></button>
     </div>
   </div>
 </section>
 
-<!-- ESCANEO -->
-<section class="slide" id="scanning" data-t="Escaneo · la llave">
-  <a class="back-link" data-go="tecnica">← Volver a técnica</a>
-  <div class="head"><div class="k">Junto a control, pase y conducción: la base del fútbol</div><h2>El hábito del <em>escaneo</em></h2></div>
+<!-- ESCANEO (primera diapositiva de táctica) -->
+<section class="slide" id="scanning" data-t="Táctica · el escaneo, la llave">
+  <a class="back-link" data-go="mapa">← Volver al mapa</a>
+  <div class="head"><div class="k">Esquina 2 · Táctica empieza aquí</div><h2>El hábito del <em>escaneo</em></h2></div>
   <div class="cols">
     <div style="display:grid;gap:14px">
       <svg class="keyart" viewBox="0 0 380 170" role="img" aria-label="Una llave con un ojo" style="max-width:520px">
@@ -261,32 +291,38 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
         <rect x="334" y="88" width="14" height="42" rx="4" fill="#2DEBC6"/>
       </svg>
       <div class="keytxt">La llave que <em>abre la táctica</em></div>
-      <p class="lead">Mira a tu alrededor <em>antes de recibir</em>: compañeros · rivales · espacios.</p>
-      <p class="callout">Lo más importante del fútbol, junto a control, pase y conducción.</p>
+      <p class="lead">Mira a tu alrededor: compañeros · rivales · espacios.</p>
+      <p class="callout">No solo antes de recibir: <em>en todo momento</em>.</p>
+      <button class="tc key next-btn" data-go="habitos" style="max-width:320px"><b>Siguiente: Hábitos</b></button>
     </div>
     <div class="exp" data-dg="sc" style="grid-template-columns:1fr">
       <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
-      <div class="items" style="display:none"><button class="tc" data-sc="scan"></button></div>
+      <div class="items">
+        <button class="tc" data-sc="of"><b>Escaneo ofensivo</b><small>El balón lo tiene un compañero</small><span class="d"><span><i>Antes y mientras participo: dónde están todos.</i></span></span></button>
+        <button class="tc" data-sc="de"><b>Escaneo defensivo</b><small>El balón lo tiene el rival</small><span class="d"><span><i>También defendiendo: balón, rivales, compañeros y mi espalda.</i></span></span></button>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- HÁBITOS -->
 <section class="slide" id="habitos" data-t="Hábitos antes de la táctica">
+  <a class="back-link" data-go="scanning">← Volver al escaneo</a>
   <div class="head"><div class="k">Antes de la táctica</div><h2>Hábitos del <em>jugador iGol</em></h2></div>
   <div class="exp" data-dg="hb">
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items">
       <button class="tc" data-sc="jog"><b>Don’t walk, on jog</b><small>No andes: siempre activo</small><span class="d"><span><i>Siempre en movimiento, aunque sea trotando.</i></span></span></button>
       <button class="tc" data-sc="show"><b>Show up every time</b><small>Siempre intervienes</small><span class="d"><span><i>Aunque el balón esté lejos, siempre tienes un rol en la jugada.</i></span></span></button>
-      <button class="tc" data-sc="keep"><b>Don’t force it, keep playing</b><small>No fuerces, sigue jugando</small><span class="d"><span><i>No fuerces la pérdida si el premio no interesa. Fuérzala si detrás hay gol. Si no avanzas, juega atrás (playback).</i></span></span></button>
+      <button class="tc" data-sc="keep"><b>Don’t force it, keep playing</b><small>No fuerces, sigue jugando</small><span class="d"><span><i>Si no es posible ir hacia delante, juega hacia atrás (playback). Arriésgate solo si detrás hay gol.</i></span></span></button>
       <button class="tc" data-sc="unp"><b>Unpredictable</b><small>No ser predecible</small><span class="d"><span><i>No repitas el patrón si no funciona.</i></span></span></button>
+      <button class="tc key next-btn" data-go="tactica"><b>Siguiente: el rombo</b></button>
     </div>
   </div>
 </section>
 
 <!-- TÁCTICA -->
-<section class="slide" id="tactica" data-t="Táctica">
+<section class="slide" id="tactica" data-t="Táctica · el rombo">
   <a class="back-link" data-go="mapa">← Volver al mapa</a>
   <div class="head"><div class="k">Esquina 2</div><h2><em>Táctica</em></h2></div>
   <div class="cols">
@@ -326,10 +362,10 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items n7">
       <button class="tc" data-sc="open"><b>Abrir el campo</b><span class="d"><span><i>Ancho y profundo.</i></span></span></button>
-      <button class="tc" data-sc="avanzar"><b>Hacia dónde voy</b><small>Orden de prioridad</small><span class="d"><span><i>1º adelante por el centro · 2º bandas · 3º pase atrás.</i></span></span></button>
+      <button class="tc" data-sc="avanzar"><b>¿Qué hago con el balón?</b><small>Hacia dónde voy · prioridades</small><span class="d"><span><i>1º adelante por el centro (si hay break pass, mejor) · 2º bandas · 3º pase atrás.</i></span></span></button>
       <button class="tc" data-sc="perder"><b>No perder el balón</b><span class="d"><span><i>No forzar la pérdida. Solo arriesgo si hay opción clara: sin riesgos por premios pequeños.</i></span></span></button>
-      <button class="tc" data-sc="break"><b>Break pass</b><small>Pase entre líneas</small><span class="d"><span><i>Pase entre dos rivales a un compañero entre líneas.</i></span></span></button>
-      <button class="tc" data-sc="conj"><b>Un viaje en conjunto</b><span class="d"><span><i>Nadie descolgado: más opciones y equipo no estirado.</i></span></span></button>
+      <button class="tc" data-sc="break"><b>Break pass</b><small>Pase entre líneas</small><span class="d"><span><i>Pase entre dos rivales a un compañero entre líneas. Interesante buscarlo durante el partido.</i></span></span></button>
+      <button class="tc" data-sc="conj"><b>Un viaje en conjunto</b><span class="d"><span><i>Si el delantero está solo arriba, el equipo acompaña la jugada. Y en defensa, estamos más cerca de la zona de pérdida.</i></span></span></button>
       <button class="tc key" data-go="referencias"><b>Referencias</b></button>
       <button class="tc key" data-go="balance"><b>Equilibrio · balance</b></button>
     </div>
@@ -346,7 +382,7 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
       <button class="tc" data-sc="ref"><b>5 referencias</b><span class="d"><span><i>Central atrás · medio · 2 bandas · delantero. La estructura no se desmorona.</i></span></span></button>
       <button class="tc" data-sc="apoyo"><b>Apoyo de banda</b><span class="d"><span><i>Baja sin cerrarse y da línea de pase.</i></span></span></button>
       <button class="tc" data-sc="hueco"><b>Delantero al hueco</b><span class="d"><span><i>Busca el hueco entre el medio y la banda.</i></span></span></button>
-      <button class="tc" data-sc="timing"><b>Timing</b><span class="d"><span><i>En el momento justo, en el lugar justo, y no antes. Si no recibes, vuelves a tu referencia.</i></span></span></button>
+      <button class="tc" data-sc="timing"><b>Timing</b><span class="d"><span><i>En el momento justo, en el lugar justo: ni antes ni después. Si no recibes, vuelves a tu referencia.</i></span></span></button>
     </div>
   </div>
 </section>
@@ -354,17 +390,18 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
 <!-- BALANCE -->
 <section class="slide" id="balance" data-t="Ataque · equilibrio">
   <a class="back-link" data-go="ataque">← Volver a ataque</a>
-  <div class="head"><div class="k">Ataque · pensando en la pérdida · ejemplo: córner</div><h2>Equilibrio <em>(balance)</em></h2></div>
+  <div class="head"><div class="k">Ataque · pensando en la pérdida · ejemplo: córner a favor</div><h2>Equilibrio <em>(balance)</em></h2></div>
+  <p class="hint2">Pincha en cada jugador del campo para ver su rol.</p>
   <div class="exp" data-dg="bl">
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items n7">
-      <button class="tc" data-sc="all"><b>Córner a favor</b><span class="d"><span><i>Siempre uno más que rivales arriba.</i></span></span></button>
-      <button class="tc" data-sc="remate"><b>Hombres al remate</b><span class="d"><span><i>Atacan el centro del área.</i></span></span></button>
-      <button class="tc" data-sc="rechace"><b>Hombre al rechace</b><span class="d"><span><i>Rodea el área: evita que cojan el rechace, finaliza y evita el contraataque.</i></span></span></button>
-      <button class="tc" data-sc="antic"><b>Hombre a la anticipación</b><span class="d"><span><i>Pendiente de que no la reciba el delantero rival.</i></span></span></button>
-      <button class="tc" data-sc="marca"><b>Hombre a la marca</b><span class="d"><span><i>El delantero nunca libre: siempre en desventaja.</i></span></span></button>
-      <button class="tc" data-sc="portero"><b>Portero adelantado</b><span class="d"><span><i>A la espalda del hombre a la marca.</i></span></span></button>
-      <button class="tc" data-sc="nadie"><b>Si no dejan a nadie arriba</b><span class="d"><span><i>Todos al ataque salvo uno que se queda y otro que acompaña.</i></span></span></button>
+      <button class="tc" data-sc="all"><b>Córner a favor</b><span class="d"><span><i>Siempre uno más que rivales arriba. Pincha a los jugadores marcados.</i></span></span></button>
+      <button class="tc" data-sc="corner"><b>El del córner</b><span class="d"><span><i>Tras centrar, entra en diagonal al área: desde la esquina no hace nada.</i></span></span></button>
+      <button class="tc" data-sc="rechace"><b>Hombre al rechace</b><span class="d"><span><i>A pocos metros de la frontal: recoge lo que sale, finaliza y evita el contraataque.</i></span></span></button>
+      <button class="tc" data-sc="antic"><b>Hombre a la anticipación</b><span class="d"><span><i>Un poco más adelantado, por delante del delantero rival: pendiente de que no la reciba.</i></span></span></button>
+      <button class="tc" data-sc="marca"><b>Hombre a la marca</b><span class="d"><span><i>Por detrás del delantero rival, de medio campo para adelante: así queda en fuera de juego y nunca está libre.</i></span></span></button>
+      <button class="tc" data-sc="portero"><b>Portero adelantado</b><span class="d"><span><i>A la espalda del hombre a la marca: sale a por lo que pase por encima.</i></span></span></button>
+      <button class="tc" data-sc="nadie"><b>Si no dejan a nadie arriba</b><span class="d"><span><i>Todos al ataque salvo uno que se queda y otro que acompaña, los dos mínimo a la altura del medio campo; el rechace, pegado a la frontal.</i></span></span></button>
     </div>
   </div>
 </section>
@@ -381,6 +418,7 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
       <button class="tc" data-sc="step"><b>Step</b><small>Salir</small><span class="d"><span><i>Balón arriba: el equipo sale.</i></span></span></button>
       <button class="tc" data-sc="drop"><b>Drop</b><small>Bajar</small><span class="d"><span><i>Balón cerca: el equipo baja.</i></span></span></button>
       <button class="tc" data-sc="shift"><b>Shift</b><small>Bascular</small><span class="d"><span><i>El equipo se mueve de lado con el balón.</i></span></span></button>
+      <button class="tc" data-sc="bpass"><b>Tapar el break pass</b><small>Importante</small><span class="d"><span><i>Cerrar el pasillo entre dos de los nuestros para que nadie reciba entre líneas.</i></span></span></button>
       <button class="tc" data-sc="smart"><b>Smart defense</b><small>Defensa inteligente</small><span class="d"><span><i>Presiono según lo que tengo detrás. Hay que escanear.</i></span></span></button>
     </div>
   </div>
@@ -394,8 +432,8 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items">
       <button class="tc" data-sc="pred"><b><span class="n">1</span>Predecir</b><span class="d"><span><i>Leo el juego y me acerco antes de que ocurra.</i></span></span></button>
-      <button class="tc" data-sc="reac"><b><span class="n">2</span>Reaccionar</b><span class="d"><span><i>El que pierde el balón es el primero en reaccionar.</i></span></span></button>
-      <button class="tc" data-sc="act"><b><span class="n">3</span>Activar</b><span class="d"><span><i>Cercanos: tapan líneas de pase y evitan el balón largo. Lejanos: segundas líneas de pase.</i></span></span></button>
+      <button class="tc" data-sc="reac"><b><span class="n">2</span>Reaccionar</b><span class="d"><span><i>El que pierde el balón es el primero en reaccionar. Los cercanos tapan líneas de pase y evitan el balón largo; los lejanos, segundas líneas de pase.</i></span></span></button>
+      <button class="tc" data-sc="act"><b><span class="n">3</span>Activar</b><span class="d"><span><i>Con la comunicación, estimulo a los compañeros a reaccionar: que no se quede nadie atrás.</i></span></span></button>
     </div>
   </div>
 </section>
@@ -407,10 +445,11 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
   <div class="exp" data-dg="rc">
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items">
-      <button class="tc" data-sc="pred"><b><span class="n">1</span>Predecir</b><span class="d"><span><i>Leo que voy a recuperar y estoy cerca.</i></span></span></button>
+      <button class="tc" data-sc="pred"><b><span class="n">1</span>Predecir</b><span class="d"><span><i>Sobre todo el resto del equipo: prevé que se va a recuperar y se acerca a la zona para recibir el pase de seguridad.</i></span></span></button>
       <button class="tc" data-sc="reac"><b><span class="n">2</span>Reaccionar</b><span class="d"><span><i>El que recupera escanea: ¿contraataque o seguridad?</i></span></span></button>
-      <button class="tc" data-sc="contra"><b><span class="n">3</span>Activar · contraataque</b><span class="d"><span><i>Solo si es súper claro.</i></span></span></button>
-      <button class="tc" data-sc="seguro"><b><span class="n">3</span>Activar · pase seguro</b><span class="d"><span><i>Si no es claro: pase de seguridad y el resto hace el campo grande.</i></span></span></button>
+      <button class="tc" data-sc="act"><b><span class="n">3</span>Activar</b><span class="d"><span><i>Con la comunicación, estimulo a los compañeros a reaccionar.</i></span></span></button>
+      <button class="tc" data-sc="contra"><b>Opción · contraataque</b><span class="d"><span><i>Solo si es súper claro.</i></span></span></button>
+      <button class="tc" data-sc="seguro"><b>Opción · pase seguro</b><span class="d"><span><i>Si no es claro: pase de seguridad y el resto hace el campo grande.</i></span></span></button>
     </div>
   </div>
 </section>
@@ -418,15 +457,17 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
 <!-- BALÓN PARADO -->
 <section class="slide" id="balon-parado" data-t="Balón parado">
   <a class="back-link" data-go="tactica">← Volver al rombo</a>
-  <div class="head"><div class="k">Dentro del rombo · ejemplo: defendiendo un córner</div><h2>Balón <em>parado</em></h2></div>
+  <div class="head"><div class="k">Dentro del rombo · ejemplo: el córner</div><h2>Balón <em>parado</em></h2></div>
   <div class="exp" data-dg="bp">
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items">
+      <div class="grp">Acción defensiva</div>
       <button class="tc" data-sc="zona"><b>Personas en zona</b><span class="d"><span><i>Atacando y defendiendo.</i></span></span></button>
       <button class="tc" data-sc="marca"><b>Personas a la marca</b><span class="d"><span><i>Estorban y dejan libres a los de zona, dándoles comodidad.</i></span></span></button>
-      <button class="tc" data-sc="rechace"><b>Personas en zona de rechace</b><span class="d"><span><i>Atacando y defendiendo.</i></span></span></button>
-      <button class="tc" data-sc="equi"><b>Personas de equilibrio</b><span class="d"><span><i>Tantas como delanteros deje el rival.</i></span></span></button>
+      <button class="tc" data-sc="rechace"><b>Personas en zona de rechace</b><span class="d"><span><i>Cerca de la frontal, atacando y defendiendo.</i></span></span></button>
       <button class="tc" data-sc="delantero"><b>Un delantero arriba</b><span class="d"><span><i>Arrastra a dos rivales: el despeje no es posesión regalada.</i></span></span></button>
+      <div class="grp">Acción ofensiva</div>
+      <button class="tc" data-sc="equi"><b>Personas de equilibrio</b><span class="d"><span><i>Tantas como delanteros deje el rival, de medio campo para adelante; uno de anticipación por delante y uno al rechace.</i></span></span></button>
     </div>
   </div>
 </section>
@@ -434,23 +475,31 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
 <!-- FÍSICO -->
 <section class="slide" id="fisico" data-t="Físico">
   <a class="back-link" data-go="mapa">← Volver al mapa</a>
-  <div class="head"><div class="k">Esquina 3 · la gasolina</div><h2><em>Físico</em></h2></div>
+  <div class="head"><div class="k">Esquina 3 · esfuerzos de partido</div><h2><em>Físico</em></h2></div>
   <div class="cols">
-    <div class="panel gauge" id="gauge" data-lvl="mid">
-      <svg viewBox="0 0 300 190" role="img" aria-label="Medidor de gasolina">
-        <path d="M40 150A110 110 0 0 1 260 150" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="22" stroke-linecap="round"/>
-        <path d="M40 150A110 110 0 0 1 150 40" fill="none" stroke="#ff5a5f" stroke-width="22" stroke-linecap="round" opacity=".7"/>
-        <path d="M150 40A110 110 0 0 1 260 150" fill="none" stroke="#2DEBC6" stroke-width="22" stroke-linecap="round"/>
-        <text x="40" y="182" fill="#F3F1E7" font-family="Barlow Condensed" font-weight="800" font-size="22" text-anchor="middle">VACÍO</text>
-        <text x="260" y="182" fill="#F3F1E7" font-family="Barlow Condensed" font-weight="800" font-size="22" text-anchor="middle">LLENO</text>
-        <g class="needle"><path d="M150 150L150 58" stroke="#F3F1E7" stroke-width="6" stroke-linecap="round"/><circle cx="150" cy="150" r="10" fill="#F3F1E7"/></g>
+    <div class="panel eff" id="gauge" data-lvl="mid">
+      <svg viewBox="0 0 320 210" role="img" aria-label="Esfuerzos de alta intensidad a lo largo del partido">
+        <text class="ax" x="16" y="14">Esfuerzos de alta intensidad</text>
+        <path d="M14 168H306" stroke="rgba(243,241,231,.35)" stroke-width="2"/>
+        <rect class="bar" x="18" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.9;--lo:.9"/>
+        <rect class="bar" x="48" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.35;--lo:.82"/>
+        <rect class="bar" x="78" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.9;--lo:.72"/>
+        <rect class="bar" x="108" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.35;--lo:.6"/>
+        <rect class="bar" x="138" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.9;--lo:.5"/>
+        <rect class="bar" x="168" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.35;--lo:.38"/>
+        <rect class="bar" x="198" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.9;--lo:.28"/>
+        <rect class="bar" x="228" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.35;--lo:.2"/>
+        <rect class="bar" x="258" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.9;--lo:.14"/>
+        <rect class="bar" x="288" y="28" width="20" height="140" rx="4" style="--hi:.95;--mid:.35;--lo:.1"/>
+        <text class="ax" x="18" y="188">Inicio</text>
+        <text class="ax" x="308" y="188" text-anchor="end">Final del partido</text>
       </svg>
       <div class="fail"><span>Técnica</span><span>Táctica</span></div>
     </div>
     <div class="items" id="fitems">
-      <button class="tc" data-lvl="mid"><b>Todo con balón</b><span class="d"><span><i>Nunca sin balón: es lo más fiel al partido real.</i></span></span></button>
-      <button class="tc" data-lvl="hi"><b>Autoexigencia · máxima intensidad</b><span class="d"><span><i>Cada ejercicio a tope.</i></span></span></button>
-      <button class="tc" data-lvl="lo"><b>Sin gasolina…</b><span class="d"><span><i>La técnica y la táctica fallan.</i></span></span></button>
+      <button class="tc" data-lvl="mid"><b>Todo con balón</b><span class="d"><span><i>El físico se trabaja con esfuerzos lo más fieles posible a un partido real.</i></span></span></button>
+      <button class="tc" data-lvl="hi"><b>Autoexigencia · máxima intensidad</b><span class="d"><span><i>Es el medio para trabajar el físico: cada ejercicio a tope. Así, mañana aguantas más esfuerzos de alta intensidad.</i></span></span></button>
+      <button class="tc" data-lvl="lo"><b>Si no lo trabajas…</b><span class="d"><span><i>Aguantas menos esfuerzos de alta intensidad y la técnica y la táctica fallan.</i></span></span></button>
     </div>
   </div>
 </section>
@@ -490,52 +539,52 @@ function A(a,b,c,d,k){return '<path class="ar'+(k?' '+k:'')+'" d="M'+a+' '+b+'L'
 function T(x,y,s,k){return '<text class="dt'+(k?' '+k:'')+'" x="'+x+'" y="'+y+'" text-anchor="middle">'+s+'</text>'}
 function CN(x,y,ang,len,sp){var r=Math.PI/180,a=(ang-sp)*r,b=(ang+sp)*r;return '<path class="cone" d="M'+x+' '+y+'L'+(x+len*Math.cos(a)).toFixed(1)+' '+(y+len*Math.sin(a)).toFixed(1)+'L'+(x+len*Math.cos(b)).toFixed(1)+' '+(y+len*Math.sin(b)).toFixed(1)+'Z"/>'}
 function Z(x,y,r){return '<circle class="zone" cx="'+x+'" cy="'+y+'" r="'+r+'"/>'}
-function S(pos,cap,draw,hl,ms){return {pos:pos,cap:cap,draw:draw||'',hl:hl||[],ms:ms||2100}}
+function BB(x,y,s){var w=Math.max(46,s.length*6.4+14);return '<g class="bub"><rect x="'+(x-w/2)+'" y="'+(y-26)+'" width="'+w+'" height="20" rx="8"/><path d="M'+(x-4)+' '+(y-7)+'L'+x+' '+y+'L'+(x+4)+' '+(y-7)+'Z"/><text x="'+x+'" y="'+(y-12)+'" text-anchor="middle">'+s+'</text></g>'}
+function S(pos,cap,draw,hl,ms,fc){return {pos:pos,cap:cap,draw:draw||'',hl:hl||[],ms:ms||2100,fc:fc||{}}}
 function M(a,b){var o={},k;for(k in a)o[k]=a[k];for(k in b)o[k]=b[k];return o}
 function me(l){return {t:'me',l:l||''}}function op(l){return {t:'opp',l:l||''}}function ball(){return {t:'ball'}}function gk(l){return {t:'gk',l:l||''}}
 
 var DG={};
 
-/* ---- técnica (campo corto) ---- */
-DG.tk={w:300,h:190,pitch:BOX,pl:{c:me('compañero'),t:me('tú'),b:ball()},sc:{
- control:[S({c:[40,80],t:[150,95],b:[56,80]},'Me llega el balón',A(58,82,136,94)),S({c:[40,80],t:[150,95],b:[140,100]},'Control: el balón queda a mis pies, listo para lo siguiente','',['t'])],
- pase:[S({t:[60,95],b:[76,95],c:[240,95]},'Pase: preciso',A(78,95,224,95),['t']),S({t:[60,95],b:[228,95],c:[240,95]},'…a la altura de mi compañero','',['c'])],
- cond:[S({t:[40,100],b:[56,100]},'Conducción: cabeza arriba',CN(40,100,0,80,28),['t']),S({t:[235,100],b:[251,100]},'Llevo el balón y miro',CN(235,100,0,50,28)+A(60,100,220,100),['t'])],
- piernas:[S({t:[150,95],b:[166,110]},'Pierna derecha',T(166,150,'derecha'),['t']),S({t:[150,95],b:[134,110]},'Pierna izquierda',T(134,150,'izquierda'),['t'])]
+/* ---- técnico-tácticos (con pies: se ve hacia dónde miran) ---- */
+DG.tt={w:300,h:190,pitch:BOX,pl:{c:me('pasa'),t:me('tú'),r:op('rival'),c1:me(),c2:me(),m:me('pasa'),a:me(),bb:me(),r1:op(),r2:op(),b:ball()},sc:{
+ dc:[S({c:[40,160],t:[140,118],r:[222,125],c1:[55,38],c2:[205,30],b:[56,152]},'Me llega el balón con un rival cerca. Ya voy perfilado, mirando el campo',A(58,150,128,122)+CN(140,118,-125,95,55),['t'],2300,{t:-125,c:-20,r:175,c1:60,c2:120}),
+     S({c:[40,160],t:[140,118],r:[222,125],c1:[55,38],c2:[205,30],b:[108,92]},'Control orientado: lo dejo hacia donde quiero jugar, lejos del rival',A(134,108,114,96),['t'],2300,{t:-125,c:-20,r:175,c1:60,c2:120}),
+     S({c:[40,160],t:[140,118],r:[222,125],c1:[55,38],c2:[205,30],b:[108,92]},'Sigo perfilado: tengo todas las opciones (pase, conducción…)',A(124,100,66,52)+A(130,100,192,44),['c1','c2'],2400,{t:-125,c:-20,r:175,c1:60,c2:120})],
+ bs:[S({m:[40,100],t:[150,100],r:[235,48],c1:[245,150],b:[56,100]},'Cuerpo cerrado, de cara al balón: veo poco',A(58,100,132,100)+CN(150,100,180,80,18)+T(150,150,'pies hacia el balón','r'),['t'],2400,{m:0,t:180,r:90,c1:180}),
+     S({m:[40,100],t:[150,100],r:[235,48],c1:[245,150],b:[56,100]},'Perfilado: antes de recibir ya veo el campo y tengo más opciones',A(58,100,132,100)+CN(150,100,-35,125,75)+T(150,150,'pies hacia el campo'),['t','r','c1'],2600,{m:0,t:-35,r:90,c1:180})],
+ ft:[S({c:[40,100],t:[140,100],r:[174,100],b:[56,100]},'El balón llega y un rival me presiona por la espalda',A(58,100,124,100)+A(214,100,194,100,'bad'),['r'],2300,{c:0,t:180,r:180}),
+     S({c:[40,100],t:[140,100],r:[174,100],b:[134,100]},'No hay tiempo para dos toques: si controlo, me roban',T(140,140,'controlar ✕','r'),['t'],2300,{c:0,t:180,r:180}),
+     S({c:[40,100],t:[140,100],r:[174,100],b:[60,100]},'Primer toque: de primeras y de cara',A(124,100,72,100),['t'],2300,{c:0,t:180,r:180})],
+ pp:[S({a:[70,60],bb:[70,140],r1:[200,55],r2:[200,135],b:[85,60]},'Ping-pong: toco…',A(74,76,72,122),['a'],2100,{a:0,bb:0,r1:180,r2:180}),
+     S({a:[125,95],bb:[70,140],r1:[200,55],r2:[200,135],b:[86,140]},'…me muevo hacia el hueco entre los rivales…',A(80,72,118,90),['a'],2100,{a:0,bb:0,r1:180,r2:180}),
+     S({a:[150,95],bb:[70,140],r1:[200,55],r2:[200,135],b:[168,96]},'…y mi compañero pasa al espacio que ataco',A(86,138,160,100),['bb'],2100,{a:0,bb:0,r1:180,r2:180}),
+     S({a:[196,95],bb:[100,128],r1:[200,55],r2:[200,135],b:[212,95]},'De primeras: recibo entre los dos rivales y sigo',A(160,95,190,95),['a'],2300,{a:0,bb:0,r1:180,r2:180})]
 }};
 
-/* ---- técnico-tácticos ---- */
-DG.tt={w:300,h:190,pitch:BOX,pl:{c:me('pasa'),t:me('tú'),r:op('rival'),m:me('libre'),b:ball(),c1:me(),r1:op(),r2:op(),r3:op(),a:me(),bb:me(),cc:me()},sc:{
- dc:[S({c:[45,60],t:[150,150],r:[228,105],b:[62,68]},'Me llega el balón con un rival cerca',A(62,70,136,142)),
-     S({c:[45,60],t:[150,150],r:[228,105],b:[142,140]},'Lo recibo…','',['t']),
-     S({c:[45,60],t:[150,150],r:[228,105],b:[92,165]},'Control orientado: lo llevo al lado libre, lejos del rival',A(140,150,98,163),['t'])],
- bs:[S({t:[150,95],b:[166,108],c1:[45,45],r:[240,55],m:[245,150]},'Cuerpo cerrado: veo poco',CN(150,95,35,70,16),['t']),
-     S({t:[150,95],b:[166,108],c1:[45,45],r:[240,55],m:[245,150]},'Cuerpo perfilado (de lado): veo el campo y tengo más opciones',CN(150,95,-10,125,70),['t','c1','m'])],
- ft:[S({c:[40,95],t:[140,95],r:[238,95],m:[222,38],b:[58,95]},'El balón llega y el rival ya viene',A(60,95,124,95)+A(222,95,162,95,'bad')),
-     S({c:[40,95],t:[140,95],r:[238,95],m:[222,38],b:[134,95]},'No hay tiempo para controlar… o hace falta más ritmo','',['t']),
-     S({c:[40,95],t:[140,95],r:[220,95],m:[222,38],b:[214,46]},'Primer toque: juego de primeras',A(146,90,208,50),['t'])],
- pp:[S({a:[60,150],bb:[150,50],cc:[245,135],r1:[110,105],r2:[200,85],r3:[160,160],b:[75,150]},'Ping-pong: toco…',A(76,146,134,58),['a']),
-     S({a:[95,125],bb:[150,50],cc:[245,135],r1:[110,105],r2:[200,85],r3:[160,160],b:[138,56]},'…me muevo…',A(160,54,230,128),['bb']),
-     S({a:[95,125],bb:[150,50],cc:[245,135],r1:[110,105],r2:[200,85],r3:[160,160],b:[232,132]},'…y pasamos al espacio, de primeras','',['cc'])]
-}};
-
-/* ---- escaneo ---- */
-DG.sc={w:300,h:190,pitch:BOX,pl:{p:me('tú'),c1:me('compañero'),c2:me('compañero'),r:op('rival'),r2:op('rival'),b:ball()},sc:{
- scan:[S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Compañeros',CN(150,95,-145,110,26),['c1']),
-       S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Rivales',CN(150,95,-30,110,26),['r']),
-       S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Espacios',CN(150,95,30,110,26)+Z(215,125,24),['c2']),
-       S({p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[160,106]},'Rivales detrás',CN(150,95,150,110,26),['r2'])]
+/* ---- escaneo: ofensivo y defensivo ---- */
+DG.sc={w:300,h:190,pitch:BOX,pl:{p:me('tú'),c1:me('compañero'),c2:me('compañero'),r:op('rival'),r2:op('rival'),q1:op('rival'),q2:op('rival'),q3:op('rival'),m1:me('compañero'),b:ball()},sc:{
+ of:(function(){var O={p:[150,95],c1:[45,45],c2:[250,150],r:[240,42],r2:[60,150],b:[60,53]};
+   return [S(O,'Compañeros: ¿dónde están y quién me ayuda?',CN(150,95,-150,110,26),['c1'],2100,{p:-150,c1:45,c2:200,r:150,r2:-20}),
+           S(O,'Rivales: ¿quién presiona, quién marca?',CN(150,95,-30,110,26),['r'],2100,{p:-30,c1:45,c2:200,r:150,r2:-20}),
+           S(O,'Espacios: ¿dónde hay campo libre?',CN(150,95,25,110,26)+Z(215,125,24),['c2'],2100,{p:25,c1:45,c2:200,r:150,r2:-20}),
+           S(O,'Y a mi espalda: rivales detrás',CN(150,95,148,110,26),['r2'],2100,{p:148,c1:45,c2:200,r:150,r2:-20})]})(),
+ de:(function(){var D={p:[150,95],q1:[45,45],m1:[250,150],q2:[240,42],q3:[60,150],b:[60,53]};
+   return [S(D,'Balón y rival que la tiene: ¿cómo viene la jugada?',CN(150,95,-150,110,26),['q1'],2100,{p:-150,q1:30,m1:-160,q2:150,q3:-20}),
+           S(D,'Rivales sin balón: ¿a quién puede pasar?',CN(150,95,-30,110,26),['q2'],2100,{p:-30,q1:30,m1:-160,q2:150,q3:-20}),
+           S(D,'Compañeros: ¿dónde están para cubrir y ayudar?',CN(150,95,25,110,26),['m1'],2100,{p:25,q1:30,m1:-160,q2:150,q3:-20}),
+           S(D,'Mi espalda: ¿qué rival me puede romper por detrás?',CN(150,95,148,110,26)+Z(60,150,24),['q3'],2100,{p:148,q1:30,m1:-160,q2:150,q3:-20})]})()
 }};
 
 /* ---- hábitos ---- */
-DG.hb={w:300,h:420,pitch:FULL,pl:{p1:me(),p2:me(),p3:me(),s:me('parado'),c:me(),o1:op(),o2:op(),st:me(),f1:me(),f2:me(),f3:me(),gk:gk(),m:me(),w:me(),d:me(),b:ball()},sc:{
- jog:[S({p1:[100,250],p2:[200,250],p3:[150,330],s:[45,300]},'No andes: siempre activo',T(45,332,'andando ✕','r')+A(100,244,126,222)+A(200,244,174,262)+A(150,324,110,300)),
-      S({p1:[130,215],p2:[172,275],p3:[105,300],s:[45,300]},'Siempre en movimiento, aunque sea trotando',T(45,332,'andando ✕','r'),['p1','p2','p3'])],
+DG.hb={w:300,h:420,pitch:FULL,pl:{p1:me(),p2:me(),p3:me(),s:me('andando'),c:me(),o1:op(),o2:op(),st:me(),f1:me(),f2:me(),f3:me(),gk:gk(),m:me(),w:me(),d:me(),b:ball()},sc:{
+ jog:[S({p1:[70,340],p2:[130,340],p3:[190,340],s:[250,340]},'Todos juntos al empezar la jugada…','',[]),
+      S({p1:[70,150],p2:[130,125],p3:[190,150],s:[250,320]},'Siempre en movimiento, aunque sea trotando: el que anda se queda muy atrás',A(70,326,70,172)+A(130,326,130,147)+A(190,326,190,172)+T(250,365,'andando ✕','r'),['p1','p2','p3'],3200)],
  show:[S({c:[255,90],b:[255,102],o1:[238,70],f1:[60,300],f2:[110,230],f3:[200,340],gk:[150,395]},'El balón está lejos…','',['c']),
        S({c:[255,90],b:[255,102],o1:[238,70],f1:[125,275],f2:[165,195],f3:[205,300],gk:[150,380]},'…pero siempre tengo un rol: cobertura, equilibrio, apoyo',A(60,296,120,278)+A(110,226,160,198)+A(200,336,205,304),['f1','f2','f3'])],
  keep:[S({c:[150,250],b:[150,262],o1:[150,212],st:[150,100],o2:[120,160]},'No fuerces: si el premio no interesa, no arriesgues',A(150,242,150,115,'bad')+T(195,190,'riesgo','r')),
-       S({c:[150,250],b:[150,330],o1:[150,212],st:[150,100],o2:[120,160],d:[150,335]},'Si no puedes avanzar, juega atrás (playback)',A(150,266,150,318),['d']),
-       S({c:[150,110],b:[150,122],o1:[150,82],st:[190,60],gk:[150,22]},'Fuérzala solo si detrás hay un gol',A(158,108,195,70)+T(220,40,'¡gol!'),['c'])],
+       S({c:[150,250],b:[150,330],o1:[150,212],st:[150,100],o2:[120,160],d:[150,335]},'Si no es posible ir hacia delante, juega hacia atrás (playback)',A(150,266,150,318),['d']),
+       S({c:[150,110],b:[150,122],o1:[150,82],st:[190,60],gk:[150,22]},'Arriésgate si detrás hay gol',A(158,108,195,70)+T(220,40,'¡gol!'),['c'])],
  unp:[S({m:[150,300],b:[150,312],w:[60,240],o1:[85,232]},'Mismo patrón…',A(145,298,72,250)+T(60,225,'patrón')),
       S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248]},'…repetido: el rival ya lo lee',A(145,298,72,250,'bad'),['o1']),
       S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248],st:[150,140]},'No ser predecible: cambio si no funciona',A(150,290,150,155),['st'])]
@@ -547,14 +596,15 @@ DG.at={w:300,h:420,pitch:FULL,pl:{gk:gk(),d1:me(),d2:me(),m:me(),w1:me(),w2:me()
        S({gk:[150,385],d1:[70,330],d2:[230,330],m:[150,280],w1:[35,200],w2:[265,200],st:[150,110],o1:[120,170],o2:[180,170],o3:[150,215],b:[150,292]},'Abrir el campo: ancho y profundo',A(132,262,48,208)+A(168,262,252,208)+A(150,242,150,128)+T(150,370,'ancho'),['w1','w2','st'],2600)],
  avanzar:(function(){var V={gk:[150,390],d1:[110,335],m:[150,262],st:[150,105],w1:[45,195],w2:[255,195],o1:[110,200],o2:[190,200],b:[150,274]};
    var a1=A(150,252,150,122)+T(166,190,'1'),a2=a1+A(165,264,248,208)+A(135,264,52,208)+T(222,222,'2'),a3=a2+A(140,276,116,326)+T(112,300,'3');
-   return [S(V,'1º hacia delante, por el carril central',a1,['st']),S(V,'2º si no se puede, a las bandas',a2,['w1','w2']),S(V,'3º si tampoco, pase atrás',a3,['d1'])]})(),
+   return [S(V,'1º hacia delante por el centro: si se puede, un break pass entre los dos rivales',a1,['st']),S(V,'2º si no se puede, a las bandas',a2,['w1','w2']),S(V,'3º si tampoco, pase atrás',a3,['d1'])]})(),
  perder:[S({m:[150,250],b:[150,262],o1:[150,215],o2:[125,165],o3:[175,165],st:[150,100],d1:[110,300]},'Pase forzado: mucho riesgo, premio pequeño',A(150,244,150,112,'bad')+T(205,185,'riesgo','r')),
          S({m:[150,250],b:[125,170],o1:[150,215],o2:[125,165],o3:[175,165],st:[150,100],d1:[110,300]},'Se pierde el balón ✕','',['o2']),
          S({m:[150,250],b:[150,262],o1:[150,215],o2:[125,165],o3:[175,165],st:[150,100],d1:[110,300]},'Mejor: pase seguro. No fuerzo la pérdida',A(142,268,118,292),['d1'])],
- break:[S({m:[150,300],b:[150,312],o1:[105,225],o2:[195,225],o3:[150,120],st:[150,178],w1:[45,235],w2:[255,235]},'Break pass = pase entre líneas',A(150,292,150,194)+T(150,268,'entre dos rivales')+T(60,210,'línea 1','r')+T(60,132,'línea 2','r')),
-        S({m:[150,300],b:[150,190],o1:[105,225],o2:[195,225],o3:[150,120],st:[150,178],w1:[45,235],w2:[255,235]},'Pase entre dos rivales, a un compañero entre líneas','',['st'])],
- conj:[S({gk:[150,395],d1:[100,345],d2:[200,345],m:[150,310],w1:[60,270],w2:[240,270],st:[150,70],b:[150,322]},'Equipo estirado: alguien se queda descolgado',T(150,110,'descolgado','r')),
-       S({gk:[150,380],d1:[100,285],d2:[200,285],m:[150,235],w1:[60,205],w2:[240,205],st:[150,110],b:[150,247]},'Un viaje en conjunto: nadie descolgado',A(100,330,100,295)+A(200,330,200,295)+A(150,296,150,246)+A(60,262,60,215)+A(240,262,240,215),['d1','d2','m','w1','w2','st'])]
+ break:[S({m:[150,300],b:[150,312],o1:[105,225],o2:[195,225],o3:[150,120],st:[150,178],w1:[45,235],w2:[255,235]},'Break pass: pase entre dos rivales a un compañero entre líneas',A(150,292,150,194)+T(150,268,'entre dos rivales')+T(60,210,'línea 1','r')+T(60,132,'línea 2','r'),[]),
+        S({m:[150,300],b:[150,190],o1:[105,225],o2:[195,225],o3:[150,120],st:[150,178],w1:[45,235],w2:[255,235]},'Interesante buscarlo durante el partido','',['st'])],
+ conj:[S({gk:[150,395],d1:[100,345],d2:[200,345],m:[150,300],w1:[100,112],w2:[200,112],st:[150,100],b:[150,112]},'El delantero con el balón y dos extremos al lado… pero el resto, lejos: muy solo',T(150,165,'muy solos arriba','r'),['st','w1','w2'],2400),
+       S({gk:[150,372],d1:[100,255],d2:[200,255],m:[150,200],w1:[95,112],w2:[205,112],st:[150,100],b:[150,112]},'Un viaje en conjunto: el resto acompaña la jugada',A(100,330,100,270)+A(200,330,200,270)+A(150,285,150,215),['d1','d2','m'],2600),
+       S({gk:[150,372],d1:[100,255],d2:[200,255],m:[150,200],w1:[95,112],w2:[205,112],st:[150,100],b:[150,112]},'Y si perdemos, en defensa estamos más cerca de la zona de pérdida',Z(150,112,62),['d1','d2','m'],2600)]
 }};
 
 /* ---- referencias ---- */
@@ -564,20 +614,36 @@ DG.at={w:300,h:420,pitch:FULL,pl:{gk:gk(),d1:me(),d2:me(),m:me(),w1:me(),w2:me()
   ref:[S(R0,'Cada uno tiene su referencia. Desde ahí se mueve… y vuelve',Z(150,335,22)+Z(150,240,22)+Z(40,175,22)+Z(260,175,22)+Z(150,70,22),['cb','m','bl','br','st'],3000)],
   apoyo:[S(R0,'Balón al central','',['cb']),S(R1,'Apoyo: la banda baja sin cerrarse y da línea de pase',A(260,190,266,262)+A(168,335,258,284),['br']),S(M(R1,{b:[266,288]}),'Recibe abierto, con campo por delante','',['br']),S(R0,'Si no recibe, vuelve a su referencia')],
   hueco:[S(R0,'Balón al central','',['cb']),S(R1,'La banda baja y arrastra a su marcador',A(260,190,266,262),['br']),S(M(R1,{st:[212,185]}),'El delantero busca el hueco entre el medio y la banda',A(155,82,208,175),['st']),S(R0,'Si no recibe, vuelve a su referencia')],
-  timing:[S(R0,'Espera… no antes','',['st']),S(R1,'Se abre el espacio…','',['br']),S(M(R1,{st:[212,185]}),'Ahora: en el momento justo, en el lugar justo',A(155,82,208,175),['st'])]
+  timing:[S(R0,'Balón al central','',['cb']),
+          S(M(R0,{st:[212,185]}),'Mal timing: el delantero llega antes de tiempo y el hueco aún no existe',A(155,82,208,175,'bad')+T(212,160,'demasiado pronto ✕','r'),['st']),
+          S(R0,'Vuelve a su referencia y espera','',['st']),
+          S(R1,'Ahora sí se abre el espacio…','',['br']),
+          S(M(R1,{st:[212,185]}),'Buen timing: en el momento justo y en el lugar justo ✓',A(155,82,208,175),['st'])]
  }}})();
 
-/* ---- equilibrio (córner) ---- */
-(function(){var L={ck:[283,14],r1:[128,40],r2:[172,46],rb:[150,120],an:[150,188],mk:[156,278],gk:[150,345],fw:[148,236],b:[283,26]};
- DG.bl={w:300,h:420,pitch:FULL,pl:{ck:me('córner'),r1:me('remate'),r2:me('remate'),rb:me('rechace'),an:me('anticipación'),mk:me('marca'),gk:gk('portero'),fw:op('delantero rival'),q:me('se queda'),ac:me('acompaña'),r3:me(),r4:me(),b:ball()},sc:{
-  all:[S(L,'Córner a favor: ¿quién se queda atrás?','',['ck']),S(M(L,{b:[150,55]}),'2 al remate · 1 al rechace · 1 anticipación · 1 marca · portero adelantado',A(278,24,160,54),['r1','r2','rb','an','mk','gk'],3200)],
-  remate:[S(L,'Hombres al remate','',['r1','r2']),S(M(L,{b:[150,52],r1:[142,48]}),'Atacan el centro del área',A(278,24,160,54),['r1','r2'])],
-  rechace:[S(M(L,{b:[150,52]}),'El balón se despeja…','',['rb']),S(M(L,{b:[150,140]}),'…cae fuera del área',A(150,58,150,134,'bad'),['rb']),S(M(L,{b:[150,128],rb:[150,128]}),'Hombre al rechace: rodea el área, evita que cojan el rechace, finaliza y evita el contraataque',A(150,122,150,66),['rb'],3000)],
-  antic:[S(M(L,{b:[150,60]}),'Despeje largo hacia el delantero rival…',A(150,66,150,208,'bad'),['an']),S(M(L,{b:[150,214],an:[150,206],fw:[150,232]}),'La anticipación está pendiente: el delantero no la recibe','',['an'])],
-  marca:[S(L,'Hombre a la marca','',['mk']),S(M(L,{fw:[80,236],mk:[88,278]}),'Si el delantero se va a la izquierda…','',['mk']),S(M(L,{fw:[220,236],mk:[212,278]}),'…o a la derecha, siempre por detrás de él','',['mk']),S(M(L,{fw:[150,160],mk:[150,188],an:[150,150]}),'…o va largo: nunca está libre; siempre en desventaja','',['mk'])],
-  portero:[S(L,'Portero adelantado','',['gk']),S(M(L,{gk:[150,305],b:[150,300]}),'A la espalda del hombre a la marca: sale a por lo que pase por encima',A(150,338,150,310),['gk'])],
-  nadie:[S({ck:[283,14],r1:[128,40],r2:[172,46],r3:[100,78],r4:[200,78],rb:[150,120],ac:[150,168],q:[150,262],gk:[150,322],b:[283,26]},'Si no dejan a nadie arriba: todos al ataque salvo uno',A(278,24,160,54),['r1','r2','r3','r4','rb']),
-         S({ck:[283,14],r1:[128,40],r2:[172,46],r3:[100,78],r4:[200,78],rb:[150,120],ac:[150,168],q:[150,262],gk:[150,322],b:[150,60]},'Uno se queda, otro acompaña y hace la anticipación, mucho más cerca de la jugada','',['q','ac'],3200)]
+/* ---- equilibrio (córner a favor), pinchable ---- */
+(function(){var L={ck:[283,14],r1:[128,38],r2:[172,44],rb:[150,82],an:[150,120],fw:[150,158],mk:[150,196],gk:[150,262],b:[283,26]};
+ var ALL=['ck','rb','an','mk','gk'];
+ DG.bl={w:300,h:310,k:.85,side:1,below:['ck'],pitch:FULL,click:{ck:'corner',rb:'rechace',an:'antic',mk:'marca',gk:'portero'},pl:{ck:me('córner'),r1:me(),r2:me('remate'),rb:me('rechace'),an:me('anticipación'),mk:me('marca'),gk:gk('portero'),fw:op('delantero rival'),q:me('se queda'),ac:me('acompaña'),r3:me(),r4:me(),b:ball()},sc:{
+  all:[S(L,'Córner a favor: ¿quién se queda atrás? Pincha en los jugadores marcados',Z(150,82,18)+Z(150,120,18)+Z(150,196,18),ALL,3200,{fw:90})],
+  corner:[S(L,'El del córner va a centrar…',A(278,24,160,52),['ck'],2000,{ck:180,fw:90}),
+          S(M(L,{b:[160,52]}),'Centra…','',['ck'],1800,{ck:180,fw:90}),
+          S(M(L,{b:[160,52],ck:[236,66]}),'…y entra en diagonal al área: no se queda quieto en el córner, desde ahí no hace nada',A(280,20,242,60),['ck'],3000,{ck:150,fw:90})],
+  rechace:[S(M(L,{b:[150,52]}),'Se despeja el balón…',A(150,56,150,72,'bad'),['rb'],1900,{fw:90}),
+           S(M(L,{b:[150,100]}),'…y sale fuera del área, a pocos metros',A(150,56,150,96),['rb'],1900,{fw:90}),
+           S(M(L,{b:[150,92]}),'Hombre al rechace: recoge lo que sale, finaliza y evita el contraataque',A(150,80,150,44),['rb'],3000,{fw:90})],
+  antic:[S(M(L,{b:[190,60]}),'Despeje largo hacia el delantero rival…',A(190,64,160,146,'bad'),['an'],2200,{fw:90}),
+         S(M(L,{b:[166,138],an:[152,134]}),'La anticipación se adelanta y gana el balón: el delantero no la recibe','',['an'],2800,{fw:90})],
+  marca:[S(L,'Hombre a la marca: siempre por detrás del delantero rival','',['mk'],2200,{fw:90}),
+         S(M(L,{fw:[90,158],mk:[96,196]}),'Si el delantero se va a la izquierda…','',['mk'],2000,{fw:90}),
+         S(M(L,{fw:[210,158],mk:[204,196]}),'…o a la derecha, siempre por detrás de él','',['mk'],2000,{fw:90}),
+         S(M(L,{fw:[150,244]}),'…y si se queda por detrás de la línea, está en fuera de juego',T(150,232,'fuera de juego','r'),['mk'],2800,{fw:90})],
+  portero:[S(L,'Portero adelantado: a la espalda del hombre a la marca','',['gk'],2200,{fw:90}),
+           S(M(L,{b:[190,70]}),'Llega un balón por encima del hombre a la marca…',A(190,74,166,224,'bad'),['gk'],2300,{fw:90}),
+           S(M(L,{b:[168,230],gk:[154,234]}),'…y el portero sale a por él','',['gk'],2800,{fw:90})],
+  nadie:[S({ck:[283,14],r1:[128,38],r2:[172,44],r3:[104,62],r4:[196,64],rb:[150,84],ac:[150,130],q:[150,200],gk:[150,262],b:[283,26]},'Si el rival no deja a nadie arriba: todos al ataque…',A(278,24,160,54),['r1','r2','r3','r4']),
+         S({ck:[283,14],r1:[128,38],r2:[172,44],r3:[104,62],r4:[196,64],rb:[150,84],ac:[150,130],q:[150,200],gk:[150,262],b:[150,56]},'…el rechace, pegado a la frontal…','',['rb'],2400),
+         S({ck:[283,14],r1:[128,38],r2:[172,44],r3:[104,62],r4:[196,64],rb:[150,84],ac:[150,130],q:[150,200],gk:[150,262],b:[150,56]},'…uno que se queda y otro que acompaña, mucho más adelantados: mínimo a la altura del medio campo','',['q','ac'],3400)]
  }}})();
 
 /* ---- defensa ---- */
@@ -591,59 +657,75 @@ DG.at={w:300,h:420,pitch:FULL,pl:{gk:gk(),d1:me(),d2:me(),m:me(),w1:me(),w2:me()
   step:[S(M(C,BU),'El balón está lejos de mi portería…','',['o']),S(M(UP,BU),'Step (salir): el equipo sale',A(150,330,150,268)+A(150,285,150,225),['d1','d2','d3','m1','m2','m3'])],
   drop:[S(M(UP,{o:[150,235],o2:[90,225],o3:[210,225],b:[150,247]}),'El balón se acerca…','',['o']),S(M(C,{d1:[108,345],d2:[150,348],d3:[192,345],m1:[100,310],m2:[150,312],m3:[200,310],o:[150,235],o2:[90,225],o3:[210,225],b:[150,247]}),'Drop (bajar): el equipo baja',A(150,268,150,308),['d1','d2','d3','m1','m2','m3'])],
   shift:[S(M(sh(-50,0),{o:[95,190],o2:[40,175],o3:[150,175],b:[95,202]}),'El balón está a la izquierda…','',['o']),S(M(sh(55,0),{o:[215,190],o2:[160,175],o3:[265,175],b:[215,202]}),'Shift (bascular): el equipo se mueve de lado con el balón',A(100,300,170,300)+A(100,345,170,345),['d1','d2','d3','m1','m2','m3'])],
-  smart:[S({o:[150,200],b:[150,212],m2:[150,262],d2:[150,318],d1:[95,325]},'Smart defense: antes de presionar, escaneo. ¿Qué tengo detrás?',CN(150,262,90,75,38),['m2']),
+  bpass:[S({o:[150,205],b:[150,217],o2:[150,312],m1:[96,290],m3:[204,290],d1:[108,340],d3:[192,340]},'El rival busca un break pass: entre dos de los nuestros, a un jugador entre líneas',A(150,228,150,298,'bad')+T(150,268,'entre líneas','r'),['o2']),
+         S({o:[150,205],b:[150,217],o2:[150,312],m1:[131,290],m3:[169,290],d1:[108,340],d3:[192,340]},'Importante: tapamos el break pass, cerrando el pasillo',A(150,228,150,262,'bad')+T(150,252,'✕','r'),['m1','m3'],2800)],
+  smart:[S({o:[150,200],b:[150,212],m2:[150,262],d2:[150,318],d1:[95,325]},'Smart defense: antes de presionar, escaneo. ¿Qué tengo detrás?',CN(150,262,90,75,38),['m2'],2100,{m2:90}),
          S({o:[150,200],b:[150,212],m2:[150,225],d2:[150,318],d1:[95,325]},'Hay cobertura detrás: presiono',A(150,255,150,232),['m2']),
-         S({o:[150,200],b:[150,212],m2:[150,262],d2:[45,335],d1:[250,335]},'Sin cobertura detrás…',CN(150,262,90,75,38),['m2']),
+         S({o:[150,200],b:[150,212],m2:[150,262],d2:[45,335],d1:[250,335]},'Sin cobertura detrás…',CN(150,262,90,75,38),['m2'],2100,{m2:90}),
          S({o:[150,200],b:[150,212],m2:[150,285],d2:[45,335],d1:[250,335]},'…no me la juego: retraso y espero',A(150,266,150,282,'bad'),['m2'])]
  }}})();
 
 /* ---- pérdida ---- */
-(function(){var P={gk:[150,395],c:[262,70],n1:[218,140],n2:[200,100],f1:[150,250],f2:[80,215],b:[262,82],o1:[238,52],o2:[246,100],o3:[170,95]};
+(function(){
  DG.ps={w:300,h:420,pitch:FULL,pl:{c:me('pierde'),n1:me('cercano'),n2:me('cercano'),f1:me('lejano'),f2:me('lejano'),o1:op(),o2:op(),o3:op(),b:ball()},sc:{
   pred:[S({c:[262,70],b:[262,82],o1:[236,50],o2:[250,100],n1:[205,165],f1:[150,250],f2:[80,215],o3:[170,95]},'Predecir: va a haber pérdida (dos rivales presionan en el córner)',T(262,140,'¡va a perder!','r'),['c']),
         S({c:[262,70],b:[262,82],o1:[236,50],o2:[250,100],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Me acerco ANTES de que ocurra',A(205,160,224,120)+A(180,215,198,148),['n1','n2'])],
   reac:[S({c:[268,100],b:[246,72],o1:[240,60],o2:[246,108],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Pérdida: el rival roba el balón','',['o1']),
-        S({c:[256,80],b:[246,72],o1:[240,60],o2:[246,108],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Reaccionar: el que pierde el balón es el primero en reaccionar',A(268,96,258,84),['c'])],
-  act:[S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,90],n2:[205,70],f1:[140,150],f2:[80,115],o3:[170,95]},'Activar: los cercanos tapan líneas de pase y evitan el balón largo',T(226,55,'✕','r')+T(205,80,'✕','r')+A(238,60,218,44,'bad')+A(238,64,176,92,'bad'),['n1','n2']),
-       S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,90],n2:[205,70],f1:[140,150],f2:[80,115],o3:[170,95]},'Los lejanos: segundas líneas de pase (y ganan tiempo para pensar)',A(150,195,142,160)+A(95,160,82,125),['f1','f2'])]
+        S({c:[256,80],b:[246,72],o1:[240,60],o2:[246,108],n1:[225,112],n2:[200,140],f1:[150,230],f2:[90,200],o3:[170,95]},'Reaccionar: el que pierde el balón es el primero en reaccionar',A(268,96,258,84),['c']),
+        S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,90],n2:[205,70],f1:[140,150],f2:[80,115],o3:[170,95]},'Los cercanos tapan líneas de pase y evitan el balón largo',T(226,55,'✕','r')+T(205,80,'✕','r')+A(238,60,218,44,'bad')+A(238,64,176,92,'bad'),['n1','n2']),
+        S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,90],n2:[205,70],f1:[140,150],f2:[80,115],o3:[170,95]},'Los lejanos, segundas líneas de pase',A(150,195,142,160)+A(95,160,82,125),['f1','f2'])],
+  act:[S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,95],n2:[195,115],f1:[140,200],f2:[80,185]},'Activar: me comunico con los compañeros',BB(195,104,'¡Presión!')+A(190,132,150,182)+A(180,128,92,172),['n2']),
+       S({c:[256,80],b:[246,72],o1:[240,60],o2:[215,40],n1:[228,95],n2:[195,115],f1:[165,135],f2:[110,120]},'Los estimulo a reaccionar: no se queda nadie atrás',A(145,198,160,150)+A(85,182,105,135),['f1','f2'],2800)]
  }}})();
 
 /* ---- recuperación ---- */
 (function(){DG.rc={w:300,h:420,pitch:FULL,pl:{r:me('recupera'),st:me(),d1:me(),w1:me(),w2:me(),m:me(),o1:op(),o2:op(),o3:op(),b:ball()},sc:{
-  pred:[S({o1:[150,215],b:[150,226],r:[150,262],o2:[115,170],o3:[190,170]},'Predecir: leo que voy a recuperar y estoy cerca',A(150,254,150,236),['r'])],
-  reac:[S({o1:[150,215],b:[150,246],r:[150,240],o2:[115,170],o3:[190,170]},'Reaccionar: el que recupera escanea',CN(150,240,-90,80,42)+CN(150,240,90,60,30),['r'])],
+  pred:[S({o1:[150,215],b:[150,226],r:[150,262],o2:[115,170],o3:[190,170],m:[150,150],w1:[50,200],w2:[250,200],d1:[150,345]},'Va a haber recuperación…','',['r']),
+        S({o1:[150,215],b:[150,226],r:[150,258],o2:[115,170],o3:[190,170],m:[150,150],w1:[95,262],w2:[205,262],d1:[150,300]},'Predecir: el resto del equipo se acerca a la zona de recuperación, para dar el pase de seguridad',A(50,214,90,254)+A(250,214,210,254)+A(150,335,150,310),['w1','w2','d1'],3000)],
+  reac:[S({o1:[150,215],b:[150,246],r:[150,240],o2:[115,170],o3:[190,170]},'Reaccionar: el que recupera escanea',CN(150,240,-90,80,42)+CN(150,240,90,60,30),['r'],2300,{r:-90})],
+  act:[S({o1:[150,215],b:[150,246],r:[150,240],o2:[115,170],o3:[190,170],w1:[70,250],w2:[230,250],st:[150,110],d1:[150,300]},'Activar: me comunico con los compañeros',BB(150,206,'¡Ya, salid!'),['r']),
+       S({o1:[150,215],b:[150,246],r:[150,240],o2:[115,170],o3:[190,170],w1:[45,200],w2:[255,200],st:[150,90],d1:[150,285]},'Los estimulo a reaccionar: se ofrecen y hacen el campo grande',A(70,238,50,208)+A(230,238,250,208)+A(150,100,150,92),['w1','w2','st'],2800)],
   contra:[S({r:[150,236],b:[150,247],st:[150,95],o1:[150,215],o2:[100,270],o3:[200,270],d1:[150,300]},'Contraataque: solo si la ocasión es súper clara',A(150,230,150,112),['r','st']),S({r:[150,236],b:[150,110],st:[150,95],o1:[150,215],o2:[100,270],o3:[200,270],d1:[150,300]},'Los rivales quedan atrás: ocasión clara','',['st'])],
   seguro:[S({r:[150,236],b:[150,247],st:[150,95],m:[150,215],o1:[130,205],o2:[170,205],d1:[150,300],w1:[110,200],w2:[190,200]},'Si no es súper claro: pase de seguridad',A(150,254,150,290),['r']),
           S({r:[150,236],b:[150,312],st:[150,70],m:[150,215],o1:[130,205],o2:[170,205],d1:[150,300],w1:[40,170],w2:[260,170]},'El resto hace el campo grande y pasa a mentalidad ofensiva',A(110,200,48,172)+A(190,200,252,172)+A(150,100,150,76),['w1','w2','st'],2800)]
  }}})();
 
-/* ---- balón parado (defendiendo córner) ---- */
-(function(){var Z0={gk:[150,18],z1:[116,34],z2:[150,44],z3:[184,34],a1:[100,60],a2:[200,62],a3:[150,92],ck:[283,14],b:[283,26]};
- var K=M(Z0,{k1:[108,52],k2:[192,54],k3:[144,86]});
- DG.bp={w:300,h:420,pitch:FULL,pl:{gk:gk(),z1:me('zona'),z2:me('zona'),z3:me('zona'),k1:me('marca'),k2:me('marca'),k3:me('marca'),a1:op(),a2:op(),a3:op(),ck:op(),rb:me('rechace'),fwd:me('delantero'),x1:op(),x2:op(),e1:me('equilibrio'),e2:me('equilibrio'),ea:me('anticipación'),b:ball()},sc:{
-  zona:[S(Z0,'Defendiendo en zona: cada uno cuida un espacio y ataca el balón',Z(116,34,22)+Z(150,44,22)+Z(184,34,22),['z1','z2','z3'],2800)],
-  marca:[S(K,'A la marca: estorban al rival…',A(108,56,102,62)+A(192,58,198,64),['k1','k2','k3']),S(K,'…y dejan libres a los de zona, dándoles comodidad',Z(116,34,22)+Z(150,44,22)+Z(184,34,22),['z1','z2','z3'],2800)],
-  rechace:[S(M(K,{rb:[150,128]}),'Zona de rechace: tanto atacando como defendiendo',Z(150,128,30),['rb'],2800)],
-  equi:[S({x1:[128,236],x2:[172,236],e1:[132,264],e2:[168,264],ea:[150,206],gk:[150,330]},'Equilibrio: tantos como delanteros deje el rival, más uno de anticipación',T(150,300,'2 rivales arriba → 2 a la marca + 1','')),
-       ],
-  delantero:[S(M(K,{fwd:[150,215],x1:[126,232],x2:[174,232],b:[150,66]}),'Un delantero arriba: arrastra a dos rivales','',['fwd']),S(M(K,{fwd:[150,205],x1:[126,232],x2:[174,232],b:[150,205]}),'Si hay despeje, no regalamos la posesión: el equipo sale y los rivales quedan en fuera de juego',A(150,70,150,198),['fwd'],3000)]
+/* ---- balón parado (el córner) ---- */
+(function(){var BPP='<rect class="pt" x="4" y="4" width="292" height="412" rx="6"/><path class="ln" d="M4 250H296"/><circle class="ln" cx="150" cy="250" r="30"/><rect class="ln" x="55" y="4" width="190" height="96"/><rect class="ln" x="100" y="4" width="100" height="36"/>';
+ var Z0={gk:[150,16],z1:[112,50],z2:[150,52],z3:[188,50],a1:[100,62],a2:[200,64],a3:[150,78],ck:[283,14],b:[283,26]};
+ var K=M(Z0,{k1:[84,76],k2:[216,78],k3:[150,96]});
+ var EQ={tk:[283,14],b:[283,26],t1:[118,50],t2:[182,56],rb:[150,124],ea:[150,168],x1:[126,206],x2:[174,206],e1:[126,244],e2:[174,244],gk:[150,286]};
+ var EF={tk:180,t1:-90,t2:-90,rb:-90,ea:-90,e1:-90,e2:-90,x1:90,x2:90};
+ DG.bp={w:270,h:300,vx:20,k:.78,side:1,below:['ck','tk'],pitch:BPP,fm:-60,fo:-90,pl:{gk:gk(),z1:me('zona'),z2:me(),z3:me(),k1:me('marca'),k2:me(),k3:me(),a1:op(),a2:op(),a3:op(),ck:op('córner'),rb:me('rechace'),fwd:me('delantero'),x1:op(),x2:op(),e1:me('equilibrio'),e2:me('equilibrio'),ea:me('anticipación'),tk:me('córner'),t1:me(),t2:me(),b:ball()},sc:{
+  zona:[S(Z0,'Defendiendo en zona: cada uno cuida un espacio y ataca el balón',Z(112,50,24)+Z(150,52,24)+Z(188,50,24),['z1','z2','z3'],2800)],
+  marca:[S(K,'A la marca: estorban al rival…',A(92,76,100,70)+A(208,78,200,72)+A(150,90,150,84),['k1','k2','k3']),S(K,'…y dejan libres a los de zona, dándoles comodidad',Z(112,50,24)+Z(150,52,24)+Z(188,50,24),['z1','z2','z3'],2800)],
+  rechace:[S(M(K,{rb:[150,126]}),'Zona de rechace: cerca de la frontal, tanto atacando como defendiendo',Z(150,126,32),['rb'],2800)],
+  delantero:[S(M(K,{rb:[150,126],fwd:[150,268],x1:[126,236],x2:[174,236]}),'Un delantero arriba: arrastra a dos rivales','',['fwd'],2400,{fwd:-90,x1:90,x2:90}),
+             S(M(K,{rb:[150,126],fwd:[150,262],x1:[126,236],x2:[174,236],b:[150,252]}),'Si despejamos, no regalamos la posesión: le llega a él',A(150,150,150,244),['fwd'],3000,{fwd:-90,x1:90,x2:90})],
+  equi:[S(EQ,'Acción ofensiva: atacamos el córner. El rival deja dos arriba',T(150,190,'2 rivales arriba','r'),['x1','x2'],2600,EF),
+       S(EQ,'Equilibrio: tantos como delanteros deje el rival, de medio campo para adelante y por detrás de ellos',Z(126,244,22)+Z(174,244,22),['e1','e2'],3000,EF),
+       S(EQ,'Uno de anticipación, por delante de los rivales, y otro al rechace, cerca de la frontal',Z(150,168,22)+Z(150,124,22),['ea','rb'],3000,EF)]
  }}})();
 
 /* ---------- motor ---------- */
+var FEET='<path class="ft" d="M5 -6.5H23M5 6.5H23"/>';
+function dfa(cfg,t){return t==='opp'?(cfg.fo!==undefined?cfg.fo:90):(cfg.fm!==undefined?cfg.fm:-90)}
 function build(cfg,svg){
-  svg.setAttribute('viewBox','0 0 '+cfg.w+' '+cfg.h);
+  svg.setAttribute('viewBox',(cfg.vx||0)+' '+(cfg.vy||0)+' '+cfg.w+' '+cfg.h);
   var ids=Object.keys(cfg.pl).sort(function(a,b){return (cfg.pl[a].t==='ball')-(cfg.pl[b].t==='ball')});
-  var h=cfg.pitch+'<g class="dl"></g>';
-  ids.forEach(function(id){var p=cfg.pl[id];h+='<g class="pl t-'+p.t+'" data-id="'+id+'" style="opacity:0;transform:translate(150px,150px)"><circle cx="0" cy="0" r="13"/>'+(p.l?'<text y="27">'+p.l+'</text>':'')+'</g>'});
+  var h=cfg.pitch+'<g class="dl"></g>',k=cfg.k||1;
+  ids.forEach(function(id){var p=cfg.pl[id],b=p.t==='ball';h+='<g class="pl t-'+p.t+'" data-id="'+id+'" style="opacity:0;transform:translate(150px,150px)"><g class="rot" style="transform:rotate('+dfa(cfg,p.t)+'deg) scale('+k+')">'+(b?'':FEET)+'<circle cx="0" cy="0" r="13"/></g>'+(p.l?(cfg.side&&(cfg.below||[]).indexOf(id)<0?'<text class="sd" x="'+Math.round(13*k+6)+'" y="4">'+p.l+'</text>':'<text y="'+Math.round(13*k+14)+'">'+p.l+'</text>'):'')+'</g>'});
   svg.innerHTML=h;
-  var x={cfg:cfg,svg:svg,ids:ids,g:{},dl:svg.querySelector('.dl'),t:null};
-  ids.forEach(function(id){x.g[id]=svg.querySelector('[data-id="'+id+'"]')});
+  var x={cfg:cfg,svg:svg,ids:ids,g:{},r:{},dl:svg.querySelector('.dl'),t:null};
+  ids.forEach(function(id){x.g[id]=svg.querySelector('[data-id="'+id+'"]');x.r[id]=x.g[id].querySelector('.rot')});
   return x;
 }
 function apply(x,step,jump,cap){
   if(jump)x.svg.classList.add('nt');
   x.ids.forEach(function(id){var g=x.g[id],p=step.pos[id];
-    if(p){g.style.opacity=1;g.style.transform='translate('+p[0]+'px,'+p[1]+'px)'}else g.style.opacity=0;
+    if(p){g.style.opacity=1;g.style.transform='translate('+p[0]+'px,'+p[1]+'px)';g.style.pointerEvents='auto'}else{g.style.opacity=0;g.style.pointerEvents='none'}
+    var a=(step.fc&&step.fc[id]!==undefined)?step.fc[id]:dfa(x.cfg,x.cfg.pl[id].t);
+    x.r[id].style.transform='rotate('+a+'deg) scale('+(x.cfg.k||1)+')';
     g.classList.toggle('hl',step.hl.indexOf(id)>-1)});
   x.dl.innerHTML=step.draw;
   if(cap)cap.textContent=step.cap;
@@ -674,11 +756,13 @@ document.querySelectorAll('.exp[data-dg]').forEach(function(ex){
   var x=build(cfg,ex.querySelector('svg.dg')),cap=ex.querySelector('.xcap');
   function pick(it){items.forEach(function(o){o.classList.toggle('open',o===it)});play(x,it.getAttribute('data-sc'),cap,slide)}
   ex._pick=pick;
+  if(cfg.click){Object.keys(cfg.click).forEach(function(id){var g=x.g[id];if(!g)return;g.classList.add('clk');
+    g.addEventListener('click',function(e){e.stopPropagation();var it=items.filter(function(o){return o.getAttribute('data-sc')===cfg.click[id]})[0];if(it)pick(it)})})}
   if(items.length)pick(items[0]);
 });
 
 /* físico */
-(function(){var g=document.getElementById('gauge'),its=[].slice.call(document.querySelectorAll('#fitems .tc'));
+(function(){var g=document.getElementById('gauge'),its=[].slice.call(document.querySelectorAll('#fitems .tc[data-lvl]'));
   function pick(it){its.forEach(function(o){o.classList.toggle('open',o===it)});g.setAttribute('data-lvl',it.getAttribute('data-lvl'))}
   its.forEach(function(it){it.addEventListener('click',function(e){e.stopPropagation();pick(it)})});
   if(PDF){its.forEach(function(o){o.classList.add('open')});g.setAttribute('data-lvl','hi')}else pick(its[0]);
