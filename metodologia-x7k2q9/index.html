@@ -126,7 +126,7 @@ svg.dg{width:100%;height:auto;max-height:calc(100vh - 330px)}
  #deck{position:static;inset:auto}
  .slide{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;width:1280px;height:800px;overflow:hidden;page-break-after:always;break-after:page;padding:26px 56px 14px;gap:10px}
  .slide:last-of-type{page-break-after:auto;break-after:auto}
- #nav,#menu,.x,.hint,.back-link,.next-btn,.tc[data-go]{display:none!important}
+ #nav,#menu,.x,.hint,.back-link,.next-btn,.minimap,.tc[data-go]{display:none!important}
  .cols{grid-template-columns:1.05fr 1fr!important}.g2{grid-template-columns:repeat(2,1fr)!important}.g3{grid-template-columns:repeat(3,1fr)!important}.g5{grid-template-columns:repeat(5,1fr)!important}
  .tc .d{grid-template-rows:1fr!important}.tc b::after{display:none}
  .tc{padding:9px 12px;break-inside:avoid}.tc b{font-size:19px}.tc .d{font-size:13px}.tc .d>span>i{padding-top:4px}
@@ -147,6 +147,9 @@ svg.dg{max-height:calc(100vh - 380px)}
 .pl text.sd{text-anchor:start}
 .pl.clk{cursor:pointer}.pl.clk:hover circle{stroke:#2DEBC6;stroke-width:3.5}
 .pl.clk text{fill:#A6FFEC}
+.tophead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.minimap{display:grid;justify-items:center;gap:4px;width:clamp(86px,11vw,128px);cursor:pointer;font-size:11px;color:var(--mint);text-align:center;font-weight:600;flex:none}
+.minimap:hover svg{filter:drop-shadow(0 0 8px rgba(45,235,198,.6))}
 .bub rect{fill:#F3F1E7;stroke:#2DEBC6;stroke-width:1.5}.bub path{fill:#F3F1E7;stroke:none}
 .bub text{fill:#06100e;font-family:var(--body);font-weight:700;font-size:11px}
 .vgrid{display:grid;gap:12px;grid-template-columns:repeat(5,1fr);flex:1;align-items:stretch}
@@ -215,7 +218,7 @@ svg.dg{max-height:calc(100vh - 380px)}
           <text x="300" y="258" text-anchor="middle" font-family="Inter" font-size="15" fill="#A6FFEC">valores · pincha</text>
         </g>
         <g class="node" tabindex="0" data-go="tecnica"><circle cx="150" cy="170" r="48"/><text x="150" y="178" text-anchor="middle" font-size="22">Técnica</text></g>
-        <g class="node" tabindex="0" data-go="scanning"><circle cx="450" cy="170" r="48"/><text x="450" y="178" text-anchor="middle" font-size="22">Táctica</text></g>
+        <g class="node" tabindex="0" data-go="tactica"><circle cx="450" cy="170" r="48"/><text x="450" y="178" text-anchor="middle" font-size="22">Táctica</text></g>
         <g class="node" tabindex="0" data-go="fisico"><circle cx="300" cy="420" r="48"/><text x="300" y="428" text-anchor="middle" font-size="22">Físico</text></g>
       </svg>
     </div>
@@ -224,7 +227,7 @@ svg.dg{max-height:calc(100vh - 380px)}
       <div class="grid">
         <button class="tc" data-go="valores"><b>Valores <small style="margin:0">el corazón</small></b></button>
         <button class="tc" data-go="tecnica"><b>Técnica <small style="margin:0">arriba · izquierda</small></b></button>
-        <button class="tc" data-go="scanning"><b>Táctica <small style="margin:0">arriba · derecha</small></b></button>
+        <button class="tc" data-go="tactica"><b>Táctica <small style="margin:0">arriba · derecha</small></b></button>
         <button class="tc" data-go="fisico"><b>Físico <small style="margin:0">abajo</small></b></button>
       </div>
     </div>
@@ -269,16 +272,59 @@ svg.dg{max-height:calc(100vh - 380px)}
       <button class="tc" data-sc="dc"><b>Directional control</b><small>Control orientado</small><span class="d"><span><i>Según los rivales o hacia dónde quiero jugar, ya perfilado y mirando el campo.</i></span></span></button>
       <button class="tc" data-sc="bs"><b>Body shape</b><small>Perfilamiento · sobre todo el que va a recibir</small><span class="d"><span><i>Pies y cuerpo de lado antes de recibir: veo más campo y tengo más opciones.</i></span></span></button>
       <button class="tc" data-sc="ft"><b>First touch</b><small>Primer toque</small><span class="d"><span><i>De primeras y de cara si el rival está encima y no hay tiempo para dos toques. También para subir el ritmo de juego.</i></span></span></button>
-      <button class="tc" data-sc="pp"><b>Ping-pong passes</b><small>Pases rápidos</small><span class="d"><span><i>Toco, me muevo y pasamos al espacio que ataca el compañero, entre los rivales.</i></span></span></button>
       <button class="tc key" data-go="mapa"><b>Volver al mapa</b></button>
     </div>
   </div>
 </section>
 
-<!-- ESCANEO (primera diapositiva de táctica) -->
+<!-- TÁCTICA -->
+<section class="slide" id="tactica" data-t="Táctica · el rombo">
+  <div class="tophead">
+    <div class="head"><div class="k">Esquina 2</div><h2><em>Táctica</em></h2></div>
+    <a class="minimap" tabindex="0" data-go="mapa" aria-label="Volver al triángulo">
+      <svg viewBox="0 0 600 560"><path d="M300 530C80 390 20 250 20 165C20 75 90 22 160 22C220 22 270 58 300 105C330 58 380 22 440 22C510 22 580 75 580 165C580 250 520 390 300 530Z" fill="rgba(45,235,198,.08)" stroke="#2DEBC6" stroke-width="12"/><polygon points="150,170 450,170 300,420" fill="rgba(45,235,198,.12)" stroke="#2DEBC6" stroke-width="8"/><circle cx="150" cy="170" r="48" fill="#12211d" stroke="#2DEBC6" stroke-width="8"/><circle cx="450" cy="170" r="58" fill="#2DEBC6"/><circle cx="300" cy="420" r="48" fill="#12211d" stroke="#2DEBC6" stroke-width="8"/></svg>
+      <span>← Volver al triángulo</span>
+    </a>
+  </div>
+  <div class="cols">
+    <div class="panel">
+      <svg viewBox="0 -100 700 540" role="img" aria-label="Rombo de ataque, defensa y transiciones, con la llave del escaneo encima" style="max-height:calc(100vh - 260px)">
+        <g class="node2" tabindex="0" data-go="scanning" aria-label="Escaneo, la llave" transform="translate(262,-98) scale(.47)">
+          <g class="keyart"><circle cx="80" cy="85" r="58" fill="rgba(45,235,198,.1)" stroke="#2DEBC6" stroke-width="14"/><ellipse cx="80" cy="85" rx="34" ry="20" fill="#0B0D0B" stroke="#F3F1E7" stroke-width="3"/><g class="pupil"><circle cx="80" cy="85" r="11" fill="#2DEBC6"/></g><rect x="136" y="78" width="214" height="14" rx="7" fill="#2DEBC6"/><rect x="270" y="88" width="14" height="36" rx="4" fill="#2DEBC6"/><rect x="302" y="88" width="14" height="26" rx="4" fill="#2DEBC6"/><rect x="334" y="88" width="14" height="42" rx="4" fill="#2DEBC6"/></g>
+        </g>
+        <text x="470" y="-58" font-family="Barlow Condensed" font-weight="800" font-size="24" fill="#F3F1E7" style="text-transform:uppercase">Escaneo</text>
+        <text x="470" y="-38" font-family="Inter" font-size="13" fill="#A6FFEC">la llave · pincha</text>
+        <polygon points="350,50 640,220 350,390 60,220" fill="rgba(45,235,198,.08)" stroke="#2DEBC6" stroke-width="3" stroke-linejoin="round"/>
+        <g class="node2" tabindex="0" data-go="balon-parado"><polygon points="350,160 460,220 350,280 240,220" fill="rgba(255,255,255,.07)" stroke="rgba(243,241,231,.5)" stroke-width="2"/>
+        <text class="hh" x="350" y="214" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">BALÓN</text>
+        <text class="hh" x="350" y="238" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">PARADO</text></g>
+        <path class="ar" d="M312 74L108 192" marker-end="url(#ah)"/><path class="ar" d="M98 246L312 368" marker-end="url(#ah)"/><path class="ar" d="M388 368L602 246" marker-end="url(#ah)"/><path class="ar" d="M602 194L392 76" marker-end="url(#ah)"/>
+        <g class="node" tabindex="0" data-go="ataque"><circle cx="350" cy="50" r="44"/><text x="350" y="50" text-anchor="middle" font-size="17">Ataque</text><text x="350" y="68" text-anchor="middle" font-size="11" style="font-family:Inter;text-transform:none;font-weight:600;fill:#A6FFEC">organizado</text></g>
+        <g class="node" tabindex="0" data-go="defensa"><circle cx="350" cy="390" r="44"/><text x="350" y="384" text-anchor="middle" font-size="17">Defensa</text><text x="350" y="402" text-anchor="middle" font-size="11" style="font-family:Inter;text-transform:none;font-weight:600;fill:#A6FFEC">organizada</text></g>
+        <g class="node" tabindex="0" data-go="perdida"><circle cx="60" cy="220" r="48"/><text x="60" y="226" text-anchor="middle" font-size="18">Pérdida</text></g>
+        <g class="node" tabindex="0" data-go="recuperacion"><circle cx="640" cy="220" r="48"/><text x="640" y="214" text-anchor="middle" font-size="15">Recupe-</text><text x="640" y="232" text-anchor="middle" font-size="15">ración</text></g>
+      </svg>
+    </div>
+    <div style="display:grid;gap:10px">
+      <button class="tc key" data-go="scanning"><b>El escaneo <small style="margin:0;color:#06100e">la llave de la táctica</small></b></button>
+      <button class="tc key" data-go="habitos"><b>Otros hábitos <small style="margin:0;color:#06100e">antes del rombo</small></b></button>
+      <p class="lead">Y el <em>rombo aplastado</em>: pincha cada esquina.</p>
+      <div class="grid">
+        <button class="tc" data-go="ataque"><b>Ataque organizado <small style="margin:0">arriba</small></b></button>
+        <button class="tc" data-go="perdida"><b>Pérdida <small style="margin:0">izquierda · transición</small></b></button>
+        <button class="tc" data-go="recuperacion"><b>Recuperación <small style="margin:0">derecha · transición</small></b></button>
+        <button class="tc" data-go="defensa"><b>Defensa organizada <small style="margin:0">abajo</small></b></button>
+        <button class="tc" data-go="balon-parado"><b>Balón parado <small style="margin:0">centro</small></b></button>
+      </div>
+      <p class="callout">Pérdida y recuperación son las <em>transiciones</em>: <span class="n">1</span>Predecir <span class="n">2</span>Reaccionar <span class="n">3</span>Activar</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESCANEO -->
 <section class="slide" id="scanning" data-t="Táctica · el escaneo, la llave">
-  <a class="back-link" data-go="mapa">← Volver al mapa</a>
-  <div class="head"><div class="k">Esquina 2 · Táctica empieza aquí</div><h2>El hábito del <em>escaneo</em></h2></div>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Táctica · la llave</div><h2>El hábito del <em>escaneo</em></h2></div>
   <div class="cols">
     <div style="display:grid;gap:14px">
       <svg class="keyart" viewBox="0 0 380 170" role="img" aria-label="Una llave con un ojo" style="max-width:520px">
@@ -293,7 +339,7 @@ svg.dg{max-height:calc(100vh - 380px)}
       <div class="keytxt">La llave que <em>abre la táctica</em></div>
       <p class="lead">Mira a tu alrededor: compañeros · rivales · espacios.</p>
       <p class="callout">No solo antes de recibir: <em>en todo momento</em>.</p>
-      <button class="tc key next-btn" data-go="habitos" style="max-width:320px"><b>Siguiente: Hábitos</b></button>
+      <button class="tc key next-btn" data-go="tactica" style="max-width:320px"><b>Volver al rombo</b></button>
     </div>
     <div class="exp" data-dg="sc" style="grid-template-columns:1fr">
       <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
@@ -307,8 +353,8 @@ svg.dg{max-height:calc(100vh - 380px)}
 
 <!-- HÁBITOS -->
 <section class="slide" id="habitos" data-t="Hábitos antes de la táctica">
-  <a class="back-link" data-go="scanning">← Volver al escaneo</a>
-  <div class="head"><div class="k">Antes de la táctica</div><h2>Hábitos del <em>jugador iGol</em></h2></div>
+  <a class="back-link" data-go="tactica">← Volver al rombo</a>
+  <div class="head"><div class="k">Táctica · otros hábitos</div><h2>Hábitos del <em>jugador iGol</em></h2></div>
   <div class="exp" data-dg="hb">
     <div class="xmain"><div class="panel"><svg class="dg"></svg></div><div class="xcap"></div></div>
     <div class="items">
@@ -316,40 +362,7 @@ svg.dg{max-height:calc(100vh - 380px)}
       <button class="tc" data-sc="show"><b>Show up every time</b><small>Siempre intervienes</small><span class="d"><span><i>Aunque el balón esté lejos, siempre tienes un rol en la jugada.</i></span></span></button>
       <button class="tc" data-sc="keep"><b>Don’t force it, keep playing</b><small>No fuerces, sigue jugando</small><span class="d"><span><i>Si no es posible ir hacia delante, juega hacia atrás (playback). Arriésgate solo si detrás hay gol.</i></span></span></button>
       <button class="tc" data-sc="unp"><b>Unpredictable</b><small>No ser predecible</small><span class="d"><span><i>No repitas el patrón si no funciona.</i></span></span></button>
-      <button class="tc key next-btn" data-go="tactica"><b>Siguiente: el rombo</b></button>
-    </div>
-  </div>
-</section>
-
-<!-- TÁCTICA -->
-<section class="slide" id="tactica" data-t="Táctica · el rombo">
-  <a class="back-link" data-go="mapa">← Volver al mapa</a>
-  <div class="head"><div class="k">Esquina 2</div><h2><em>Táctica</em></h2></div>
-  <div class="cols">
-    <div class="panel">
-      <svg viewBox="0 0 700 440" role="img" aria-label="Rombo de ataque, defensa y transiciones" style="max-height:calc(100vh - 300px)">
-        <polygon points="350,50 640,220 350,390 60,220" fill="rgba(45,235,198,.08)" stroke="#2DEBC6" stroke-width="3" stroke-linejoin="round"/>
-        <g class="node2" tabindex="0" data-go="balon-parado"><polygon points="350,160 460,220 350,280 240,220" fill="rgba(255,255,255,.07)" stroke="rgba(243,241,231,.5)" stroke-width="2"/>
-        <text class="hh" x="350" y="214" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">BALÓN</text>
-        <text class="hh" x="350" y="238" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="22" fill="#F3F1E7">PARADO</text></g>
-        <path class="ar" d="M312 74L108 192" marker-end="url(#ah)"/><path class="ar" d="M98 246L312 368" marker-end="url(#ah)"/><path class="ar" d="M388 368L602 246" marker-end="url(#ah)"/><path class="ar" d="M602 194L392 76" marker-end="url(#ah)"/>
-        <g class="node" tabindex="0" data-go="ataque"><circle cx="350" cy="50" r="44"/><text x="350" y="50" text-anchor="middle" font-size="17">Ataque</text><text x="350" y="68" text-anchor="middle" font-size="11" style="font-family:Inter;text-transform:none;font-weight:600;fill:#A6FFEC">organizado</text></g>
-        <g class="node" tabindex="0" data-go="defensa"><circle cx="350" cy="390" r="44"/><text x="350" y="384" text-anchor="middle" font-size="17">Defensa</text><text x="350" y="402" text-anchor="middle" font-size="11" style="font-family:Inter;text-transform:none;font-weight:600;fill:#A6FFEC">organizada</text></g>
-        <g class="node" tabindex="0" data-go="perdida"><circle cx="60" cy="220" r="48"/><text x="60" y="226" text-anchor="middle" font-size="18">Pérdida</text></g>
-        <g class="node" tabindex="0" data-go="recuperacion"><circle cx="640" cy="220" r="48"/><text x="640" y="214" text-anchor="middle" font-size="15">Recupe-</text><text x="640" y="232" text-anchor="middle" font-size="15">ración</text></g>
-      </svg>
-    </div>
-    <div style="display:grid;gap:10px">
-      <p class="lead">Un <em>rombo aplastado</em>. Pincha cada esquina.</p>
-      <div class="grid">
-        <button class="tc" data-go="ataque"><b>Ataque organizado <small style="margin:0">arriba</small></b></button>
-        <button class="tc" data-go="perdida"><b>Pérdida <small style="margin:0">izquierda · transición</small></b></button>
-        <button class="tc" data-go="recuperacion"><b>Recuperación <small style="margin:0">derecha · transición</small></b></button>
-        <button class="tc" data-go="defensa"><b>Defensa organizada <small style="margin:0">abajo</small></b></button>
-        <button class="tc" data-go="balon-parado"><b>Balón parado <small style="margin:0">centro</small></b></button>
-      </div>
-      <p class="callout">Pérdida y recuperación son las <em>transiciones</em>: <span class="n">1</span>Predecir <span class="n">2</span>Reaccionar <span class="n">3</span>Activar</p>
-      <button class="tc key next-btn" data-go="ataque" style="max-width:300px"><b>Siguiente: Ataque</b></button>
+      <button class="tc key next-btn" data-go="tactica"><b>Volver al rombo</b></button>
     </div>
   </div>
 </section>
@@ -551,15 +564,11 @@ DG.tt={w:300,h:190,pitch:BOX,pl:{c:me('pasa'),t:me('tú'),r:op('rival'),c1:me(),
  dc:[S({c:[40,160],t:[140,118],r:[222,125],c1:[55,38],c2:[205,30],b:[56,152]},'Me llega el balón con un rival cerca. Ya voy perfilado, mirando el campo',A(58,150,128,122)+CN(140,118,-125,95,55),['t'],2300,{t:-125,c:-20,r:175,c1:60,c2:120}),
      S({c:[40,160],t:[140,118],r:[222,125],c1:[55,38],c2:[205,30],b:[108,92]},'Control orientado: lo dejo hacia donde quiero jugar, lejos del rival',A(134,108,114,96),['t'],2300,{t:-125,c:-20,r:175,c1:60,c2:120}),
      S({c:[40,160],t:[140,118],r:[222,125],c1:[55,38],c2:[205,30],b:[108,92]},'Sigo perfilado: tengo todas las opciones (pase, conducción…)',A(124,100,66,52)+A(130,100,192,44),['c1','c2'],2400,{t:-125,c:-20,r:175,c1:60,c2:120})],
- bs:[S({m:[40,100],t:[150,100],r:[235,48],c1:[245,150],b:[56,100]},'Cuerpo cerrado, de cara al balón: veo poco',A(58,100,132,100)+CN(150,100,180,80,18)+T(150,150,'pies hacia el balón','r'),['t'],2400,{m:0,t:180,r:90,c1:180}),
-     S({m:[40,100],t:[150,100],r:[235,48],c1:[245,150],b:[56,100]},'Perfilado: antes de recibir ya veo el campo y tengo más opciones',A(58,100,132,100)+CN(150,100,-35,125,75)+T(150,150,'pies hacia el campo'),['t','r','c1'],2600,{m:0,t:-35,r:90,c1:180})],
+ bs:[S({m:[40,108],t:[140,100],r:[225,142],c1:[225,38],b:[56,108]},'Cuerpo cerrado, de cara al balón: el compañero queda a mi espalda',A(58,106,128,100)+T(140,150,'solo veo al que pasa','r'),['t'],2400,{m:0,t:174,r:180,c1:180}),
+     S({m:[40,108],t:[140,100],r:[225,142],c1:[225,38],b:[56,108]},'Perfilado: un pie hacia quien me pasa y el otro hacia el compañero. Veo a los dos',A(58,106,128,100)+A(152,90,208,50)+T(140,150,'un pie a cada lado'),['t','m','c1'],2800,{m:0,t:-111,r:180,c1:180})],
  ft:[S({c:[40,100],t:[140,100],r:[174,100],b:[56,100]},'El balón llega y un rival me presiona por la espalda',A(58,100,124,100)+A(214,100,194,100,'bad'),['r'],2300,{c:0,t:180,r:180}),
      S({c:[40,100],t:[140,100],r:[174,100],b:[134,100]},'No hay tiempo para dos toques: si controlo, me roban',T(140,140,'controlar ✕','r'),['t'],2300,{c:0,t:180,r:180}),
-     S({c:[40,100],t:[140,100],r:[174,100],b:[60,100]},'Primer toque: de primeras y de cara',A(124,100,72,100),['t'],2300,{c:0,t:180,r:180})],
- pp:[S({a:[70,60],bb:[70,140],r1:[200,55],r2:[200,135],b:[85,60]},'Ping-pong: toco…',A(74,76,72,122),['a'],2100,{a:0,bb:0,r1:180,r2:180}),
-     S({a:[125,95],bb:[70,140],r1:[200,55],r2:[200,135],b:[86,140]},'…me muevo hacia el hueco entre los rivales…',A(80,72,118,90),['a'],2100,{a:0,bb:0,r1:180,r2:180}),
-     S({a:[150,95],bb:[70,140],r1:[200,55],r2:[200,135],b:[168,96]},'…y mi compañero pasa al espacio que ataco',A(86,138,160,100),['bb'],2100,{a:0,bb:0,r1:180,r2:180}),
-     S({a:[196,95],bb:[100,128],r1:[200,55],r2:[200,135],b:[212,95]},'De primeras: recibo entre los dos rivales y sigo',A(160,95,190,95),['a'],2300,{a:0,bb:0,r1:180,r2:180})]
+     S({c:[40,100],t:[140,100],r:[174,100],b:[60,100]},'Primer toque: de primeras y de cara',A(124,100,72,100),['t'],2300,{c:0,t:180,r:180})]
 }};
 
 /* ---- escaneo: ofensivo y defensivo ---- */
@@ -577,7 +586,7 @@ DG.sc={w:300,h:190,pitch:BOX,pl:{p:me('tú'),c1:me('compañero'),c2:me('compañe
 }};
 
 /* ---- hábitos ---- */
-DG.hb={w:300,h:420,pitch:FULL,pl:{p1:me(),p2:me(),p3:me(),s:me('andando'),c:me(),o1:op(),o2:op(),st:me(),f1:me(),f2:me(),f3:me(),gk:gk(),m:me(),w:me(),d:me(),b:ball()},sc:{
+DG.hb={w:300,h:420,pitch:FULL,pl:{p1:me(),p2:me(),p3:me(),s:me(),c:me(),o1:op(),o2:op(),st:me(),f1:me(),f2:me(),f3:me(),gk:gk(),m:me(),w:me(),d:me(),b:ball()},sc:{
  jog:[S({p1:[70,340],p2:[130,340],p3:[190,340],s:[250,340]},'Todos juntos al empezar la jugada…','',[]),
       S({p1:[70,150],p2:[130,125],p3:[190,150],s:[250,320]},'Siempre en movimiento, aunque sea trotando: el que anda se queda muy atrás',A(70,326,70,172)+A(130,326,130,147)+A(190,326,190,172)+T(250,365,'andando ✕','r'),['p1','p2','p3'],3200)],
  show:[S({c:[255,90],b:[255,102],o1:[238,70],f1:[60,300],f2:[110,230],f3:[200,340],gk:[150,395]},'El balón está lejos…','',['c']),
@@ -585,9 +594,7 @@ DG.hb={w:300,h:420,pitch:FULL,pl:{p1:me(),p2:me(),p3:me(),s:me('andando'),c:me()
  keep:[S({c:[150,250],b:[150,262],o1:[150,212],st:[150,100],o2:[120,160]},'No fuerces: si el premio no interesa, no arriesgues',A(150,242,150,115,'bad')+T(195,190,'riesgo','r')),
        S({c:[150,250],b:[150,330],o1:[150,212],st:[150,100],o2:[120,160],d:[150,335]},'Si no es posible ir hacia delante, juega hacia atrás (playback)',A(150,266,150,318),['d']),
        S({c:[150,110],b:[150,122],o1:[150,82],st:[190,60],gk:[150,22]},'Arriésgate si detrás hay gol',A(158,108,195,70)+T(220,40,'¡gol!'),['c'])],
- unp:[S({m:[150,300],b:[150,312],w:[60,240],o1:[85,232]},'Mismo patrón…',A(145,298,72,250)+T(60,225,'patrón')),
-      S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248]},'…repetido: el rival ya lo lee',A(145,298,72,250,'bad'),['o1']),
-      S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248],st:[150,140]},'No ser predecible: cambio si no funciona',A(150,290,150,155),['st'])]
+ unp:[S({m:[150,300],b:[150,312],w:[60,240],o1:[70,248],st:[150,140]},'Mismo patrón repetido: el rival ya lo lee. Si no funciona, cambio',A(145,298,72,250,'bad')+T(60,225,'patrón ✕','r')+A(150,290,150,155)+T(185,200,'cambio'),['st'],2100)]
 }};
 
 /* ---- ataque ---- */
