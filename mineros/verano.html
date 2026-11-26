@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Mineros de Zacatecas · Experiencia en España</title>
-<meta name="description" content="Mineros de Zacatecas presenta una experiencia de fútbol en Andalucía, España, para equipos y para grupos reducidos de jugadores.">
+<title>Mineros en España · Verano, pretemporada 2027</title>
+<meta name="description" content="Mineros de Zacatecas presenta: pretemporada en Andalucía del 20 al 28 de agosto de 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap">
@@ -173,6 +173,12 @@ details.coach .cb p+p{margin-top:10px}
 .bk{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;padding:6px 20px 22px;animation:fade .6s}.bk>img{width:100%;background:#fff;padding:10px 14px;border-radius:2px}
 .bk dl{margin:0;display:grid;grid-template-columns:90px 1fr;gap:6px 14px;font-size:16px}.bk dt{color:var(--mute);font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding-top:3px}.bk dd{margin:0}#iban{font-variant-numeric:tabular-nums;letter-spacing:.04em}
 .copy{margin-left:10px;border:1px solid var(--gold);background:none;color:var(--gold);padding:3px 12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}.copy:hover{background:var(--gold);color:#22040d}
+.ttd{display:grid;gap:8px}
+details.dd summary{font-size:22px}details.dd.extra{border-color:var(--gold);background:rgba(237,207,133,.08)}
+.tt{list-style:none;margin:0;padding:4px 20px 18px;display:grid;gap:2px;animation:fade .5s}
+.tt li{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:6px 0;border-bottom:1px solid rgba(237,207,133,.14);font-size:15.5px}
+.tt li b{font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}.tt li.lau{background:rgba(237,207,133,.08)}
+.tt em{font-style:normal;font-size:11px;letter-spacing:.14em;border:1px solid var(--gold);color:var(--gold);padding:1px 8px;border-radius:99px;margin-left:6px;white-space:nowrap}
 .note{font-size:13px;color:var(--mute);margin-top:18px}
 
 #lb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px}
@@ -183,6 +189,7 @@ details.coach .cb p+p{margin-top:10px}
 
 @media(max-width:1000px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:860px){
+ .tt li{grid-template-columns:56px 1fr}
  .bk{grid-template-columns:1fr}.ftn{display:none}
  .pay,.soc{grid-template-columns:1fr}
  .slide{padding:104px 20px 120px}.logo{height:38px}
@@ -290,47 +297,56 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
 .tk-bars{height:44px;background:repeating-linear-gradient(90deg,var(--bg) 0 2px,transparent 2px 5px,var(--bg) 5px 6px,transparent 6px 11px)}
 .club.v3 .cv-go{margin-top:30px;text-align:center;opacity:1;transform:none}
 @media(max-width:860px){.tk{grid-template-columns:1fr}.tk-stub{border-left:0;border-top:3px dashed rgba(34,4,13,.45)}.tk-stub::before,.tk-stub::after{display:none}.tk-main{grid-template-columns:84px 1fr}.club.v2 .cv-crest{height:36vh}.club.v2 .cv-crest img.cr{max-height:36vh}.club.v2 .cv-title span{display:block}}
-:root{--display:"Marcellus",Georgia,serif}h1 i,h2 i,h3 i{font-style:normal}</style>
+:root{--display:"Marcellus",Georgia,serif}h1 i,h2 i,h3 i{font-style:normal}body.home .brand{opacity:1}@media(max-width:860px){.club .cv-crest img.cr{width:auto!important;height:18vh}.club .cv-go{margin-top:12px}.club .cv-go button.go{font-size:16px;padding:12px 20px}.club .in.cv{padding-bottom:90px}}</style>
 </head>
 <body>
 
 <header id="top">
-  <div class="brand"><img class="logo" src="img/escudo-mineros.png" alt="Mineros de Zacatecas"></div>
+  <a class="brand" href="./" aria-label="Volver a las opciones" style="text-decoration:none;color:inherit"><img class="logo" src="img/escudo-mineros.png" alt="Mineros de Zacatecas"><span class="bn">← Opciones</span></a>
   <button id="menu" data-go="2">Experiencia</button>
 </header>
 
 <main id="deck">
 
 <!-- 1 PORTADA -->
-<section class="slide cover club v2" style="--cvbg:no-repeat url(img/mineros-jugador.jpg) calc(100% + 9vw) 20%/auto 118%" data-title="Portada">
+<section class="slide cover club" style="--cvbg:radial-gradient(70% 90% at 78% 35%,rgba(237,207,133,.30),transparent 62%),linear-gradient(135deg,#4a0b1e,#22040d)" data-title="Portada">
   <div class="cv-bg"></div><div class="cv-shade"></div>
-  <div class="cv-giant" aria-hidden="true">ZACATECAS</div>
+  <div class="cv-giant" aria-hidden="true">VERANO</div>
   <div class="cv-slash"></div>
   <div class="in cv">
-    <div class="cv-crest"><div class="cv-glow"></div><img class="cr" src="img/escudo-mineros.png" alt="Mineros de Zacatecas"></div>
+    <div class="cv-crest"><div class="cv-glow"></div><svg class="cv-ring" viewBox="0 0 300 300"><defs><path id="rg" d="M150,150 m-134,0 a134,134 0 1,1 268,0 a134,134 0 1,1 -268,0"/></defs><text><textPath href="#rg" textLength="838" lengthAdjust="spacing">MINEROS DE ZACATECAS · VERANO 2027 · PRETEMPORADA ·</textPath></text></svg><img class="cr" src="img/escudo-mineros.png" alt="Mineros de Zacatecas" style="width:62%"></div>
     <div class="cv-text">
-      <span class="cv-kick">Presenta</span>
-      <h1 class="cv-title"><span>MINEROS</span><span class="o">EN ESPAÑA</span></h1>
-      <p class="cv-sub">Una experiencia de fútbol en Andalucía para equipos y grupos de jugadores · fechas por acordar</p>
-      <span class="cv-tag">Labor vincit omnia</span>
+      <span class="cv-kick">Mineros de Zacatecas · Para equipos</span>
+      <h1 class="cv-title"><span>VERANO</span><span class="o">PRETEMPORADA</span></h1>
+      <p class="cv-sub">Del 20 al 28 de agosto de 2027 en Andalucía, España · 9 días y 8 noches</p>
+      
       <div class="cv-go"><button class="go" data-go="1">Descubrir la experiencia&nbsp;&nbsp;→</button></div>
     </div>
   </div>
   <div class="cv-flash"></div>
-  <div class="cv-ticker"><div><span>Entrenamiento</span><span>◆</span><span>Estadios</span><span>◆</span><span>Ciudades</span><span>◆</span><span>Fútbol en España</span><span>◆</span><span>Labor vincit omnia</span><span>◆</span><span>Entrenamiento</span><span>◆</span><span>Estadios</span><span>◆</span><span>Ciudades</span><span>◆</span><span>Fútbol en España</span><span>◆</span><span>Labor vincit omnia</span><span>◆</span></div></div>
+  <div class="cv-ticker"><div><span>Verano</span><span>◆</span><span>20 – 28 agosto</span><span>◆</span><span>Pretemporada</span><span>◆</span><span>Andalucía</span><span>◆</span><span>Mineros</span><span>◆</span><span>Verano</span><span>◆</span><span>20 – 28 agosto</span><span>◆</span><span>Pretemporada</span><span>◆</span><span>Andalucía</span><span>◆</span><span>Mineros</span><span>◆</span></div></div>
 </section>
 
-<!-- 2 FORMATOS -->
-<section class="slide" data-title="Formatos">
+<!-- 2 EL VIAJE -->
+<section class="slide" data-title="El viaje">
   <div class="in stack">
     <div class="k">El viaje</div>
-    <h2>Elige tu <i>formato</i></h2>
-    <p class="lead">Una semana de fútbol en Andalucía: entrenamiento, ciudades y estadios, con un staff que cuida de los jugadores las 24 horas. Hay dos formatos y las fechas se acuerdan con el organizador.</p>
-    <div class="two">
-      <div class="card"><span class="tag">Formato 1</span><h3>Equipos</h3><p class="mute">12 jugadores Sub-10, Sub-11 y Sub-12 (fútbol 7) o 16 jugadores mayores de 12 años (fútbol 11), Incluye partidos, torneo y Gibraltar.</p><p style="margin-top:14px"><button class="go" style="margin:0;padding:11px 22px" data-open="f-eq">Ver el formato</button></p></div>
-      <div class="card"><span class="tag">Formato 2</span><h3>Grupos reducidos</h3><p class="mute">Hasta 11 jugadores de cualquier edad, con un acompañante adulto. Entrenamiento intensivo: 4 dobles sesiones, con perfeccionamiento con niños locales.</p><p style="margin-top:14px"><button class="go" style="margin:0;padding:11px 22px" data-open="f-gr">Ver el formato</button></p></div>
+    <h2>Pretemporada, <i>con un día más</i></h2>
+    <p class="lead">Partimos de la experiencia original de 8 días y 7 noches, que ya tiene muchos días de entrenamiento, y le sumamos uno más: un día completo de doble sesión. Entrenamiento, partidos, Cádiz, Sevilla y Gibraltar, con el staff siempre con el grupo.</p>
+    <div class="facts">
+      <div><b>9 · 8</b><span>9 días y 8 noches</span></div>
+      <div><b>20 ago</b><span>día de llegada: viernes 20 de agosto de 2027</span></div>
+      <div><b>+1</b><span>día de entrenamiento más que la experiencia original</span></div>
+      <div><b>28 ago</b><span>regreso: sábado 28 de agosto</span></div>
     </div>
-    <p class="hint">Los dos formatos duran 8 días y 7 noches.</p>
+    <div class="facts">
+      <div><b>8</b><span>sesiones de entrenamiento (5 días completos y 2 cortos, con un día de doble sesión)</span></div>
+      <div><b>2</b><span>partidos según el nivel, por confirmar*</span></div>
+      <div><b>1</b><span>partido con Gibraltar, por confirmar</span></div>
+      <div><b>1</b><span>torneo triangular con equipos locales, por confirmar</span></div>
+    </div>
+    <div class="callout"><b>Final del verano.</b> Los partidos se ajustan al nivel del equipo (clubes top o clubes locales) y están por confirmar, igual que Gibraltar y el torneo triangular: en agosto los clubes están en pretemporada. Si no hay partido, hay entrenamiento. <b>Si no hay partido, se hace un entrenamiento en su lugar.</b> Entrenamos temprano y al caer la tarde, con descanso y agua en las horas de calor.</div>
+    <p class="hint">Prototipo de horario, hora a hora, en la diapositiva 4. Las fechas se pueden ajustar.</p>
   </div>
 </section>
 
@@ -342,13 +358,43 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <div class="tiles">
       <button class="tile" data-open="alojamiento"><img src="img/residencia-aerea.jpg" alt="" class="crop"><span><em>Dónde duermen y comen</em><strong>Alojamiento y alimentación</strong></span></button>
       <button class="tile" data-open="entrenos"><img src="img/en-1.jpg" alt="" style="object-position:50% 40%"><span><em>Metodología</em><strong>Entrenamientos</strong></span></button>
-      <button class="tile" data-open="partidos"><img src="img/cadiz-1.jpg" alt="" style="object-position:50% 55%"><span><em>Rivales</em><strong>Partidos</strong></span></button>
+      <button class="tile" data-open="partidos"><img src="img/cadiz-1.jpg" alt="" style="object-position:50% 55%"><span><em>Partidos y competición</em><strong>Partidos</strong></span></button>
       <button class="tile" data-open="primera"><img src="img/betis-2.jpg" alt=""><span><em>LaLiga</em><strong>Partido de Primera</strong></span></button>
       <button class="tile" data-open="estadio"><img src="img/es-3.jpg" alt=""><span><em>Cádiz CF</em><strong>Cádiz Stadium Tour</strong></span></button>
       <button class="tile" data-open="cultura"><img src="img/giralda.jpg" alt=""><span><em>Más allá del campo</em><strong>Ciudades y cultura</strong></span></button>
       <button class="tile" data-open="cuidado"><img src="img/care-1.jpg" alt="" style="object-position:50% 30%"><span><em>Tranquilidad</em><strong>Cuidado y traslados</strong></span></button>
-      <button class="tile" data-open="asi"><img src="img/torneo-1.jpg" alt="" style="object-position:50% 55%"><span><em>Enero de 2026</em><strong>Así fue la experiencia</strong></span></button>
+      <button class="tile" data-open="asi"><img src="img/torneo-1.jpg" alt="" style="object-position:50% 55%"><span><em>Enero de 2026</em><strong>Así fue la experiencia original</strong></span></button>
     </div>
+  </div>
+</section>
+
+<!-- 4 PROTOTIPO DE HORARIO -->
+<section class="slide" data-title="Prototipo de horario">
+  <div class="in stack">
+    <div class="k">Tentative schedule · prototipo</div>
+    <h2>Del 20 al 28 de agosto, <i>hora a hora</i></h2>
+    <p class="lead">Prototipo de cómo sería una experiencia, empezando el 20 de agosto: 8 sesiones de entrenamiento, partidos según el nivel del equipo, Gibraltar y un torneo triangular, todos por confirmar. Pincha en cada día para ver las horas. El día 5 es el día extra de entrenamiento. Marcamos la lavandería y lo que está por confirmar.</p>
+    <div class="ttd">
+    <details class="coach dd"><summary><span><small>Día 1 · Viernes 20 de agosto</small>Llegada</span></summary>
+  <ul class="tt"><li><b>12:30</b><span>Llegada al aeropuerto de Sevilla (SVQ) y recogida del grupo</span></li><li><b>13:30</b><span>Traslado en furgonetas a la residencia (comprobar nivel de combustible)</span></li><li><b>15:00</b><span>Llegada a El Puerto, check-in en CEAAN y comida</span></li><li><b>16:30</b><span>Reunión de bienvenida con las normas y entrega de equipación (con pausa para merendar)</span></li><li><b>17:15</b><span>Descanso e hidratación (las horas centrales son de calor)</span></li><li><b>19:30</b><span>Salida al campo de fútbol</span></li><li><b>20:00</b><span>Primer entrenamiento con focos</span></li><li><b>21:30</b><span>Fin del entrenamiento y regreso a la residencia</span></li><li><b>22:00</b><span>Cena, ducha y a dormir (poner alarma para mañana)</span></li><li class="lau"><b>22:15</b><span>Entrega de ropa a lavandería · tanda 1 <em>LAVANDERÍA</em></span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 2 · Sábado 21 de agosto</small>Entrenamiento, Cádiz Stadium Tour y partido 1 (por confirmar*)</span></summary>
+  <ul class="tt"><li><b>08:00</b><span>Despertar y arreglarse</span></li><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Entrenamiento (porteros con su entrenador)</span></li><li><b>10:30</b><span>Fin del entrenamiento y regreso a la residencia</span></li><li><b>11:30</b><span>Salida hacia Cádiz</span></li><li><b>12:15</b><span>Cádiz Stadium Tour (con aire acondicionado)</span></li><li><b>13:45</b><span>Comida y descanso</span></li><li><b>15:00</b><span>Descanso en la residencia (higiene y piscina o sombra)</span></li><li><b>18:30</b><span>Salida al campo</span></li><li><b>19:30</b><span>Partido 1 con un equipo local (por confirmar*; rival según nivel)</span></li><li><b>21:30</b><span>Fin del partido, fotos y vestuarios</span></li><li><b>22:00</b><span>Feedback diario y cena</span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 3 · Domingo 22 de agosto</small>Entrenamiento y partido 2 (por confirmar*)</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Entrenamiento (porteros con su entrenador)</span></li><li><b>10:30</b><span>Fin del entrenamiento y regreso a la residencia</span></li><li><b>13:30</b><span>Comida y descanso hasta las 17:00</span></li><li><b>18:30</b><span>Salida al campo del rival</span></li><li><b>19:30</b><span>Partido 2 con un equipo local (por confirmar*; rival según nivel)</span></li><li><b>21:30</b><span>Fin del partido, fotos y vestuarios</span></li><li><b>22:15</b><span>Regreso a la residencia, feedback y cena</span></li><li class="lau"><b>22:45</b><span>Recogida de la ropa de la tanda 1 y entrega de la tanda 2 <em>LAVANDERÍA</em></span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 4 · Lunes 23 de agosto</small>Entrenamiento, Cádiz y fútbol playa</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Entrenamiento (porteros con su entrenador)</span></li><li><b>10:30</b><span>Fin del entrenamiento y regreso</span></li><li><b>13:00</b><span>Comida y descanso</span></li><li><b>17:00</b><span>Salida hacia Cádiz (aparcar con criterio para el recorrido)</span></li><li><b>17:30</b><span>Casco antiguo de Cádiz</span></li><li><b>18:30</b><span>Castillo de San Sebastián</span></li><li><b>19:30</b><span>Fútbol playa</span></li><li><b>21:00</b><span>Compra de provisiones para el picnic</span></li><li><b>22:00</b><span>Regreso, higiene y cena</span></li></ul></details>
+    <details class="coach dd extra"><summary><span><small>Día 5 · Martes 24 de agosto · día extra de entrenamiento</small>Día extra de entrenamiento</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Sesión 1: entrenamiento técnico y de posición</span></li><li><b>10:45</b><span>Fin de la sesión y regreso</span></li><li><b>11:30</b><span>Clase de metodología (sala con aire acondicionado)</span></li><li><b>13:30</b><span>Comida y descanso</span></li><li><b>17:00</b><span>Recuperación en la playa de Valdelagrana (a 15 minutos andando)</span></li><li><b>19:30</b><span>Sesión 2: porteros y finalización</span></li><li><b>21:00</b><span>Fin de la sesión y regreso</span></li><li><b>22:00</b><span>Cena y feedback individual</span></li><li class="lau"><b>22:15</b><span>Recogida de la ropa de la tanda 2 y entrega de la tanda 3 <em>LAVANDERÍA</em></span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 6 · Miércoles 25 de agosto</small>Torneo triangular (por confirmar)</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>09:00</b><span>Activación corta en el campo</span></li><li><b>10:15</b><span>Regreso a la residencia y descanso</span></li><li><b>13:30</b><span>Comida y descanso</span></li><li><b>17:30</b><span>Salida al campo del torneo</span></li><li><b>18:00</b><span>Calentamiento y llegada</span></li><li><b>18:30</b><span>Torneo triangular con equipos locales (por confirmar; sujeto a su disponibilidad). Si no se confirma, se hace un entrenamiento en su lugar</span></li><li><b>21:30</b><span>Final, entrega de premios, fotos y rato social</span></li><li><b>22:15</b><span>Regreso a la residencia y cena</span></li><li class="lau"><b>22:30</b><span>Entrega de ropa a lavandería · tanda 4 <em>LAVANDERÍA</em></span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 7 · Jueves 26 de agosto</small>Gibraltar y partido por confirmar</span></summary>
+  <ul class="tt"><li class="lau"><b>07:45</b><span>Desayuno y recogida de la ropa de la tanda 3 <em>LAVANDERÍA</em></span></li><li><b>08:30</b><span>Salida hacia Gibraltar (aparcar en la zona de la frontera)</span></li><li><b>09:45</b><span>Cruce de la frontera</span></li><li><b>10:30</b><span>Partido con Gibraltar (por confirmar; sujeto a disponibilidad). Si no hay partido, se hace un entrenamiento</span></li><li><b>12:00</b><span>Fin del partido y fotos</span></li><li><b>13:00</b><span>Comida</span></li><li><b>14:30</b><span>Cuevas de San Miguel</span></li><li><b>16:00</b><span>La Roca y los monos</span></li><li><b>17:30</b><span>Regreso a la frontera y recogida</span></li><li><b>19:30</b><span>Llegada a la residencia, feedback y cena</span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 8 · Viernes 27 de agosto</small>Sevilla y partido de Primera</span></summary>
+  <ul class="tt"><li class="lau"><b>07:45</b><span>Desayuno y recogida de la ropa de la tanda 4 <em>LAVANDERÍA</em></span></li><li><b>09:00</b><span>Entrenamiento corto</span></li><li><b>10:15</b><span>Fin del entrenamiento, regreso y ducha</span></li><li><b>11:30</b><span>Salida hacia Sevilla</span></li><li><b>13:00</b><span>Llegada a Sevilla y comida</span></li><li><b>14:30</b><span>Descanso a la sombra</span></li><li><b>16:30</b><span>Catedral y Giralda</span></li><li><b>18:30</b><span>Plaza de España</span></li><li><b>20:00</b><span>Partido de Primera División (por confirmar según el calendario de la jornada; si no coincide, tour del estadio)</span></li><li><b>—</b><span>Regreso a la residencia al terminar</span></li></ul></details>
+    <details class="coach dd"><summary><span><small>Día 9 · Sábado 28 de agosto</small>Despedida</span></summary>
+  <ul class="tt"><li><b>08:00</b><span>Despertar y desayuno</span></li><li><b>08:30</b><span>Hacer las maletas y recoger todo</span></li><li><b>09:15</b><span>Salida hacia el aeropuerto</span></li><li><b>10:45</b><span>Llegada al aeropuerto y despedida</span></li><li><b>—</b><span>Hora límite de llegada según los vuelos de cada uno (vuelos no incluidos)</span></li></ul></details>
+    </div>
+    <p class="hint">Provisional. Rivales según el nivel del equipo; partidos, Gibraltar y torneo triangular por confirmar. Si no hay partido, se hace un entrenamiento.</p>
   </div>
 </section>
 
@@ -369,7 +415,7 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <div class="k">Qué incluye</div>
     <h2>Todo lo que <i>está incluido</i></h2>
     <div class="inc">
-      <div>Alojamiento CEAAN (7 noches)</div><div>Alimentación: pensión completa</div><div>Traslados incluidos</div><div>Entrenamientos con entrenador UEFA Pro</div><div>Partidos y torneo (para equipos)</div><div>Perfeccionamiento con niños locales (para grupos reducidos)</div><div>Partido de Primera División (según calendario)</div><div>Cádiz Stadium Tour</div><div>Visitas culturales</div><div>Atención 24 horas del staff</div><div>Feedback individual de cada entrenador</div><div>Seguimiento individual de cada jugador</div><div>Seguro de responsabilidad civil</div>
+      <div>Alojamiento CEAAN (8 noches)</div><div>Alimentación: pensión completa</div><div>Traslados incluidos</div><div>Entrenamientos con entrenador UEFA Pro</div><div>Un día extra de entrenamiento (doble sesión)</div><div>Partidos y torneo (rivales según nivel, por confirmar; si no hay partido, entrenamiento)</div><div>Partido de Primera División (sujeto al calendario de LaLiga)</div><div>Cádiz Stadium Tour</div><div>Visitas culturales</div><div>Lavandería durante la estancia</div><div>Feedback individual de cada entrenador</div><div>Seguimiento individual de cada jugador</div><div>Seguro de responsabilidad civil</div>
     </div>
     <div class="pay"><div class="nov"><b>No incluye vuelos</b><span>el viaje hasta Sevilla o Jerez corre por cuenta de cada familia</span></div><div class="nov"><b>Precio y forma de pago</b><span>Escríbenos por WhatsApp y te lo explicamos</span></div></div>
     <p class="hint">No incluye vuelos, seguro deportivo ni gastos personales.</p>
@@ -382,12 +428,12 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <div class="k">Siguientes pasos</div>
     <h2>Hablemos <i>de la experiencia</i></h2>
     <div class="week" style="grid-template-columns:repeat(3,1fr)">
-      <div class="day"><b>1</b><p>Elegimos el formato: equipo o grupo reducido</p></div>
-      <div class="day"><b>2</b><p>Acordamos las fechas y cerramos el grupo</p></div>
-      <div class="day"><b>3</b><p>Les enviamos el programa día a día y las condiciones</p></div>
+      <div class="day"><b>1</b><p>Confirmamos el equipo y las fechas: del 20 al 28 de agosto de 2027</p></div>
+      <div class="day"><b>2</b><p>Definimos el grupo y los rivales según el nivel</p></div>
+      <div class="day"><b>3</b><p>Les enviamos el horario definitivo y las condiciones</p></div>
     </div>
     <div class="cta">
-      <a class="p" href="https://wa.me/5215633826194?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20la%20experiencia%20en%20Espa%C3%B1a" target="_blank" rel="noopener">WhatsApp +52 1 56 3382 6194</a>
+      <a class="p" href="https://wa.me/5215633826194?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20la%20experiencia%20en%20Espa%C3%B1a%3A%20Verano%2C%20pretemporada" target="_blank" rel="noopener">WhatsApp +52 1 56 3382 6194</a>
     </div>
     <details class="coach rrss"><summary><span><small>Síguenos</small>Redes sociales</span></summary>
       <div class="soc">
@@ -429,16 +475,17 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <div><b>Cabañas de madera</b> de 2 a 6 plazas, con baño y aire acondicionado.</div>
     <div><b>Alimentación: pensión completa</b> con desayuno, almuerzo, merienda y cena, en el restaurante del recinto.</div>
     <div><b>Picnic solo en las salidas</b> fuera de la residencia (excursiones y partidos fuera). El resto de comidas son en el restaurante del recinto.</div>
+    <div><b>Lavandería</b>: rondas de ropa cada dos días, anotadas en el horario.</div>
     <div><b>8,5 hectáreas</b> de pinar y marisma.</div>
     <div><b>A 15 minutos a pie</b> de la playa de Valdelagrana.</div>
     <div><b>En el recinto</b>: restaurante, parque de aventura y rocódromo.</div>
-    <div><b>Todo el grupo junto</b>, con el staff y los responsables.</div>
+    <div><b>Todo el grupo junto</b>, con el staff las 24 horas.</div>
   </div>
 </template>
 
 <template id="t-entrenos">
   <div class="m-head"><div class="k">Metodología</div><h2 id="m-title">Entrenar <i>como en España</i></h2>
-  <p class="lead">Sesiones dirigidas por Jorge de Cos, entrenador UEFA PRO, con la metodología de la academia: pocos conceptos claros, mucha repetición con balón y corrección en el momento.</p></div>
+  <p class="lead">Sesiones dirigidas por Jorge de Cos, entrenador UEFA PRO, con la metodología de la academia: pocos conceptos claros, mucha repetición con balón y corrección en el momento. En verano entrenamos a primera hora y al caer la tarde.</p></div>
   <details class="coach"><summary><span><small>El entrenador</small>Jorge de Cos · UEFA PRO</span></summary>
     <div class="cb"><img src="img/coach.jpg" alt="Jorge de Cos, entrenador UEFA PRO">
     <div><p>Entrenador con licencia UEFA PRO. Ha trabajado en la <b>Barça Academy</b>, en la <b>academia del RCD Espanyol</b> y en la <b>LaLiga Academy de Dubái</b>, y ha entrenado a jugadores en Europa, Estados Unidos y Oriente Medio.</p>
@@ -464,7 +511,7 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <button data-group="en" data-img="img/en-3.jpg" data-cap="Ejercicios de grupo"><img src="img/en-3.jpg" alt="Ejercicios de grupo" style="--pos:50% 50%"><span class="c">Ejercicios de grupo</span></button>
   </div>
   <div class="pts">
-    <div><b>Número de entrenamientos</b> <span class="pend">Por definir</span></div>
+    <div><b>Un día más de entrenamiento</b> que la experiencia original: el día 5 es de doble sesión.</div>
     <div><b>Entrenador UEFA PRO</b> al frente de las sesiones.</div>
     <div><b>Clase de metodología</b> para jugadores y responsables.</div>
     <div><b>Sesión específica de porteros</b> con entrenador especializado.</div>
@@ -477,16 +524,16 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
 <template id="t-partidos">
   <div class="m-head"><div class="k">Rivales</div><h2 id="m-title">Partidos contra <i>equipos de aquí</i></h2>
   <p class="lead">Jugarán contra canteras y clubes del fútbol andaluz. Los rivales se confirman según calendario y disponibilidad.</p></div>
-  <div class="callout"><b>Serán vistos por las canteras.</b> Los partidos serán presenciados por entrenadores de las canteras importantes de los equipos contra los que jueguen.</div>
+  <div class="callout"><b>Partidos por confirmar según el nivel.</b> Los partidos se ajustan al nivel del equipo (clubes top o clubes locales) y están por confirmar, igual que Gibraltar y el torneo triangular: en agosto los clubes están en pretemporada. Si no hay partido, hay entrenamiento. <b>En caso de que no haya partido, habrá un entrenamiento en su lugar.</b></div>
   <div class="rcards">
     <div class="rc"><button class="main" data-group="cadiz" data-img="img/cadiz-1.jpg" data-cap="Cádiz CF (amarillo) frente a nuestro equipo"><img src="img/cadiz-1.jpg" alt="Cádiz CF (amarillo) frente a nuestro equipo" style="--pos:50% 52%"></button>
- <div class="info"><div class="nm"><img src="img/escudos/cadiz.png" alt="Escudo Cádiz CF"><div><strong>Cádiz CF</strong><small>Cantera · Segunda División</small></div></div><span class="ok">Previsto</span>
+ <div class="info"><div class="nm"><img src="img/escudos/cadiz.png" alt="Escudo Cádiz CF"><div><strong>Cádiz CF</strong><small>Cantera · Segunda División</small></div></div><span class="ok">Por confirmar*</span>
  <div class="thumbs"><button data-group="cadiz" data-img="img/cadiz-2.jpg" data-cap="Partido en la ciudad deportiva del Cádiz" aria-label="Partido en la ciudad deportiva del Cádiz"><img src="img/cadiz-2.jpg" alt="" style="--pos:50% 50%"></button></div></div></div>
     <div class="rc"><button class="main" data-group="sanlu" data-img="img/sanlu-foto.jpg" data-cap="Partido contra el Atlético Sanluqueño"><img src="img/sanlu-foto.jpg" alt="Partido contra el Atlético Sanluqueño" style="--pos:50% 50%"></button>
- <div class="info"><div class="nm"><img src="img/escudos/sanluqueno.png" alt="Escudo Atlético Sanluqueño"><div><strong>Atlético Sanluqueño</strong><small>Cuarta División</small></div></div><span class="ok">Previsto</span>
+ <div class="info"><div class="nm"><img src="img/escudos/sanluqueno.png" alt="Escudo Atlético Sanluqueño"><div><strong>Atlético Sanluqueño</strong><small>Cuarta División</small></div></div><span class="ok">Por confirmar*</span>
  <div class="thumbs"><button data-group="sanlu" data-img="img/sanlu-2.jpg" data-cap="Jugada del partido" aria-label="Jugada del partido"><img src="img/sanlu-2.jpg" alt="" style="--pos:50% 62%"></button><button data-group="sanlu" data-img="img/sanlu-3.jpg" data-cap="Saludo final de los dos equipos" aria-label="Saludo final de los dos equipos"><img src="img/sanlu-3.jpg" alt="" style="--pos:50% 70%"></button></div></div></div>
     <div class="rc"><button class="main" data-group="gib" data-img="img/gib-formacion.jpg" data-cap="Formación antes del partido"><img src="img/gib-formacion.jpg" alt="Formación antes del partido" style="--pos:50% 50%"></button>
- <div class="info"><div class="nm"><img src="img/escudos/gibraltar.png" alt="Escudo Selección de Gibraltar"><div><strong>Selección de Gibraltar</strong><small>Con visita a la Roca</small></div></div><span class="pend">Pendiente disponibilidad UEFA</span>
+ <div class="info"><div class="nm"><img src="img/escudos/gibraltar.png" alt="Escudo Selección de Gibraltar"><div><strong>Selección de Gibraltar</strong><small>Con visita a la Roca</small></div></div><span class="pend">Por confirmar*</span>
  <div class="thumbs"><button data-group="gib" data-img="img/gib-formacion.jpg" data-cap="Formación antes del partido" aria-label="Formación antes del partido"><img src="img/gib-formacion.jpg" alt="" style="--pos:50% 50%"></button><button data-group="gib" data-img="img/gib-3.jpg" data-cap="Charla del equipo" aria-label="Charla del equipo"><img src="img/gib-3.jpg" alt="" style="--pos:50% 40%"></button><button data-group="gib" data-img="img/gib-4.jpg" data-cap="Con el staff antes de jugar" aria-label="Con el staff antes de jugar"><img src="img/gib-4.jpg" alt="" style="--pos:50% 40%"></button></div></div></div>
   </div>
   <div class="h4">Torneo con equipos locales de El Puerto</div>
@@ -502,11 +549,12 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <button data-group="tor" data-img="img/torneo-4.jpg" data-cap="Partido del torneo"><img src="img/torneo-4.jpg" alt="Partido del torneo" style="--pos:50% 50%"><span class="c">Partido del torneo</span></button>
   </div>
   <p class="note">Las fotos son de la experiencia de enero de 2026 con un equipo de la República Checa.</p>
+  <p class="note">* Rivales en función del nivel del equipo: clubes top o clubes locales. Por confirmar según calendario y disponibilidad. Gibraltar, por confirmar.</p>
 </template>
 
 <template id="t-primera">
   <div class="m-head"><div class="k">LaLiga</div><h2 id="m-title">Un partido de <i>Primera División</i></h2>
-  <p class="lead">Verán jugar a un equipo de Primera desde la grada. El partido concreto depende del calendario de LaLiga en sus fechas.</p></div>
+  <p class="lead">Verán jugar a un equipo de Primera desde la grada. El partido concreto está sujeto al calendario de LaLiga, que todavía no se ha publicado.</p></div>
   <div class="rivals">
     <div class="rv"><div class="nm"><img src="img/escudos/betis.png" alt="Escudo Real Betis"><div><strong>1ª opción · Real Betis</strong><small>Estadio de La Cartuja, Sevilla</small></div></div><span class="ok">Preferente</span></div>
     <div class="rv"><div class="nm"><img src="img/escudos/sevilla.png" alt="Escudo Sevilla FC"><div><strong>2ª opción · Sevilla FC</strong></div></div><span class="pend">Si no es posible el Betis</span></div>
@@ -521,7 +569,7 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
     <button data-group="bt" data-img="img/betis-8.jpg" data-cap="Viendo el partido desde la grada"><img src="img/betis-8.jpg" alt="Viendo el partido desde la grada" style="--pos:50% 60%"><span class="c">Viendo el partido desde la grada</span></button>
     <button data-group="bt" data-img="img/betis-grupo.jpg" data-cap="El grupo en el estadio"><img src="img/betis-grupo.jpg" alt="El grupo en el estadio" style="--pos:50% 50%"><span class="c">El grupo en el estadio</span></button>
   </div>
-  <p class="note">Sujeto al calendario de Primera División española.</p>
+  <p class="note">Sujeto al calendario de Primera División española. Si no coincide ningún partido, hacemos el tour del estadio.</p>
 </template>
 
 <template id="t-cultura">
@@ -553,9 +601,10 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
   </div>
   <div class="pts">
     <div><b>Recogida y regreso</b> en el aeropuerto de Jerez (XRY) o Sevilla (SVQ).</div>
-    <div><b>Supervisión</b> constante: el staff y los responsables.</div>
+    <div><b>Supervisión</b> constante del staff, de día y de noche.</div>
     <div><b>Seguro</b> de responsabilidad civil de la actividad. No incluye seguro deportivo.</div>
     <div><b>Pensión completa</b> en la residencia; picnic solo cuando salimos fuera.</div>
+    <div><b>Lavandería</b> durante toda la estancia: la ropa vuelve limpia cada dos días.</div>
     <div><b>Equipación</b> incluida para el viaje.</div>
     <div><b>Traslados</b> en vehículos del staff.</div>
   </div>
@@ -582,8 +631,8 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
 </template>
 
 <template id="t-asi">
-  <div class="m-head"><div class="k">Enero de 2026 · 16 jugadores sub-13 de la República Checa</div><h2 id="m-title">Así fue <i>la experiencia</i></h2>
-  <p class="lead">Ocho días y siete noches con un grupo checo. Este fue el ritmo: entrenar, descansar, jugar y conocer. La de ustedes se personaliza sobre esta base.</p></div>
+  <div class="m-head"><div class="k">Enero de 2026 · 16 jugadores sub-13 de la República Checa</div><h2 id="m-title">Así fue <i>la experiencia original</i></h2>
+  <p class="lead">Ocho días y siete noches con un grupo checo. Esta es la experiencia original: la de ustedes mantiene este ritmo y suma un día más de entrenamiento.</p></div>
   <div class="story">
   <div class="st"><div class="d"><b>1</b><span>Martes 27</span></div><div><h3>Llegada y primer entrenamiento</h3><p>Aterrizaje en Sevilla, traslado a la residencia, reunión de bienvenida con las normas, entrega de equipación y primer entrenamiento con focos.</p></div><button data-group="as" data-img="img/care-1.jpg" data-cap="Día 1: Llegada y primer entrenamiento"><img src="img/care-1.jpg" alt="Llegada y primer entrenamiento" style="--pos:50% 28%"></button></div>
   <div class="st"><div class="d"><b>2</b><span>Miércoles 28</span></div><div><h3>Día de Cádiz</h3><p>Entrenamiento de mañana con porteros, Cádiz Stadium Tour y por la tarde partido contra la cantera del Cádiz.</p></div><button data-group="as" data-img="img/cadiz-1.jpg" data-cap="Día 2: Día de Cádiz"><img src="img/cadiz-1.jpg" alt="Día de Cádiz" style="--pos:50% 52%"></button></div>
@@ -597,33 +646,30 @@ body.home #dots{bottom:calc(62px + env(safe-area-inset-bottom))}
   <p class="note">Fotos de la experiencia real de enero de 2026 con el SKP checo.</p>
 </template>
 
-<template id="t-f-eq">
-  <div class="m-head"><div class="k">Formato 1</div><h2 id="m-title">Para <i>equipos</i></h2>
-  <p class="lead">Un equipo completo viaja unido a Andalucía: entrena, compite contra equipos de aquí y vive el fútbol español desde dentro.</p></div>
-  <div class="pts">
-    <div><b>12 jugadores</b> Sub-10, Sub-11 y Sub-12 (fútbol 7), o <b>16 jugadores</b> mayores de 12 años (fútbol 11).</div>
-    <div><b>8 días y 7 noches</b>, con fechas por acordar.</div>
-    <div><b>Partidos y torneo</b> contra clubes de la zona, y Gibraltar sujeto a disponibilidad.</div>
-    <div><b>Partido de Primera</b> (según calendario) y Cádiz Stadium Tour.</div>
-    <div><b>Atención 24 horas</b> del staff durante toda la experiencia.</div>
+<template id="t-horario">
+  <div class="m-head"><div class="k">Tentative schedule · 20–28 de agosto de 2027</div><h2 id="m-title">Horario <i>hora a hora</i></h2>
+  <p class="lead">Prototipo de 9 días y 8 noches. Pincha en cada día para ver las horas.</p></div>
+  <div class="ttd">
+  <details class="coach dd"><summary><span><small>Día 1 · Viernes 20 de agosto</small>Llegada</span></summary>
+  <ul class="tt"><li><b>12:30</b><span>Llegada al aeropuerto de Sevilla (SVQ) y recogida del grupo</span></li><li><b>13:30</b><span>Traslado en furgonetas a la residencia (comprobar nivel de combustible)</span></li><li><b>15:00</b><span>Llegada a El Puerto, check-in en CEAAN y comida</span></li><li><b>16:30</b><span>Reunión de bienvenida con las normas y entrega de equipación (con pausa para merendar)</span></li><li><b>17:15</b><span>Descanso e hidratación (las horas centrales son de calor)</span></li><li><b>19:30</b><span>Salida al campo de fútbol</span></li><li><b>20:00</b><span>Primer entrenamiento con focos</span></li><li><b>21:30</b><span>Fin del entrenamiento y regreso a la residencia</span></li><li><b>22:00</b><span>Cena, ducha y a dormir (poner alarma para mañana)</span></li><li class="lau"><b>22:15</b><span>Entrega de ropa a lavandería · tanda 1 <em>LAVANDERÍA</em></span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 2 · Sábado 21 de agosto</small>Entrenamiento, Cádiz Stadium Tour y partido 1 (por confirmar*)</span></summary>
+  <ul class="tt"><li><b>08:00</b><span>Despertar y arreglarse</span></li><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Entrenamiento (porteros con su entrenador)</span></li><li><b>10:30</b><span>Fin del entrenamiento y regreso a la residencia</span></li><li><b>11:30</b><span>Salida hacia Cádiz</span></li><li><b>12:15</b><span>Cádiz Stadium Tour (con aire acondicionado)</span></li><li><b>13:45</b><span>Comida y descanso</span></li><li><b>15:00</b><span>Descanso en la residencia (higiene y piscina o sombra)</span></li><li><b>18:30</b><span>Salida al campo</span></li><li><b>19:30</b><span>Partido 1 con un equipo local (por confirmar*; rival según nivel)</span></li><li><b>21:30</b><span>Fin del partido, fotos y vestuarios</span></li><li><b>22:00</b><span>Feedback diario y cena</span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 3 · Domingo 22 de agosto</small>Entrenamiento y partido 2 (por confirmar*)</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Entrenamiento (porteros con su entrenador)</span></li><li><b>10:30</b><span>Fin del entrenamiento y regreso a la residencia</span></li><li><b>13:30</b><span>Comida y descanso hasta las 17:00</span></li><li><b>18:30</b><span>Salida al campo del rival</span></li><li><b>19:30</b><span>Partido 2 con un equipo local (por confirmar*; rival según nivel)</span></li><li><b>21:30</b><span>Fin del partido, fotos y vestuarios</span></li><li><b>22:15</b><span>Regreso a la residencia, feedback y cena</span></li><li class="lau"><b>22:45</b><span>Recogida de la ropa de la tanda 1 y entrega de la tanda 2 <em>LAVANDERÍA</em></span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 4 · Lunes 23 de agosto</small>Entrenamiento, Cádiz y fútbol playa</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Entrenamiento (porteros con su entrenador)</span></li><li><b>10:30</b><span>Fin del entrenamiento y regreso</span></li><li><b>13:00</b><span>Comida y descanso</span></li><li><b>17:00</b><span>Salida hacia Cádiz (aparcar con criterio para el recorrido)</span></li><li><b>17:30</b><span>Casco antiguo de Cádiz</span></li><li><b>18:30</b><span>Castillo de San Sebastián</span></li><li><b>19:30</b><span>Fútbol playa</span></li><li><b>21:00</b><span>Compra de provisiones para el picnic</span></li><li><b>22:00</b><span>Regreso, higiene y cena</span></li></ul></details>
+  <details class="coach dd extra"><summary><span><small>Día 5 · Martes 24 de agosto · día extra de entrenamiento</small>Día extra de entrenamiento</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>08:45</b><span>Salida al campo</span></li><li><b>09:00</b><span>Sesión 1: entrenamiento técnico y de posición</span></li><li><b>10:45</b><span>Fin de la sesión y regreso</span></li><li><b>11:30</b><span>Clase de metodología (sala con aire acondicionado)</span></li><li><b>13:30</b><span>Comida y descanso</span></li><li><b>17:00</b><span>Recuperación en la playa de Valdelagrana (a 15 minutos andando)</span></li><li><b>19:30</b><span>Sesión 2: porteros y finalización</span></li><li><b>21:00</b><span>Fin de la sesión y regreso</span></li><li><b>22:00</b><span>Cena y feedback individual</span></li><li class="lau"><b>22:15</b><span>Recogida de la ropa de la tanda 2 y entrega de la tanda 3 <em>LAVANDERÍA</em></span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 6 · Miércoles 25 de agosto</small>Torneo triangular (por confirmar)</span></summary>
+  <ul class="tt"><li><b>08:15</b><span>Desayuno</span></li><li><b>09:00</b><span>Activación corta en el campo</span></li><li><b>10:15</b><span>Regreso a la residencia y descanso</span></li><li><b>13:30</b><span>Comida y descanso</span></li><li><b>17:30</b><span>Salida al campo del torneo</span></li><li><b>18:00</b><span>Calentamiento y llegada</span></li><li><b>18:30</b><span>Torneo triangular con equipos locales (por confirmar; sujeto a su disponibilidad). Si no se confirma, se hace un entrenamiento en su lugar</span></li><li><b>21:30</b><span>Final, entrega de premios, fotos y rato social</span></li><li><b>22:15</b><span>Regreso a la residencia y cena</span></li><li class="lau"><b>22:30</b><span>Entrega de ropa a lavandería · tanda 4 <em>LAVANDERÍA</em></span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 7 · Jueves 26 de agosto</small>Gibraltar y partido por confirmar</span></summary>
+  <ul class="tt"><li class="lau"><b>07:45</b><span>Desayuno y recogida de la ropa de la tanda 3 <em>LAVANDERÍA</em></span></li><li><b>08:30</b><span>Salida hacia Gibraltar (aparcar en la zona de la frontera)</span></li><li><b>09:45</b><span>Cruce de la frontera</span></li><li><b>10:30</b><span>Partido con Gibraltar (por confirmar; sujeto a disponibilidad). Si no hay partido, se hace un entrenamiento</span></li><li><b>12:00</b><span>Fin del partido y fotos</span></li><li><b>13:00</b><span>Comida</span></li><li><b>14:30</b><span>Cuevas de San Miguel</span></li><li><b>16:00</b><span>La Roca y los monos</span></li><li><b>17:30</b><span>Regreso a la frontera y recogida</span></li><li><b>19:30</b><span>Llegada a la residencia, feedback y cena</span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 8 · Viernes 27 de agosto</small>Sevilla y partido de Primera</span></summary>
+  <ul class="tt"><li class="lau"><b>07:45</b><span>Desayuno y recogida de la ropa de la tanda 4 <em>LAVANDERÍA</em></span></li><li><b>09:00</b><span>Entrenamiento corto</span></li><li><b>10:15</b><span>Fin del entrenamiento, regreso y ducha</span></li><li><b>11:30</b><span>Salida hacia Sevilla</span></li><li><b>13:00</b><span>Llegada a Sevilla y comida</span></li><li><b>14:30</b><span>Descanso a la sombra</span></li><li><b>16:30</b><span>Catedral y Giralda</span></li><li><b>18:30</b><span>Plaza de España</span></li><li><b>20:00</b><span>Partido de Primera División (por confirmar según el calendario de la jornada; si no coincide, tour del estadio)</span></li><li><b>—</b><span>Regreso a la residencia al terminar</span></li></ul></details>
+  <details class="coach dd"><summary><span><small>Día 9 · Sábado 28 de agosto</small>Despedida</span></summary>
+  <ul class="tt"><li><b>08:00</b><span>Despertar y desayuno</span></li><li><b>08:30</b><span>Hacer las maletas y recoger todo</span></li><li><b>09:15</b><span>Salida hacia el aeropuerto</span></li><li><b>10:45</b><span>Llegada al aeropuerto y despedida</span></li><li><b>—</b><span>Hora límite de llegada según los vuelos de cada uno (vuelos no incluidos)</span></li></ul></details>
   </div>
-  <div class="h4">Semana tipo</div>
-  <div class="week" style="grid-template-columns:repeat(3,1fr);margin:14px 0"><div class="day"><b>DÍA 1</b><p>Llegada, bienvenida y primer entrenamiento</p></div><div class="day"><b>DÍA 2</b><p>Entrega de camisetas con dorsal y primer partido</p></div><div class="day"><b>DÍA 3</b><p>Entrenamiento y segundo partido</p></div><div class="day"><b>DÍA 4</b><p>Jornada de porteros y visita al estadio del Cádiz</p></div><div class="day"><b>DÍA 5</b><p>Torneo con equipos de la zona y tarde de playa</p></div><div class="day"><b>DÍA 6</b><p>Sevilla y partido de Primera División</p></div><div class="day"><b>DÍA 7</b><p>Gibraltar: partido, cuevas y La Roca</p></div><div class="day"><b>DÍA 8</b><p>Despedida y regreso</p></div></div>
-  <p class="note">Orientativo. Los partidos se confirman según la disponibilidad de los clubes.</p>
-</template>
-
-<template id="t-f-gr">
-  <div class="m-head"><div class="k">Formato 2</div><h2 id="m-title">Para <i>grupos reducidos</i></h2>
-  <p class="lead">Un grupo pequeño de jugadores, de cualquier edad, vive una semana de entrenamiento intensivo en Andalucía, con atención 24 horas del staff.</p></div>
-  <div class="pts">
-    <div><b>Hasta 11 jugadores</b> de cualquier edad (pueden ser edades dispares).</div>
-    <div><b>Un acompañante adulto</b>, mayor de 23 años y con carnet de conducir: es imprescindible.</div>
-    <div><b>4 dobles sesiones</b>: entrenamiento por la mañana y perfeccionamiento con niños locales por la tarde, de lunes a jueves.</div>
-    <div><b>Traslados</b> en una furgoneta de 9 plazas y un coche del staff.</div>
-  </div>
-  <div class="h4">Semana tipo</div>
-  <div class="week" style="grid-template-columns:repeat(3,1fr);margin:14px 0"><div class="day"><b>DÍA 1</b><p>Llegada, bienvenida y cena</p></div><div class="day"><b>LUNES</b><p>Entrenamiento por la mañana · perfeccionamiento con niños locales por la tarde</p></div><div class="day"><b>MARTES</b><p>Entrenamiento por la mañana · perfeccionamiento con niños locales por la tarde</p></div><div class="day"><b>MIÉRCOLES</b><p>Entrenamiento por la mañana · perfeccionamiento con niños locales por la tarde</p></div><div class="day"><b>JUEVES</b><p>Entrenamiento por la mañana · perfeccionamiento con niños locales por la tarde</p></div><div class="day"><b>VIERNES</b><p>Cádiz Stadium Tour y ciudad de Cádiz</p></div><div class="day"><b>SÁBADO</b><p>Sevilla y partido de Primera División</p></div><div class="day"><b>DÍA 8</b><p>Despedida y regreso</p></div></div>
-  <p class="note">Orientativo. Fechas por acordar.</p>
+  <p class="note">Basado en el calendario de la experiencia de enero de 2026, adaptado al calor del verano y con un día extra de entrenamiento. Horas aproximadas.</p>
 </template>
 
 <script>
